@@ -34,6 +34,7 @@ export default [
       'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
       'react/prop-types': 'off', // Desactivado porque MUI usa muchos props dinámicos
       'no-unused-vars': 'warn',
+      'import/no-unresolved': 'off',
     },
     settings: {
       react: { version: '19.2.4' }, 
