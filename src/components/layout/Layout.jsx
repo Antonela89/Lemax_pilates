@@ -1,7 +1,7 @@
 import { Box } from '@mui/material';
 // import Navbar from '../common/Navbar'; 
-// import Footer from '../common/Footer'; 
 // import WhatsAppButton from '../common/WhatsAppButton';
+import Footer from './Footer/Footer';
 
 const Layout = ({ children }) => {
     return (
@@ -23,7 +23,7 @@ const Layout = ({ children }) => {
             {/* Botón flotante de WhatsApp */}
             {/* <WhatsAppButton /> */}
 
-            {/* Footer al final */}
+            <Footer/>
         </Box>
     );
 };
