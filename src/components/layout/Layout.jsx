@@ -10,7 +10,7 @@ const Layout = ({ children }) => {
                 display: 'flex',
                 flexDirection: 'column',
                 minHeight: '100vh',
-                p: {sx: 4, md: 8}
+                p: {xs: 4, sm: 6, md: 8}
             }}
         >
             {/* Navbar fijo arriba */}
