@@ -4,6 +4,7 @@ import {
     fadeInUpLeft,
     fadeInUpRight,
     staggerContainer,
+    imageFocusIn,
 } from '@/theme/animation';
 import heroImg from '@/assets/images/hero/hero.webp';
 
@@ -24,7 +25,7 @@ const HeroSection = () => {
                 alignItems: 'center',
                 justifyContent: 'center',
                 overflow: 'hidden',
-                gap: '1rem',
+                gap: '2rem',
                 bgcolor: 'background.default',
             }}
         >
@@ -38,7 +39,8 @@ const HeroSection = () => {
                     height: { xs: '350px', md: '100%' },
                 }}
             >
-                <Box
+                <MotionBox
+                    variants={imageFocusIn}
                     component="img"
                     src={heroImg}
                     alt="Clase de Pilates Reformer Le Max"
@@ -56,7 +58,7 @@ const HeroSection = () => {
                 initial="hidden"
                 animate="visible"
                 sx={{
-                    width: { xs: '100%', md:'40%' },
+                    width: { xs: '100%', md: '40%' },
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'center',
@@ -84,7 +86,11 @@ const HeroSection = () => {
                         variant="h1"
                         sx={{
                             my: 2,
-                            fontSize: { xs: '1.5rem', md: '2.5rem', xl: '3rem' },
+                            fontSize: {
+                                xs: '1.5rem',
+                                md: '2.5rem',
+                                xl: '3rem',
+                            },
                             fontWeight: 700,
                             textTransform: 'uppercase',
                             lineHeight: 1.1,
@@ -103,7 +109,7 @@ const HeroSection = () => {
                     <MotionButton
                         variants={fadeInUpLeft}
                         variant="contained"
-                        sx={{width: {xs: '100%', sm:'80%', md: '50%'}}}
+                        sx={{ width: { xs: '100%', sm: '80%', md: '50%' } }}
                     >
                         Reservar Clase
                     </MotionButton>
