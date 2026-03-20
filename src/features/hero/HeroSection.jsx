@@ -1,5 +1,17 @@
 import { Box, Typography, Button, Stack } from '@mui/material';
+import { motion } from 'motion/react';
+import {
+    fadeInUpLeft,
+    fadeInUpRight,
+    staggerContainer,
+} from '@/theme/animation';
 import heroImg from '@/assets/images/hero/hero.webp';
+
+// Versiones "motion" de los componentes MUI para que acepten sx y variants
+const MotionBox = motion(Box);
+const MotionTypography = motion(Typography);
+const MotionStack = motion(Stack);
+const MotionButton = motion(Button);
 
 const HeroSection = () => {
     return (
@@ -8,18 +20,22 @@ const HeroSection = () => {
             sx={{
                 display: 'flex',
                 flexDirection: { xs: 'column', md: 'row-reverse' },
-                minHeight: { md: '80vh' },
+                minHeight: '90vh',
                 alignItems: 'center',
                 justifyContent: 'center',
+                overflow: 'hidden',
                 gap: '1rem',
                 bgcolor: 'background.default',
             }}
         >
             {/* CONTENEDOR DE IMAGEN */}
-            <Box
+            <MotionBox
+                variants={fadeInUpRight}
+                initial="hidden"
+                animate="visible"
                 sx={{
                     width: { xs: '100%', md: '50%' },
-                    height: { xs: '400px', md: '100%' },
+                    height: { xs: '350px', md: '100%' },
                 }}
             >
                 <Box
@@ -33,48 +49,66 @@ const HeroSection = () => {
                         objectPosition: 'center',
                     }}
                 />
-            </Box>
-            <Box
+            </MotionBox>
+
+            {/* --- LADO DEL TEXTO --- */}
+            <MotionBox
+                initial="hidden"
+                animate="visible"
                 sx={{
-                    width: { xs: '100%', md: '50%' },
+                    width: { xs: '100%', md:'40%' },
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'center',
                 }}
             >
-                <Stack spacing={1} sx={{ maxWidth: '700px' }}>
-                    <Typography
+                <MotionStack
+                    variants={staggerContainer}
+                    spacing={1}
+                    sx={{ maxWidth: '700px' }}
+                >
+                    <MotionTypography
+                        variants={fadeInUpLeft}
                         variant="overline"
+                        color="primary"
                         sx={{
-                            color: '#C5A069',
                             fontWeight: 'bold',
                             letterSpacing: 2,
+                            display: 'block',
                         }}
                     >
                         CENTRO DE PILATES
-                    </Typography>
-                    <Typography
+                    </MotionTypography>
+                    <MotionTypography
+                        variants={fadeInUpLeft}
                         variant="h1"
                         sx={{
-                            fontSize: { xs: '2.5rem'},
+                            my: 2,
+                            fontSize: { xs: '1.5rem', md: '2.5rem', xl: '3rem' },
                             fontWeight: 700,
                             textTransform: 'uppercase',
+                            lineHeight: 1.1,
                         }}
                     >
                         Transforma tu cuerpo y mente
-                    </Typography>
-                    <Typography variant="subtitle1">
+                    </MotionTypography>
+                    <MotionTypography
+                        variants={fadeInUpLeft}
+                        variant="subtitle1"
+                    >
                         En Le Max, combinamos técnicas de Pilates clásico y
                         contemporáneo para ofrecerte una experiencia de
                         entrenamiento única y personalizada.
-                    </Typography>
-                    <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
-                        <Button variant="contained" size="large">
-                            Reservar Clase
-                        </Button>
-                    </Stack>
-                </Stack>
-            </Box>
+                    </MotionTypography>
+                    <MotionButton
+                        variants={fadeInUpLeft}
+                        variant="contained"
+                        sx={{width: {xs: '100%', sm:'80%', md: '50%'}}}
+                    >
+                        Reservar Clase
+                    </MotionButton>
+                </MotionStack>
+            </MotionBox>
         </Box>
     );
 };
