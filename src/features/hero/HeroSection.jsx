@@ -96,7 +96,7 @@ const HeroSection = () => {
                         variants={fadeInUpLeft}
                         variant="subtitle1"
                     >
-                        En Le Max, combinamos técnicas de Pilates clásico y
+                        En LeMax, combinamos técnicas de Pilates clásico y
                         contemporáneo para ofrecerte una experiencia de
                         entrenamiento única y personalizada.
                     </MotionTypography>
