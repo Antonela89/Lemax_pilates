@@ -1,0 +1,259 @@
+{
+    "businessName": "Le Max Centro de Pilates",
+    "navbar": [
+        {
+            "label": "Inicio",
+            "path": "#hero",
+            "icon": "Home"
+        },
+        {
+            "label": "Servicios",
+            "path": "#servicios",
+            "icon": "SelfImprovement"
+        },
+        {
+            "label": "Locales",
+            "path": "#locales",
+            "icon": "Place"
+        },
+        {
+            "label": "Staff",
+            "path": "#staff",
+            "icon": "Groups"
+        },
+        {
+            "label": "Instagram",
+            "path": "#reels",
+            "icon": "Instagram"
+        },
+        {
+            "label": "Contacto",
+            "path": "#contacto",
+            "icon": "Mail"
+        }
+    ],
+    "themeIcons": {
+        "light": "Brightness7",
+        "dark": "Brightness4"
+    },
+    "services": [
+        "Pilates Reformer",
+        "Pilates Clínico",
+        "Entrenamiento Funcional",
+        "Clases Personalizadas"
+    ],
+    "benefits": [
+        {
+            "title": "Mejora la Postura",
+            "description": "Corrige hábitos posturales y fortalece la columna.",
+            "icon": "AccessibilityNew"
+        },
+        {
+            "title": "Flexibilidad",
+            "description": "Aumenta el rango de movimiento y previene lesiones.",
+            "icon": "SelfImprovement"
+        },
+        {
+            "title": "Control y Balance",
+            "description": "Conecta mente y cuerpo a través de la respiración.",
+            "icon": "Balance"
+        },
+        {
+            "title": "Tonificación",
+            "description": "Fortalece músculos profundos sin ganar volumen excesivo.",
+            "icon": "FitnessCenter"
+        },
+        {
+            "title": "Bienestar Mental",
+            "description": "Reduce el estrés y mejora la concentración diaria.",
+            "icon": "Spa"
+        }
+    ],
+    "locations": [
+        {
+            "id": 1,
+            "name": "Sucursal José Gálvez",
+            "address": "José Gálvez 136, Rafaela, Santa Fe",
+            "phone": "(342) 4774718",
+            "whatsapp": "5493424774718",
+            "schedule": {
+                "Lunes": [
+                    "08:00",
+                    "09:00",
+                    "14:00",
+                    "15:00",
+                    "16:00",
+                    "17:00",
+                    "18:00",
+                    "19:00",
+                    "20:00"
+                ],
+                "Martes": [
+                    "08:00",
+                    "09:00",
+                    "10:00",
+                    "14:00",
+                    "15:00",
+                    "17:00",
+                    "18:00",
+                    "19:00",
+                    "20:00"
+                ],
+                "Miércoles": [
+                    "08:00",
+                    "09:00",
+                    "14:00",
+                    "15:00",
+                    "16:00",
+                    "17:00",
+                    "18:00",
+                    "19:00",
+                    "20:00"
+                ],
+                "Jueves": [
+                    "08:00",
+                    "09:00",
+                    "10:00",
+                    "14:00",
+                    "15:00",
+                    "17:00",
+                    "18:00",
+                    "19:00",
+                    "20:00"
+                ],
+                "Viernes": [
+                    "08:00",
+                    "09:00",
+                    "14:00",
+                    "15:00",
+                    "18:00"
+                ]
+            }
+        },
+        {
+            "id": 2,
+            "name": "Sucursal Córdoba",
+            "address": "Córdoba 429, Rafaela, Santa Fe",
+            "phone": "(3492) 289600",
+            "whatsapp": "5493492289600",
+            "schedule": {
+                "Lunes": [
+                    "08:00",
+                    "09:00",
+                    "14:00",
+                    "15:00",
+                    "17:00",
+                    "18:00",
+                    "19:00",
+                    "20:00"
+                ],
+                "Martes": [
+                    "08:00",
+                    "09:00",
+                    "15:00",
+                    "17:00",
+                    "18:00",
+                    "19:00",
+                    "20:00"
+                ],
+                "Miércoles": [
+                    "08:00",
+                    "09:00",
+                    "14:00",
+                    "15:00",
+                    "17:00",
+                    "18:00",
+                    "19:00",
+                    "20:00"
+                ],
+                "Jueves": [
+                    "08:00",
+                    "09:00",
+                    "15:00",
+                    "17:00",
+                    "18:00",
+                    "19:00",
+                    "20:00"
+                ]
+            }
+        }
+    ],
+    "reviews": [
+        {
+            "id": 1,
+            "userName": "Lucía Martínez",
+            "comment": "Un lugar excelente. Las instructoras son muy profesionales y el ambiente es súper relajante. Se nota el cambio en mi postura desde el primer mes.",
+            "rating": 5,
+            "date": "Hace 2 meses"
+        },
+        {
+            "id": 2,
+            "userName": "Carlos Rodriguez",
+            "comment": "Arranqué por un dolor lumbar y hoy me siento como nuevo. Los equipos están impecables y hay mucha higiene. ¡Súper recomendable!",
+            "rating": 5,
+            "date": "Hace 3 semanas"
+        },
+        {
+            "id": 3,
+            "userName": "Mariana Gómez",
+            "comment": "Me encanta la flexibilidad de horarios y lo personalizada que es la clase aunque sea grupal. La sucursal de José Gálvez es hermosa.",
+            "rating": 4,
+            "date": "Hace 1 mes"
+        },
+        {
+            "id": 4,
+            "userName": "Facundo Díaz",
+            "comment": "Excelente atención en la sucursal Córdoba. Muy buenos profes y ambiente cálido.",
+            "rating": 5,
+            "date": "Hace 4 meses"
+        }
+    ],
+    "staff": [
+        {
+            "id": 1,
+            "name": "María Eugenia López",
+            "role": "Directora y Fundadora",
+            "education": "Lic. en Kinesiología y Fisiatría (UNL). Especialista en Reeducación Postural.",
+            "image": "/images/staff/maru.jpg"
+        },
+        {
+            "id": 2,
+            "name": "Florencia Rossi",
+            "role": "Instructora Senior",
+            "education": "Prof. de Educación Física. Certificación Internacional en Pilates Reformer & Mat.",
+            "image": "/images/staff/flor.jpg"
+        },
+        {
+            "id": 3,
+            "name": "Julieta Mansilla",
+            "role": "Kinesióloga de Planta",
+            "education": "Lic. en Kinesiología. Diplomada en Pilates Clínico y Rehabilitación de Columna.",
+            "image": "/images/staff/juli.jpg"
+        },
+        {
+            "id": 4,
+            "name": "Matías Benítez",
+            "role": "Entrenador de Funcional",
+            "education": "Prof. de Educación Física. Especialista en Biomecánica aplicada al movimiento.",
+            "image": "/images/staff/mati.jpg"
+        },
+        {
+            "id": 5,
+            "name": "Sofía Valenzuela",
+            "role": "Instructora de Pilates",
+            "education": "Instructora certificada en Método Pilates. Especialista en Embarazo y Postparto.",
+            "image": "/images/staff/sofi.jpg"
+        },
+        {
+            "id": 6,
+            "name": "Valentina Herrera",
+            "role": "Instructora de Reformer",
+            "education": "Estudiante avanzada de Kinesiología. Certificación en Técnicas de Flexibilidad.",
+            "image": "/images/staff/vale.jpg"
+        }
+    ],
+    "social": {
+        "instagram": "lemax.centrodepilates",
+        "instagram_url": "https://www.instagram.com/lemax.centrodepilates/"
+    }
+}
