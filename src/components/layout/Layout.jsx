@@ -10,15 +10,13 @@ const Layout = ({ children }) => {
                 display: 'flex',
                 flexDirection: 'column',
                 minHeight: '100vh',
+                width: '100vw'
             }}
         >
             {/* Navbar fijo arriba */}
 
             {/* Contenido principal que cambia */}
-            <Box
-                component="main"
-                sx={{ flexGrow: 1, px: { xs: 4, sm: 6, md: 8 } }}
-            >
+            <Box component="main" sx={{ flexGrow: 1 }}>
                 {children}
             </Box>
 
