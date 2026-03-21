@@ -1,9 +1,9 @@
 import { Box } from '@mui/material';
-// import Navbar from '../common/Navbar'; 
+import Navbar from './Navbar/Navbar';
 // import WhatsAppButton from '../common/WhatsAppButton';
 import Footer from './Footer/Footer';
 
-const Layout = ({ children }) => {
+const Layout = ({ children, mode, toggleColorMode }) => {
     return (
         <Box
             sx={{
@@ -13,9 +13,8 @@ const Layout = ({ children }) => {
                 px: {xs: 4, sm: 6, md: 8}
             }}
         >
-            {/* Navbar fijo arriba */}
+            <Navbar mode={mode} toggleColorMode={toggleColorMode} />
 
-            {/* Contenido principal que cambia */}
             <Box component="main" sx={{ flexGrow: 1 }}>
                 {children}
             </Box>
