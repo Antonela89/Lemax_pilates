@@ -1,63 +1,88 @@
-import React from "react";
-import { Box, Container, Typography, IconButton, Divider, Link } from "@mui/material";
+import React from 'react';
+import {
+  Box,
+  Container,
+  Typography,
+  IconButton,
+  Divider,
+  Link,
+} from '@mui/material';
 
 // Icons
-import InstagramIcon from "@mui/icons-material/Instagram";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import WhatsAppIcon from "@mui/icons-material/WhatsApp";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
-import EmailIcon from "@mui/icons-material/Email";
-import PhoneIcon from "@mui/icons-material/Phone";
-import HomeIcon from "@mui/icons-material/Home";
-import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
-import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
-import MapsHomeWorkIcon from "@mui/icons-material/MapsHomeWork";
-import GroupsIcon from "@mui/icons-material/Groups";
-import ForumIcon from "@mui/icons-material/Forum";
+import InstagramIcon from '@mui/icons-material/Instagram';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import PhoneIcon from '@mui/icons-material/Phone';
+
+import HomeIcon from '@mui/icons-material/Home';
+import SelfImprovementIcon from '@mui/icons-material/SelfImprovement';
+import PlaceIcon from '@mui/icons-material/Place';
+import GroupsIcon from '@mui/icons-material/Groups';
+import MailIcon from '@mui/icons-material/Mail';
 
 // Components
-import FooterColumn from "./FooterColumn";
-import FooterItem from "./FooterItem";
+import FooterColumn from './FooterColumn';
+import FooterItem from './FooterItem';
+import data from '../../../data/data.json';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
-  const navLinks = [
-    { name: "Inicio", href: "#hero", icon: <HomeIcon /> },
-    { name: "Servicios", href: "#servicios", icon: <FitnessCenterIcon /> },
-    { name: "Beneficios", href: "#beneficios", icon: <AutoAwesomeIcon /> },
-    { name: "Locales", href: "#locales", icon: <MapsHomeWorkIcon /> },
-    { name: "Staff", href: "#staff", icon: <GroupsIcon /> },
-    { name: "Comentarios", href: "#comentarios", icon: <ForumIcon /> },
-  ];
+  // ICONOS NAVBAR
+  const iconMap = {
+    Home: <HomeIcon />,
+    SelfImprovement: <SelfImprovementIcon />,
+    Place: <PlaceIcon />,
+    Groups: <GroupsIcon />,
+    Instagram: <InstagramIcon />,
+    Mail: <MailIcon />,
+  };
+
+  const navLinks = data.navbar.map((item) => ({
+    name: item.label,
+    href: item.path,
+    icon: iconMap[item.icon],
+  }));
+
+  // FUNCIÓN HORARIOS
+  const getScheduleInfo = (schedule) => {
+    const days = Object.keys(schedule);
+    if (!days.length) return '';
+
+    const allHours = Object.values(schedule).flat().sort();
+    const firstHour = allHours[0];
+    const lastHour = allHours[allHours.length - 1];
+
+    const firstDay = days[0];
+    const lastDay = days[days.length - 1];
+
+    return `${firstDay} a ${lastDay}: ${firstHour} - ${lastHour}`;
+  };
 
   return (
     <Box
       component="footer"
       sx={{
-        bgcolor: "background.default",
-        color: "text.primary",
+        bgcolor: 'background.default',
+        color: 'text.primary',
         pt: { xs: 6, md: 10 },
         pb: 4,
         borderTop: 1,
-        borderColor: "divider", 
+        borderColor: 'divider',
       }}
     >
       <Container maxWidth="lg">
-
         <Box
           sx={{
-            display: "grid",
+            display: 'grid',
             gridTemplateColumns: {
-              xs: "1fr",
-              sm: "1fr 1fr",
-              md: "1.2fr 1fr 1fr 1fr",
+              xs: '1fr',
+              sm: '1fr 1fr',
+              md: '1.2fr 1fr 1fr 1fr',
             },
-            gap: { xs: 5, md: 6 },
-            textAlign: { xs: "center", md: "left" },
+            gap: { xs: 5, md: 5 },
+            textAlign: { xs: 'center', md: 'left' },
           }}
         >
-
           {/* BRANDING */}
           <Box>
             <Typography
@@ -65,50 +90,67 @@ export default function Footer() {
               sx={{
                 letterSpacing: 4,
                 fontWeight: 800,
-                fontFamily: "Montserrat, sans-serif",
+                fontFamily: 'Montserrat, sans-serif',
               }}
             >
-              LEMAX{" "}
-              <Box component="span" sx={{ color: "primary.main" }}>
-                PILATES
+              {data.businessName.split(' ')[0]}{' '}
+              <Box component="span" sx={{ color: 'primary.main' }}>
+                {data.businessName.split(' ')[1]}
               </Box>
             </Typography>
 
             <Typography
-              variant="body2"
-              color="text.secondary"
               sx={{
-                mt: 2,
-                fontStyle: "italic",
+                mt: 3,
+                fontStyle: 'italic',
                 maxWidth: 300,
-                mx: { xs: "auto", md: 0 },
+                mx: { xs: 'auto', md: 0 },
+                fontSize: { xs: '0.95rem', md: '1rem' },
+                lineHeight: 1.5,
+                color: 'text.secondary',
               }}
             >
               "Transforma tu bienestar a través del movimiento consciente."
             </Typography>
 
+            {/* REDES */}
             <Box
               sx={{
-                mt: 2,
-                display: "flex",
-                justifyContent: { xs: "center", md: "flex-start" },
-                gap: 2,
+                mt: 4,
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: { xs: 'center', md: 'flex-start' },
+                gap: 1,
               }}
             >
-              {[InstagramIcon, FacebookIcon, WhatsAppIcon].map((Icon, i) => (
-                <IconButton
-                  key={i}
-                  sx={{
-                    color: "text.secondary",
-                    "&:hover": {
-                      color: "primary.main",
-                      transform: "translateY(-4px)",
-                    },
-                  }}
-                >
-                  <Icon sx={{ fontSize: "1.5rem" }} />
-                </IconButton>
-              ))}
+              <Typography
+                sx={{
+                  fontWeight: 600,
+                  color: 'text.primary',
+                  fontSize: '1rem',
+                  mb: 0.5,
+                }}
+              >
+                Seguinos en Instagram
+              </Typography>
+
+              <IconButton
+                component="a"
+                href={data?.social?.instagram_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                sx={{
+                  alignSelf: { xs: 'center', md: 'flex-start' },
+                  color: 'text.secondary',
+                  transition: 'all 0.25s ease',
+                  '&:hover': {
+                    color: 'primary.main',
+                    transform: 'translateY(-4px) scale(1.15)',
+                  },
+                }}
+              >
+                <InstagramIcon sx={{ fontSize: '2rem' }} />
+              </IconButton>
             </Box>
           </Box>
 
@@ -120,19 +162,23 @@ export default function Footer() {
                 href={link.href}
                 underline="none"
                 sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: { xs: "center", md: "flex-start" },
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: { xs: 'center', md: 'flex-start' },
                   gap: 1.5,
-                  color: "text.secondary",
-                  "&:hover": {
-                    color: "text.primary",
-                    transform: "translateX(5px)",
+                  color: 'text.secondary',
+                  transition: 'all 0.25s ease',
+                  '&:hover': {
+                    color: 'text.primary',
+                    transform: 'translateX(5px)',
                   },
                 }}
               >
                 {React.cloneElement(link.icon, {
-                  sx: { color: "primary.main", fontSize: "1.3rem" },
+                  sx: {
+                    color: 'primary.main',
+                    fontSize: '1.3rem',
+                  },
                 })}
                 {link.name}
               </Link>
@@ -141,43 +187,88 @@ export default function Footer() {
 
           {/* HORARIOS */}
           <FooterColumn title="Horarios">
-            <Typography variant="body2" color="text.secondary">
-              Lunes - Viernes: 7:00 - 21:00
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              Sábados: 9:00 - 14:00
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              Domingos: Cerrado
-            </Typography>
+            {data.locations.map((loc) => (
+              <Box key={loc.id} sx={{ mb: 3 }}>
+                <Typography
+                  sx={{
+                    fontWeight: 600,
+                    mb: 0.5,
+                    color: 'text.primary',
+                  }}
+                >
+                  {loc.name}
+                </Typography>
+
+                <Typography
+                  sx={{
+                    fontSize: '0.9rem',
+                    color: 'text.secondary',
+                    lineHeight: 1.4,
+                  }}
+                >
+                  {getScheduleInfo(loc.schedule)}
+                </Typography>
+              </Box>
+            ))}
           </FooterColumn>
 
           {/* CONTACTO */}
-          <FooterColumn
-            title="Contacto"
-            sx={{
-              gridColumn: { xs: "1", sm: "1 / -1", md: "auto" }, 
-            }}
-          >
-            <FooterItem icon={<LocationOnIcon sx={{ color: "primary.main" }} />}>
-              Av. Principal 123, CABA
-            </FooterItem>
+          <FooterColumn title="Contacto">
+            {data.locations.map((loc) => (
+              <Box key={loc.id} sx={{ mb: 3 }}>
+                <Typography
+                  sx={{
+                    fontWeight: 600,
+                    mb: 0.5,
+                    color: 'text.primary',
+                  }}
+                >
+                  {loc.name}
+                </Typography>
 
-            <FooterItem icon={<PhoneIcon sx={{ color: "primary.main" }} />}>
-              +54 123 456 7890
-            </FooterItem>
+                {/* Dirección clickeable */}
+                <FooterItem
+                  component="a"
+                  href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+                    loc.address
+                  )}`}
+                  target="_blank"
+                  icon={<LocationOnIcon sx={{ color: 'primary.main' }} />}
+                  sx={{
+                    fontSize: '0.9rem',
+                    color: 'text.secondary',
+                    lineHeight: 1.4,
+                    mb: 1,
+                    textDecoration: 'none',
+                  }}
+                >
+                  {loc.address}
+                </FooterItem>
 
-            <FooterItem icon={<EmailIcon sx={{ color: "primary.main" }} />}>
-              info@lemax.com
-            </FooterItem>
+                {/* Teléfono clickeable */}
+                <FooterItem
+                  component="a"
+                  href={`tel:${loc.phone}`}
+                  icon={<PhoneIcon sx={{ color: 'primary.main' }} />}
+                  sx={{
+                    fontSize: '0.9rem',
+                    color: 'text.secondary',
+                    lineHeight: 1.4,
+                    textDecoration: 'none',
+                  }}
+                >
+                  {loc.phone}
+                </FooterItem>
+              </Box>
+            ))}
           </FooterColumn>
         </Box>
 
         <Divider sx={{ mt: 8, mb: 4 }} />
 
-        <Box sx={{ textAlign: "center" }}>
+        <Box sx={{ textAlign: 'center' }}>
           <Typography variant="caption" color="text.secondary">
-            © {currentYear} <strong>LEMAX PILATES</strong>. Todos los derechos reservados.
+            © {currentYear} <strong>{data.businessName}</strong>. Todos los derechos reservados.
           </Typography>
         </Box>
       </Container>
