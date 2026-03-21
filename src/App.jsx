@@ -28,11 +28,7 @@ function App() {
             {/* CssBaseline normaliza el CSS y aplica el color de fondo del tema */}
             <CssBaseline />
 
-            <Layout>
-                <Button variant="contained" onClick={toggleColorMode}>
-                    Switch to {mode === 'light' ? 'Dark' : 'Light'} Mode
-                </Button>
-
+            <Layout mode={mode} toggleColorMode={toggleColorMode}>
                 <HeroSection />
                 <BenefitsSection benefits={benefits}/> 
             </Layout>
