@@ -103,7 +103,7 @@ const HeroSection = () => {
                     variants={fadeInUpLeft}
                     variant="contained"
                     sx={{
-                        width: { xs: '100%', sm: '80%', md: '60%' },
+                        width: { xs: '90%', sm: '70%', md: '50%' },
                         py: 1.5,
                     }}
                 >
