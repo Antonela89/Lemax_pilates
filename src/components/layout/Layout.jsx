@@ -1,5 +1,5 @@
 import { Box } from '@mui/material';
-// import Navbar from '../common/Navbar'; 
+// import Navbar from '../common/Navbar';
 // import WhatsAppButton from '../common/WhatsAppButton';
 import Footer from './Footer/Footer';
 
@@ -10,7 +10,7 @@ const Layout = ({ children }) => {
                 display: 'flex',
                 flexDirection: 'column',
                 minHeight: '100vh',
-                px: {xs: 4, sm: 6, md: 8}
+                width: '100vw'
             }}
         >
             {/* Navbar fijo arriba */}
@@ -23,7 +23,7 @@ const Layout = ({ children }) => {
             {/* Botón flotante de WhatsApp */}
             {/* <WhatsAppButton /> */}
 
-            <Footer/>
+            <Footer />
         </Box>
     );
 };

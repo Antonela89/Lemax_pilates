@@ -44,29 +44,52 @@
     ],
     "benefits": [
         {
+            "id": 1,
             "title": "Mejora la Postura",
-            "description": "Corrige hábitos posturales y fortalece la columna.",
+            "description": "Fortalece la columna y corrige hábitos posturales del día a día.",
             "icon": "AccessibilityNew"
         },
         {
+            "id": 2,
             "title": "Flexibilidad",
-            "description": "Aumenta el rango de movimiento y previene lesiones.",
+            "description": "Aumenta el rango de movimiento y estira las cadenas musculares.",
             "icon": "SelfImprovement"
         },
         {
+            "id": 3,
             "title": "Control y Balance",
-            "description": "Conecta mente y cuerpo a través de la respiración.",
+            "description": "Conexión consciente entre mente y cuerpo a través del movimiento.",
             "icon": "Balance"
         },
         {
+            "id": 4,
             "title": "Tonificación",
-            "description": "Fortalece músculos profundos sin ganar volumen excesivo.",
+            "description": "Músculos largos y definidos sin ganar volumen excesivo.",
             "icon": "FitnessCenter"
         },
         {
+            "id": 5,
             "title": "Bienestar Mental",
-            "description": "Reduce el estrés y mejora la concentración diaria.",
+            "description": "Reduce el estrés y mejora la concentración mediante la respiración.",
             "icon": "Spa"
+        },
+        {
+            "id": 6,
+            "title": "Prevención de Lesiones",
+            "description": "Fortalece articulaciones y musculatura profunda para evitar dolores.",
+            "icon": "Healing"
+        },
+        {
+            "id": 7,
+            "title": "Energía Diaria",
+            "description": "Aumenta tu vitalidad y reduce la fatiga con movimiento consciente.",
+            "icon": "Bolt"
+        },
+        {
+            "id": 8,
+            "title": "Respiración Consciente",
+            "description": "Mejora la capacidad pulmonar y oxigena la sangre para una mayor vitalidad.",
+            "icon": "Air"
         }
     ],
     "locations": [
