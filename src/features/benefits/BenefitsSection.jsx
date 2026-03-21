@@ -9,7 +9,7 @@ import LayeredWaves from '@/components/common/Divider/LayeredWaves';
 
 const BenefitsSection = ({ benefits }) => {
     return (
-        <SectionContainer background="default" animation={fadeInUpLeft}>
+        <SectionContainer background="background.default" animation={fadeInUpLeft}>
             <TripleGlowWave />
             <Box
                 sx={{
@@ -20,8 +20,8 @@ const BenefitsSection = ({ benefits }) => {
             >
                 {/* Título de la sección */}
                 <TitleSection
-                    overline="¿por qué elegirnos?"
-                    h2="beneficios"
+                    textOverline="¿por qué elegirnos?"
+                    texth2="beneficios"
                     animation={fadeInUpLeft}
                 />
 
