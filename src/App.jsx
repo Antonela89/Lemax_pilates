@@ -2,14 +2,14 @@ import { useState, useEffect, useMemo } from 'react';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { getDesignTokens } from '@/theme/theme';
-import { Button } from '@mui/material';
 import Layout from './components/layout/Layout';
 import HeroSection from './features/hero/HeroSection';
 import BenefitsSection from './features/benefits/BenefitsSection';
 import lemaxData from './data/data.json';
+import ServicesSection from './features/servicesSection/ServicesSection';
 
 function App() {
-    const { benefits } = lemaxData;
+    const { benefits, services } = lemaxData;
     const [mode, setMode] = useState('light');
 
     useEffect(() => {
@@ -30,6 +30,7 @@ function App() {
 
             <Layout mode={mode} toggleColorMode={toggleColorMode}>
                 <HeroSection />
+                <ServicesSection services={services} />
                 <BenefitsSection benefits={benefits}/> 
             </Layout>
         </ThemeProvider>
