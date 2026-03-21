@@ -10,7 +10,7 @@ const Layout = ({ children, mode, toggleColorMode }) => {
                 display: 'flex',
                 flexDirection: 'column',
                 minHeight: '100vh',
-                px: {xs: 4, sm: 6, md: 8}
+                width: '100vw'
             }}
         >
             <Navbar mode={mode} toggleColorMode={toggleColorMode} />
@@ -22,7 +22,7 @@ const Layout = ({ children, mode, toggleColorMode }) => {
             {/* Botón flotante de WhatsApp */}
             {/* <WhatsAppButton /> */}
 
-            <Footer/>
+            <Footer />
         </Box>
     );
 };
