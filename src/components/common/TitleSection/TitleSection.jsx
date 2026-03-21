@@ -7,22 +7,45 @@ const TitleSection = ({ textOverline, colorOverline = "primary", texth2, animati
     return (
         <MotionBox
             variants={animation}
-            sx={{ textAlign: 'center', mb: { xs: 6, md: 8 } }}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
+            sx={{
+                textAlign: 'center',
+                mb: { xs: 4, sm: 6, md: 8 }, 
+                px: 2, 
+            }}
         >
             <Typography
                 variant="overline"
                 color={colorOverline}
                 sx={{
-                    fontWeight: 'bold',
-                    letterSpacing: 2,
+                    fontWeight: 800,
+                    fontSize: { xs: '0.7rem', sm: '0.8rem', md: '0.9rem' },
+                    letterSpacing: { xs: 3, md: 5 }, 
                     textTransform: 'uppercase',
+                    display: 'block',
                 }}
             >
                 {textOverline}
             </Typography>
+
             <Typography
                 variant="h2"
-                sx={{ mt: 1, fontWeight: 700, textTransform: 'uppercase' }}
+                sx={{
+                    mt: { xs: 1, md: 2 },
+                    fontWeight: 700,
+                    textTransform: 'uppercase',
+                    fontSize: {
+                        xs: '1.75rem', 
+                        sm: '2.25rem', 
+                        md: '3rem', 
+                        lg: '3.5rem', 
+                    },
+                    lineHeight: { xs: 1.2, md: 1.1 },
+                    maxWidth: '800px', 
+                    mx: 'auto', 
+                }}
             >
                 {texth2}
             </Typography>
