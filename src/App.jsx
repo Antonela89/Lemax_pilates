@@ -5,8 +5,11 @@ import { getDesignTokens } from '@/theme/theme';
 import { Button } from '@mui/material';
 import Layout from './components/layout/Layout';
 import HeroSection from './features/hero/HeroSection';
+import BenefitsSection from './features/benefits/BenefitsSection';
+import lemaxData from './data/data.json';
 
 function App() {
+    const { benefits } = lemaxData;
     const [mode, setMode] = useState('light');
 
     useEffect(() => {
@@ -31,6 +34,7 @@ function App() {
                 </Button>
 
                 <HeroSection />
+                <BenefitsSection benefits={benefits}/> 
             </Layout>
         </ThemeProvider>
     );
