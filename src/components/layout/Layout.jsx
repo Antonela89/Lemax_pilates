@@ -10,7 +10,8 @@ const Layout = ({ children, mode, toggleColorMode }) => {
                 display: 'flex',
                 flexDirection: 'column',
                 minHeight: '100vh',
-                width: '100vw'
+                width: '100%',
+                overflowX: 'hidden'
             }}
         >
             <Navbar mode={mode} toggleColorMode={toggleColorMode} />
