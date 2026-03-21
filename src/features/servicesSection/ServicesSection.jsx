@@ -4,6 +4,7 @@ import { staggerContainer, fadeInUpRight } from '@/theme/animations';
 import SectionContainer from '@/components/common/SectionContainer/SectionContainer';
 import TitleSection from '@/components/common/TitleSection/TitleSection';
 import ServiceCard from '@/components/common/Cards/ServiceCard';
+import LayeredWaves from '@/components/common/Divider/LayeredWaves';
 
 // const MotionBox = motion(Box);
 
@@ -12,14 +13,16 @@ const ServicesSection = ({ services }) => {
 
     const gold = theme.palette.primary.main;
     const text = theme.palette.background.default;
+    const paper = theme.palette.background.paper;
 
     if (!services) return null;
     return (
         <SectionContainer background={gold} animation={fadeInUpRight}>
             <Box
                 sx={{
+                    pt: { xs: 8 },
                     px: { xs: 2, md: 6 },
-                    pb: { xs: 8, md: 16 },
+                    pb: { xs: 8, md: 16 }
                 }}
             >
                 {/* Título de la sección */}
@@ -38,13 +41,14 @@ const ServicesSection = ({ services }) => {
                 >
                     <Grid container spacing={3}>
                         {services.map((item, i) => (
-                            <Grid size={{ xs: 12, sm: 6 }} key={i}>
+                            <Grid size={{ xs: 12, sm: 6, md: 3 }} key={i}>
                                 <ServiceCard item={item} />
                             </Grid>
                         ))}
                     </Grid>
                 </Box>
             </Box>
+            <LayeredWaves fill1={text} fill2={paper} />
         </SectionContainer>
     );
 };
