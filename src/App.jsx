@@ -2,8 +2,9 @@ import { useState, useEffect, useMemo } from 'react';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { getDesignTokens } from '@/theme/theme';
-import { Button, Box, Typography } from '@mui/material';
+import { Button } from '@mui/material';
 import Layout from './components/layout/Layout';
+import HeroSection from './features/hero/HeroSection';
 
 function App() {
     const [mode, setMode] = useState('light');
@@ -25,19 +26,11 @@ function App() {
             <CssBaseline />
 
             <Layout>
-                {/* Prueba de tema - Borrar cuando se coloque el cambio de tema en el navbar*/}
-                <Box sx={{ p: 4, textAlign: 'center', minHeight: '100vh' }}>
-                    <Typography variant="h1" color="primary" gutterBottom>
-                        LEMAX PILATES
-                    </Typography>
-                    <Typography variant="body1" sx={{ mb: 3 }}>
-                        Find your balance, strengthen your core.
-                    </Typography>
+                <Button variant="contained" onClick={toggleColorMode}>
+                    Switch to {mode === 'light' ? 'Dark' : 'Light'} Mode
+                </Button>
 
-                    <Button variant="contained" onClick={toggleColorMode}>
-                        Switch to {mode === 'light' ? 'Dark' : 'Light'} Mode
-                    </Button>
-                </Box>
+                <HeroSection />
             </Layout>
         </ThemeProvider>
     );
