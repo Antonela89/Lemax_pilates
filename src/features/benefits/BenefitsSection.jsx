@@ -33,11 +33,7 @@ const BenefitsSection = ({ benefits }) => {
                     <Grid container spacing={3}>
                         {benefits.map((item) => (
                             <Grid size={{ xs: 12, sm: 6, md: 3 }} key={item.id}>
-                                <BenefitCard
-                                    title={item.title}
-                                    description={item.description}
-                                    iconName={item.icon}
-                                />
+                                <BenefitCard item={item} />
                             </Grid>
                         ))}
                     </Grid>
