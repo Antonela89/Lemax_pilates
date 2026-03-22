@@ -7,11 +7,12 @@ import HeroSection from './features/hero/HeroSection';
 import ServicesSection from './features/servicesSection/ServicesSection';
 import BenefitsSection from './features/benefits/BenefitsSection';
 import CommentsSection from './features/comments/CommentsSection';
+import Locations from './components/locations/Locations';
 import TeamSection from './features/team/TeamSection';
 import lemaxData from './data/data.json';
 
 function App() {
-    const { benefits, services, staff, reviews } = lemaxData;
+    const { benefits, services, locations, staff, reviews } = lemaxData;
     const [mode, setMode] = useState('light');
 
     useEffect(() => {
@@ -34,6 +35,7 @@ function App() {
                 <HeroSection />
                 <ServicesSection services={services} />
                 <BenefitsSection benefits={benefits}/> 
+                <Locations locations={locations} />
                 <CommentsSection  reviews={reviews}/>
                 <TeamSection staff={staff} />
             </Layout>
