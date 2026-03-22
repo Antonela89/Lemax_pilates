@@ -5,11 +5,12 @@ import { getDesignTokens } from '@/theme/theme';
 import Layout from './components/layout/Layout';
 import HeroSection from './features/hero/HeroSection';
 import BenefitsSection from './features/benefits/BenefitsSection';
+import Locations from './components/locations/Locations';
 import TeamSection from './features/team/TeamSection';
 import lemaxData from './data/data.json';
 
 function App() {
-    const { benefits, staff } = lemaxData;
+    const { benefits, staff, locations } = lemaxData;
     const [mode, setMode] = useState('light');
 
     useEffect(() => {
@@ -31,6 +32,7 @@ function App() {
             <Layout mode={mode} toggleColorMode={toggleColorMode}>
                 <HeroSection />
                 <BenefitsSection benefits={benefits}/> 
+                <Locations locations={locations} />
                 <TeamSection staff={staff} />
             </Layout>
         </ThemeProvider>
