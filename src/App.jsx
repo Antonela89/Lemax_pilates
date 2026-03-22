@@ -35,8 +35,8 @@ function App() {
                 <HeroSection />
                 <ServicesSection services={services} />
                 <BenefitsSection benefits={benefits}/> 
-                <Locations locations={locations} />
                 <CommentsSection  reviews={reviews}/>
+                <Locations locations={locations} />
                 <TeamSection staff={staff} />
             </Layout>
         </ThemeProvider>
