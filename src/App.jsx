@@ -4,13 +4,14 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { getDesignTokens } from '@/theme/theme';
 import Layout from './components/layout/Layout';
 import HeroSection from './features/hero/HeroSection';
+import ServicesSection from './features/servicesSection/ServicesSection';
 import BenefitsSection from './features/benefits/BenefitsSection';
+import CommentsSection from './features/comments/CommentsSection';
 import TeamSection from './features/team/TeamSection';
 import lemaxData from './data/data.json';
-import CommentsSection from './features/comments/CommentsSection';
 
 function App() {
-    const { benefits, staff, reviews } = lemaxData;
+    const { benefits, services, staff, reviews } = lemaxData;
     const [mode, setMode] = useState('light');
 
     useEffect(() => {
@@ -31,6 +32,7 @@ function App() {
 
             <Layout mode={mode} toggleColorMode={toggleColorMode}>
                 <HeroSection />
+                <ServicesSection services={services} />
                 <BenefitsSection benefits={benefits}/> 
                 <CommentsSection  reviews={reviews}/>
                 <TeamSection staff={staff} />

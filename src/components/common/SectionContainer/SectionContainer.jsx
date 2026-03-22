@@ -11,8 +11,7 @@ const SectionContainer = ({ children, background, animation }) => {
             viewport={{ once: false, amount: 0.2 }}
             variants={animation}
             sx={{
-                pb: { xs: 8, md: 12 },
-                bgcolor: `background.${background}`,
+                bgcolor: {background},
             }}
         >
             {children}
