@@ -9,7 +9,7 @@ import LayeredWaves from '@/components/common/Divider/LayeredWaves';
 
 const BenefitsSection = ({ benefits }) => {
     return (
-        <SectionContainer background="default" animation={fadeInUpLeft}>
+        <SectionContainer background="background.default" animation={fadeInUpLeft}>
             <TripleGlowWave />
             <Box
                 sx={{
@@ -20,8 +20,8 @@ const BenefitsSection = ({ benefits }) => {
             >
                 {/* Título de la sección */}
                 <TitleSection
-                    overline="¿por qué elegirnos?"
-                    h2="beneficios"
+                    textOverline="¿por qué elegirnos?"
+                    texth2="beneficios"
                     animation={fadeInUpLeft}
                 />
 
@@ -33,11 +33,7 @@ const BenefitsSection = ({ benefits }) => {
                     <Grid container spacing={3}>
                         {benefits.map((item) => (
                             <Grid size={{ xs: 12, sm: 6, md: 3 }} key={item.id}>
-                                <BenefitCard
-                                    title={item.title}
-                                    description={item.description}
-                                    iconName={item.icon}
-                                />
+                                <BenefitCard item={item} />
                             </Grid>
                         ))}
                     </Grid>

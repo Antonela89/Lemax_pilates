@@ -3,7 +3,7 @@ import { motion } from 'motion/react';
 
 const MotionBox = motion(Box);
 
-const TitleSection = ({ overline, h2, animation }) => {
+const TitleSection = ({ textOverline, colorOverline = "primary", texth2, animation}) => {
     return (
         <MotionBox
             variants={animation}
@@ -18,7 +18,7 @@ const TitleSection = ({ overline, h2, animation }) => {
         >
             <Typography
                 variant="overline"
-                color="primary"
+                color={colorOverline}
                 sx={{
                     fontWeight: 800,
                     fontSize: { xs: '0.7rem', sm: '0.8rem', md: '0.9rem' },
@@ -27,7 +27,7 @@ const TitleSection = ({ overline, h2, animation }) => {
                     display: 'block',
                 }}
             >
-                {overline}
+                {textOverline}
             </Typography>
 
             <Typography
@@ -47,7 +47,7 @@ const TitleSection = ({ overline, h2, animation }) => {
                     mx: 'auto', 
                 }}
             >
-                {h2}
+                {texth2}
             </Typography>
         </MotionBox>
     );
