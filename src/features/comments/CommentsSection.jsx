@@ -8,23 +8,24 @@ import CommentCard from '@/components/common/Cards/CommentCard';
 // import GlowWave from '@/components/common/Divider/GlowWave';
 
 const CommentsSection = ({ reviews }) => {
-  // const theme = useTheme();
+    // const theme = useTheme();
 
-  // const colorDivider = theme.palette.divider
+    // const colorDivider = theme.palette.divider
     return (
         <SectionContainer background="default" animation={fadeInUpLeft}>
-          {/* <GlowWave background={colorDivider}/> */}
+            {/* <GlowWave background={colorDivider}/> */}
             <Box
                 sx={{
-                    px: { xs: 8, md: 12 },
+                    pt: { xs: 8 },
+                    px: { xs: 2, md: 6 },
                     pb: { xs: 8, md: 16 },
-                    bgcolor: 'divider',
+                    bgcolor: 'background.alternate',
                 }}
             >
                 {/* Título de la sección */}
                 <TitleSection
-                    overline="¿qué opinan de nosotros?"
-                    h2="comentarios"
+                    textOverline="¿qué opinan de nosotros?"
+                    texth2="comentarios"
                     animation={fadeInUpLeft}
                 />
 

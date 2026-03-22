@@ -1,4 +1,4 @@
-import { Box, Grid } from '@mui/material';
+import { Box, Grid, useTheme } from '@mui/material';
 import { motion } from 'motion/react';
 import { staggerContainer, fadeInUpLeft } from '@/theme/animations';
 import SectionContainer from '@/components/common/SectionContainer/SectionContainer';
@@ -8,14 +8,23 @@ import TripleGlowWave from '@/components/common/Divider/TripleGlowWave';
 import LayeredWaves from '@/components/common/Divider/LayeredWaves';
 
 const BenefitsSection = ({ benefits }) => {
+    const theme = useTheme();
+
+    const colorSiguienteSeccion = theme.palette.background.alternate;
+    const oroAcento = theme.palette.primary.main;
+
     return (
-        <SectionContainer background="background.default" animation={fadeInUpLeft}>
+        <SectionContainer
+            background="background.default"
+            animation={fadeInUpLeft}
+        >
             <TripleGlowWave />
             <Box
                 sx={{
                     px: { xs: 8, md: 12 },
                     pb: { xs: 8, md: 16 },
                     bgcolor: 'background.paper',
+                    mt: '-1px',
                 }}
             >
                 {/* Título de la sección */}
@@ -28,7 +37,7 @@ const BenefitsSection = ({ benefits }) => {
                 <Box
                     component={motion.div}
                     variants={staggerContainer}
-                    // sx={{ px: { xs: 8, md: 12 } }}
+                    sx={{ px: { xs: 8, md: 12 } }}
                 >
                     <Grid container spacing={3}>
                         {benefits.map((item) => (
@@ -39,7 +48,7 @@ const BenefitsSection = ({ benefits }) => {
                     </Grid>
                 </Box>
             </Box>
-            <LayeredWaves />
+            <LayeredWaves fill1={oroAcento} fill2={colorSiguienteSeccion} />
         </SectionContainer>
     );
 };

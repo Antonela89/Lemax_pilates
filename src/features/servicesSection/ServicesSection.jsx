@@ -48,7 +48,7 @@ const ServicesSection = ({ services }) => {
                     </Grid>
                 </Box>
             </Box>
-            <LayeredWaves fill1={text} fill2={paper} />
+            <LayeredWaves fill1={paper} fill2={text} />
         </SectionContainer>
     );
 };
