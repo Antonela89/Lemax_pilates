@@ -9,10 +9,12 @@ import BenefitsSection from './features/benefits/BenefitsSection';
 import CommentsSection from './features/comments/CommentsSection';
 import Locations from './components/locations/Locations';
 import TeamSection from './features/team/TeamSection';
+import Reviews from './features/reviews/Reviews';
+import ContactCTA from './features/ContactCTA/ContactCTA';
 import lemaxData from './data/data.json';
 
 function App() {
-    const { benefits, services, locations, staff, reviews } = lemaxData;
+    const { benefits, services, staff, locations, reviews, contact } = lemaxData;
     const [mode, setMode] = useState('light');
 
     useEffect(() => {
@@ -38,6 +40,8 @@ function App() {
                 <CommentsSection  reviews={reviews}/>
                 <Locations locations={locations} />
                 <TeamSection staff={staff} />
+                <Reviews reviews={reviews} />
+                <ContactCTA contact={contact} />
             </Layout>
         </ThemeProvider>
     );
