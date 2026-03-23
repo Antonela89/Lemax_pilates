@@ -5,6 +5,7 @@ const SectionContainer = ({ children, background, animation, id }) => {
     return (
         <Box
             id={id}
+            component="section"
             sx={{
                 width: '100%',
                 bgcolor: background || 'background.default',
