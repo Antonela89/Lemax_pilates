@@ -18,7 +18,6 @@ import SectionContainer from '@/components/common/SectionContainer/SectionContai
 import TitleSection from '@/components/common/TitleSection/TitleSection';
 
 // Archivos de Configuración
-import data from '@/data/data.json';
 import {
     fadeInUpLeft,
     fadeInUpRight,
@@ -39,7 +38,7 @@ import mapBgLight from '@/assets/images/location/map_bg_light.webp';
 
 const MotionBox = motion(Box);
 
-const Locations = () => {
+const Locations = ({locations}) => {
     const theme = useTheme();
     const isDarkMode = theme.palette.mode === 'dark';
 
@@ -145,7 +144,7 @@ const Locations = () => {
                             alignItems: 'stretch',
                         }}
                     >
-                        {data.locations.map((loc, index) => (
+                        {locations.map((loc, index) => (
                             <MotionBox
                                 key={loc.id}
                                 variants={
