@@ -5,7 +5,8 @@ import { fadeInUpLeft } from '@/theme/animations';
 
 const MotionPaper = motion(Paper);
 
-const BenefitCard = ({ title, description, iconName }) => {
+const BenefitCard = ({item}) => {
+    const { title, description, iconName } = item;
     // Mapeo dinámico del icono
     const IconComponent = Icons[iconName] || Icons.HelpOutline;
 

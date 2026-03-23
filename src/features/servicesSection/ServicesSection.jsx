@@ -1,0 +1,56 @@
+import { Box, Grid, useTheme } from '@mui/material';
+import { motion } from 'motion/react';
+import { staggerContainer, fadeInUpRight } from '@/theme/animations';
+import SectionContainer from '@/components/common/SectionContainer/SectionContainer';
+import TitleSection from '@/components/common/TitleSection/TitleSection';
+import ServiceCard from '@/components/common/Cards/ServiceCard';
+import LayeredWaves from '@/components/common/Divider/LayeredWaves';
+
+// const MotionBox = motion(Box);
+
+const ServicesSection = ({ services }) => {
+    const theme = useTheme();
+
+    const gold = theme.palette.primary.main;
+    const text = theme.palette.background.default;
+    const paper = theme.palette.background.paper;
+
+    if (!services) return null;
+    return (
+        <SectionContainer background={gold} animation={fadeInUpRight}>
+            <Box
+                sx={{
+                    pt: { xs: 8 },
+                    px: { xs: 2, md: 6 },
+                    pb: { xs: 8, md: 16 }
+                }}
+            >
+                {/* Título de la sección */}
+                <TitleSection
+                    textOverline="lo que ofrecemos"
+                    colorOverline={text}
+                    texth2="nuestros servicios"
+                    animation={fadeInUpRight}
+                />
+                <Box
+                    component={motion.div}
+                    variants={staggerContainer}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.2 }}
+                >
+                    <Grid container spacing={3}>
+                        {services.map((item, i) => (
+                            <Grid size={{ xs: 12, sm: 6, md: 3 }} key={i}>
+                                <ServiceCard item={item} />
+                            </Grid>
+                        ))}
+                    </Grid>
+                </Box>
+            </Box>
+            <LayeredWaves fill1={text} fill2={paper} />
+        </SectionContainer>
+    );
+};
+
+export default ServicesSection;

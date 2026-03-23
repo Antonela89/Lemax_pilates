@@ -37,10 +37,26 @@
         "dark": "Brightness4"
     },
     "services": [
-        "Pilates Reformer",
-        "Pilates Clínico",
-        "Entrenamiento Funcional",
-        "Clases Personalizadas"
+        {
+                "title": "Pilates Reformer",
+                "description": "Clases personalizadas en reformer para todos los niveles. Mejora tu fuerza, flexibilidad y postura.",
+                "image": "https://images.unsplash.com/photo-1747238415033-b74eec07eb59?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800"
+        },
+        {
+                "title": "Clases Grupales",
+                "description": "Grupos reducidos de máximo 6 personas para una atención óptima y ambiente motivador.",
+                "image": "https://images.unsplash.com/photo-1602827114685-efbb2717da9f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800"
+        },
+        {
+                "title": "Pilates Terapéutico",
+                "description": "Programa especializado para rehabilitación y prevención de lesiones.",
+                "image": "https://images.unsplash.com/photo-1747240549807-fc3962949818?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800"
+        },
+        {
+                "title": "Prenatal & Postnatal",
+                "description": "Clases adaptadas para mujeres embarazadas y en recuperación postparto.",
+                "image": "https://images.unsplash.com/photo-1721618878163-5b9387ead23b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800"
+        }
     ],
     "benefits": [
         {
@@ -144,7 +160,13 @@
                     "19:00",
                     "20:00"
                 ],
-                "Viernes": ["08:00", "09:00", "14:00", "15:00", "18:00"]
+                "Viernes": [
+                    "08:00",
+                    "09:00",
+                    "14:00",
+                    "15:00",
+                    "18:00"
+                ]
             }
         },
         {
