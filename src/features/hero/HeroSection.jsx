@@ -64,6 +64,8 @@ const HeroSection = () => {
                     gap: '1rem',
                     alignItems: { xs: 'center', md: 'flex-start' },
                     textAlign: { xs: 'center', md: 'left' },
+                    pb: {xs: 6}, 
+                    px: {xs: 2}
                 }}
             >
                 <MotionTypography
