@@ -16,12 +16,13 @@ import PlaceIcon from '@mui/icons-material/Place';
 // Componentes y Configuración
 import SectionContainer from '@/components/common/SectionContainer/SectionContainer';
 import TitleSection from '@/components/common/TitleSection/TitleSection';
-import LayeredWaves from '@/components/common/Divider/LayeredWaves';
+import TripleGlowWave from '@/components/common/Divider/TripleGlowWave';
 import { fadeInUpLeft, staggerContainer } from '@/theme/animations';
 
 // IMÁGENES
 import reviewDark from '@/assets/images/review/review_dark.webp';
 import reviewLight from '@/assets/images/review/review_light.webp';
+import LayeredWaves from '@/components/common/Divider/LayeredWaves';
 
 const scrollInfinite = keyframes`
     0% { transform: translateX(0); }
@@ -31,6 +32,8 @@ const scrollInfinite = keyframes`
 const Reviews = ({reviews}) => {
     const theme = useTheme();
     const isDarkMode = theme.palette.mode === 'dark';
+
+    const colorBottom = theme.palette.background.default;
 
     const backgroundImage = isDarkMode ? reviewDark : reviewLight;
 
@@ -48,12 +51,11 @@ const Reviews = ({reviews}) => {
 
     return (
         <SectionContainer
-            background="background.default"
             animation={staggerContainer}
             id="instagram"
         >
             {/* Divisor superior */}
-            <LayeredWaves />
+            <TripleGlowWave  colorBottom={colorBottom}/>
 
             <Box
                 sx={{
@@ -306,6 +308,7 @@ const Reviews = ({reviews}) => {
                     </Box>
                 </Box>
             </Box>
+            <LayeredWaves/>
         </SectionContainer>
     );
 };
