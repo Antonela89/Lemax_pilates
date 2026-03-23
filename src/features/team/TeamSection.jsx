@@ -123,8 +123,7 @@ const TeamSection = ({ staff = [] }) => {
                                             backgroundColor:
                                                 theme.palette.mode === 'light'
                                                     ? '#ffffff'
-                                                    : theme.palette.background
-                                                          .paper,
+                                                    : theme.palette.background.paper,
                                             borderRadius: '20px',
                                             boxShadow:
                                                 theme.palette.mode === 'light'
