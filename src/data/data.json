@@ -199,30 +199,82 @@
         {
             "id": 1,
             "userName": "Lucía Martínez",
-            "comment": "Un lugar excelente. Las instructoras son muy profesionales y el ambiente es súper relajante. Se nota el cambio en mi postura desde el primer mes.",
-            "rating": 5,
+            "location": "Sucursal José Gálvez",
+            "comment": "Increíble cambio en mi postura desde el primer mes. Las instructoras son muy profesionales y el ambiente es de pura paz.",
+            "rating": 4,
             "date": "Hace 2 meses"
         },
         {
             "id": 2,
-            "userName": "Carlos Rodriguez",
-            "comment": "Arranqué por un dolor lumbar y hoy me siento como nuevo. Los equipos están impecables y hay mucha higiene. ¡Súper recomendable!",
+            "userName": "Carlos Rodríguez",
+            "location": "Sucursal Córdoba",
+            "comment": "Llegué con un dolor lumbar crónico y hoy me siento como nuevo. El equipamiento es de primera y la higiene es impecable.",
             "rating": 5,
             "date": "Hace 3 semanas"
         },
         {
             "id": 3,
             "userName": "Mariana Gómez",
-            "comment": "Me encanta la flexibilidad de horarios y lo personalizada que es la clase aunque sea grupal. La sucursal de José Gálvez es hermosa.",
-            "rating": 4,
+            "location": "Sucursal José Gálvez",
+            "comment": "Me encanta la flexibilidad de horarios y lo personalizada que es la clase. La sucursal es simplemente hermosa.",
+            "rating": 5,
             "date": "Hace 1 mes"
         },
         {
             "id": 4,
             "userName": "Facundo Díaz",
-            "comment": "Excelente atención en la sucursal Córdoba. Muy buenos profes y ambiente cálido.",
+            "location": "Sucursal Córdoba",
+            "comment": "Excelente atención. Los profes tienen mucha paciencia y corrigen cada movimiento. Un antes y un después en mi energía.",
             "rating": 5,
             "date": "Hace 4 meses"
+        },
+        {
+            "id": 5,
+            "userName": "Valentina Paz",
+            "location": "Sucursal José Gálvez",
+            "comment": "Comencé las clases durante mi postparto y fue la mejor decisión. Me sentí muy cuidada y respetaron mis tiempos en todo momento.",
+            "rating": 5,
+            "date": "Hace 2 semanas"
+        },
+        {
+            "id": 6,
+            "userName": "Andrés Silva",
+            "location": "Sucursal Córdoba",
+            "comment": "Buscaba algo para complementar mi entrenamiento de running y encontré en Le Max el equilibrio perfecto entre fuerza y flexibilidad.",
+            "rating": 4,
+            "date": "Hace 5 meses"
+        },
+        {
+            "id": 7,
+            "userName": "Elena Rossi",
+            "location": "Sucursal José Gálvez",
+            "comment": "Se nota que las instructoras son profesionales de la salud. Saben exactamente qué ejercicio necesitas según tu condición física.",
+            "rating": 5,
+            "date": "Hace 1 semana"
+        },
+        {
+            "id": 8,
+            "userName": "Javier Méndez",
+            "location": "Sucursal Córdoba",
+            "comment": "Un ambiente muy cálido y máquinas de reformer siempre en perfecto estado. Es un placer entrenar en un lugar así de cuidado.",
+            "rating": 5,
+            "date": "Hace 2 meses"
+        },
+        {
+            "id": 9,
+            "userName": "Sofía Valenzuela",
+            "location": "Sucursal José Gálvez",
+            "comment": "Pilates en Le Max me ayudó a reducir el estrés del trabajo. Salgo de cada clase renovada y con la mente mucho más despejada.",
+            "rating": 5,
+            "date": "Hace 3 meses"
+        },
+        {
+            "id": 10,
+            "userName": "Ricardo Sosa",
+            "location": "Sucursal Córdoba",
+            "comment": "Muy buena predisposición de todo el staff. Las rutinas son dinámicas y nunca te aburrís. Realmente se ven resultados rápido.",
+            "rating": 4,
+            "date": "Hace 6 meses"
         }
     ],
     "staff": [
