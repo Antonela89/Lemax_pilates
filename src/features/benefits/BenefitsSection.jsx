@@ -39,7 +39,6 @@ const BenefitsSection = ({ benefits }) => {
                 <Box
                     component={motion.div}
                     variants={staggerContainer}
-                    sx={{ px: { xs: 8, md: 12 } }}
                 >
                     <Grid container spacing={3}>
                         {benefits.map((item) => (
