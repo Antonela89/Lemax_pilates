@@ -13,7 +13,7 @@ import ContactCTA from './features/ContactCTA/ContactCTA';
 import lemaxData from './data/data.json';
 
 function App() {
-    const { benefits, services, staff, locations, reviews, contact } = lemaxData;
+    const { benefits, services, staff, locations, reviews } = lemaxData;
     const [mode, setMode] = useState('light');
 
     useEffect(() => {
@@ -39,7 +39,7 @@ function App() {
                 <Locations locations={locations} />
                 <TeamSection staff={staff} />
                 <Reviews reviews={reviews} />
-                <ContactCTA contact={contact} />
+                <ContactCTA contact={locations} />
             </Layout>
         </ThemeProvider>
     );
