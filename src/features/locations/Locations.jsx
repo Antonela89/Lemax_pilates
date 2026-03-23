@@ -36,7 +36,7 @@ import local2 from '@/assets/images/location/local2.jpg';
 import mapBgDark from '@/assets/images/location/map_bg_dark.webp';
 import mapBgLight from '@/assets/images/location/map_bg_light.webp';
 
-const MotionBox = motion(Box);
+const MotionBox = motion.create(Box);
 
 const Locations = ({locations}) => {
     const theme = useTheme();

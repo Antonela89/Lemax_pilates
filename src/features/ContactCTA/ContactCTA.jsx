@@ -10,7 +10,7 @@ import TitleSection from '@/components/common/TitleSection/TitleSection';
 // Configuración y Animaciones
 import { fadeInUpLeft, staggerContainer } from '@/theme/animations';
 
-const MotionButton = motion(Button);
+const MotionButton = motion.create(Button);
 
 // ANIMACIÓN BOTON: Solo afecta a la sombra expansiva
 const pulseAura = keyframes`

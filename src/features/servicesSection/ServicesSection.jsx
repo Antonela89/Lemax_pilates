@@ -6,7 +6,7 @@ import TitleSection from '@/components/common/TitleSection/TitleSection';
 import ServiceCard from '@/components/common/Cards/ServiceCard';
 import LayeredWaves from '@/components/common/Divider/LayeredWaves';
 
-// const MotionBox = motion(Box);
+// const MotionBox = motion.create(Box);
 
 const ServicesSection = ({ services }) => {
     const theme = useTheme();

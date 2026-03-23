@@ -1,7 +1,7 @@
 import { Box, Typography } from '@mui/material';
 import { motion } from 'motion/react';
 
-const MotionBox = motion(Box);
+const MotionBox = motion.create(Box);
 
 const TitleSection = ({ textOverline, colorOverline = "primary", texth2, animation}) => {
     return (

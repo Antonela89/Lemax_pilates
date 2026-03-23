@@ -5,9 +5,9 @@ import { fadeInUpLeft, staggerContainer, imageEntry } from '@/theme/animations';
 import heroImg from '@/assets/images/hero/hero.webp';
 
 // Versiones "motion" de los componentes MUI para que acepten sx y variants
-const MotionBox = motion(Box);
-const MotionTypography = motion(Typography);
-const MotionButton = motion(Button);
+const MotionBox = motion.create(Box);
+const MotionTypography = motion.create(Typography);
+const MotionButton = motion.create(Button);
 
 const HeroSection = () => {
     const theme = useTheme();

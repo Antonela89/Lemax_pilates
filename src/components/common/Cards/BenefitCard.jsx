@@ -24,7 +24,7 @@ const iconMap = {
     Air: Air
 };
 
-const MotionPaper = motion(Paper);
+const MotionPaper = motion.create(Paper);
 
 const BenefitCard = ({ item }) => {
     const { title, description, icon } = item;
