@@ -14,8 +14,8 @@ import {
 import { motion } from 'motion/react';
 
 // Componentes Reutilizables
-import SectionContainer from '../common/SectionContainer/SectionContainer';
-import TitleSection from '../common/TitleSection/TitleSection';
+import SectionContainer from '@/components/common/SectionContainer/SectionContainer';
+import TitleSection from '@/components/common/TitleSection/TitleSection';
 
 // Archivos de Configuración
 import data from '@/data/data.json';
