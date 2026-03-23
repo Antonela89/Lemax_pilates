@@ -37,7 +37,7 @@ const ContactCTA = () => {
     return (
         <SectionContainer
             background="background.default"
-            id="contacto-cta"
+            id="contacto"
             animation={staggerContainer}
         >
             <Box

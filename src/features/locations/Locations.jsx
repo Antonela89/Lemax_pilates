@@ -62,7 +62,7 @@ const Locations = () => {
     };
 
     return (
-        <SectionContainer background="default" animation={staggerContainer}>
+        <SectionContainer id="locales" background="default" animation={staggerContainer}>
             {/* CONTENEDOR INTERNO PARA EL MAPA */}
             <Box
                 sx={{
