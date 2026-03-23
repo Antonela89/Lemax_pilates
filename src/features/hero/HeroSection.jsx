@@ -15,6 +15,7 @@ const HeroSection = () => {
     
     return (
         <Box
+            id="inicio"
             component={motion.section}
             initial="hidden"
             whileInView="visible"
@@ -102,6 +103,8 @@ const HeroSection = () => {
                 <MotionButton
                     variants={fadeInUpLeft}
                     variant="contained"
+                    component="a"
+                    href="#contacto"
                     sx={{
                         width: { xs: '90%', sm: '70%', md: '50%' },
                         py: 1.5,

@@ -51,7 +51,7 @@ const Reviews = () => {
         <SectionContainer 
             background="background.default" 
             animation={staggerContainer}
-            id="reviews"
+            id="instagram"
         >
             {/* Divisor superior */}
             <LayeredWaves />

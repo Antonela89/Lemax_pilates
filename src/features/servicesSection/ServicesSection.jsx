@@ -17,7 +17,7 @@ const ServicesSection = ({ services }) => {
 
     if (!services) return null;
     return (
-        <SectionContainer background={gold} animation={fadeInUpRight}>
+        <SectionContainer id="servicios" background={gold} animation={fadeInUpRight}>
             <Box
                 sx={{
                     pt: { xs: 8 },
