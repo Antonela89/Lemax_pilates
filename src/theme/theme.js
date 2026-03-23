@@ -16,6 +16,7 @@ export const getDesignTokens = (mode) => ({
         background: {
             default: mode === 'light' ? '#FAF9F6' : '#1A1A18',
             paper: mode === 'light' ? '#F2EFE9' : '#252522',
+            alternate: mode === 'light' ? '#EFE7DA' : '#2B2720', 
         },
         text: {
             primary: mode === 'light' ? '#2D2926' : '#E8E6E1',
@@ -31,7 +32,7 @@ export const getDesignTokens = (mode) => ({
         h1: {
             fontFamily: 'Montserrat, sans-serif',
             fontWeight: 700,
-            letterSpacing: '-0.02em', 
+            letterSpacing: '-0.02em',
         },
         h2: { fontFamily: 'Montserrat, sans-serif', fontWeight: 700 },
         body1: {
@@ -44,6 +45,6 @@ export const getDesignTokens = (mode) => ({
         },
     },
     shape: {
-        borderRadius: 12, 
+        borderRadius: 12,
     },
 });

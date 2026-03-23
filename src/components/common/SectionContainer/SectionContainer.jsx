@@ -1,6 +1,16 @@
 import { Box } from '@mui/material';
 import { motion } from 'motion/react';
 
+<<<<<<< feature/comments-secction
+const SectionContainer = ({ children, background, animation }) => {
+    return (
+        <Box
+            sx={{
+                width: '100%',
+                bgcolor: background || 'background.default',
+                position: 'relative',
+                overflow: 'hidden',
+=======
 const SectionContainer = ({ children, background, animation, id }) => {
 
     return (
@@ -13,9 +23,18 @@ const SectionContainer = ({ children, background, animation, id }) => {
             variants={animation}
             sx={{
                 bgcolor: background,
+>>>>>>> dev
             }}
         >
-            {children}
+            <Box
+                component={motion.div}
+                variants={animation}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+            >
+                {children}
+            </Box>
         </Box>
     );
 };
