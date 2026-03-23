@@ -29,11 +29,13 @@ const scrollInfinite = keyframes`
     100% { transform: translateX(-50%); }
 `;
 
-const Reviews = ({reviews}) => {
+const Reviews = ({ reviews }) => {
     const theme = useTheme();
     const isDarkMode = theme.palette.mode === 'dark';
 
     const colorBottom = theme.palette.background.default;
+    const GOLD_BG = theme.palette.primary.main;
+    const SECONDARY = theme.palette.text.secondary;
 
     const backgroundImage = isDarkMode ? reviewDark : reviewLight;
 
@@ -50,17 +52,14 @@ const Reviews = ({reviews}) => {
     if (shuffledReviews.length === 0) return null;
 
     return (
-        <SectionContainer
-            animation={staggerContainer}
-            id="instagram"
-        >
+        <SectionContainer animation={staggerContainer} id="comentarios">
             {/* Divisor superior */}
-            <TripleGlowWave  colorBottom={colorBottom}/>
+            <TripleGlowWave colorBottom={colorBottom} />
 
             <Box
                 sx={{
                     pt: { xs: 6, md: 10 },
-                    pb: { xs: 4, md: 6 },
+                    pb: { xs: 4, md: 16 },
                     overflow: 'hidden',
                 }}
             >
@@ -308,7 +307,7 @@ const Reviews = ({reviews}) => {
                     </Box>
                 </Box>
             </Box>
-            <LayeredWaves/>
+            <LayeredWaves fill1={SECONDARY} fill2={GOLD_BG} />
         </SectionContainer>
     );
 };
