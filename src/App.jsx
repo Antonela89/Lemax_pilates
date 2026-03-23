@@ -6,8 +6,7 @@ import Layout from './components/layout/Layout';
 import HeroSection from './features/hero/HeroSection';
 import ServicesSection from './features/servicesSection/ServicesSection';
 import BenefitsSection from './features/benefits/BenefitsSection';
-import CommentsSection from './features/comments/CommentsSection';
-import Locations from './components/locations/Locations';
+import Locations from './features/locations/Locations';
 import TeamSection from './features/team/TeamSection';
 import Reviews from './features/reviews/Reviews';
 import ContactCTA from './features/ContactCTA/ContactCTA';
@@ -37,7 +36,6 @@ function App() {
                 <HeroSection />
                 <ServicesSection services={services} />
                 <BenefitsSection benefits={benefits}/> 
-                <CommentsSection  reviews={reviews}/>
                 <Locations locations={locations} />
                 <TeamSection staff={staff} />
                 <Reviews reviews={reviews} />
