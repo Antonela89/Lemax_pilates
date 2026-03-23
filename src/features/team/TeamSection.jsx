@@ -55,7 +55,7 @@ const TeamSection = ({ staff = [] }) => {
     return (
         <SectionContainer
             background="background.default"
-            id="staff"
+            id="equipo"
             animation={sectionAnimation}
         >
             <Container

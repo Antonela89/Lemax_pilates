@@ -17,7 +17,7 @@ const ServicesSection = ({ services }) => {
 
     if (!services) return null;
     return (
-        <SectionContainer background={gold} animation={fadeInUpRight}>
+        <SectionContainer id="servicios" background={gold} animation={fadeInUpRight}>
             <Box
                 sx={{
                     pt: { xs: 8 },
@@ -48,7 +48,7 @@ const ServicesSection = ({ services }) => {
                     </Grid>
                 </Box>
             </Box>
-            <LayeredWaves fill1={text} fill2={paper} />
+            <LayeredWaves fill1={paper} fill2={text} />
         </SectionContainer>
     );
 };

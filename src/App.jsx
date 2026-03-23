@@ -4,13 +4,13 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { getDesignTokens } from '@/theme/theme';
 import Layout from './components/layout/Layout';
 import HeroSection from './features/hero/HeroSection';
+import ServicesSection from './features/servicesSection/ServicesSection';
 import BenefitsSection from './features/benefits/BenefitsSection';
 import Locations from './features/locations/Locations';
 import TeamSection from './features/team/TeamSection';
 import Reviews from './features/reviews/Reviews';
-import lemaxData from './data/data.json';
-import ServicesSection from './features/servicesSection/ServicesSection';
 import ContactCTA from './features/ContactCTA/ContactCTA';
+import lemaxData from './data/data.json';
 
 function App() {
     const { benefits, services, staff, locations, reviews, contact } = lemaxData;

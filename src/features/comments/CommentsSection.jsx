@@ -3,36 +3,30 @@ import { motion } from 'motion/react';
 import { staggerContainer, fadeInUpLeft } from '@/theme/animations';
 import SectionContainer from '@/components/common/SectionContainer/SectionContainer';
 import TitleSection from '@/components/common/TitleSection/TitleSection';
-import BenefitCard from '@/components/common/Cards/BenefitCard';
+import CommentCard from '@/components/common/Cards/CommentCard';
 import TripleGlowWave from '@/components/common/Divider/TripleGlowWave';
-import LayeredWaves from '@/components/common/Divider/LayeredWaves';
 
-const BenefitsSection = ({ benefits }) => {
+const CommentsSection = ({ reviews }) => {
     const theme = useTheme();
 
-    const colorSiguienteSeccion = theme.palette.background.alternate;
-    const oroAcento = theme.palette.primary.main;
-    const colorTop = theme.palette.background.default;
-    const colorBottom = theme.palette.background.paper;
+    const alternate = theme.palette.background.alternate;
+    const basic = theme.palette.background.default;
+
 
     return (
-        <SectionContainer
-            background="background.default"
-            animation={fadeInUpLeft}
-        >
-            <TripleGlowWave colorTop={colorTop} colorBottom={colorBottom}/>
+        <SectionContainer background="default" animation={fadeInUpLeft}>
             <Box
                 sx={{
-                    px: { xs: 8, md: 12 },
+                    pt: { xs: 8 },
+                    px: { xs: 2, md: 6 },
                     pb: { xs: 8, md: 16 },
-                    bgcolor: 'background.paper',
-                    mt: '-1px',
+                    bgcolor: 'background.alternate',
                 }}
             >
                 {/* Título de la sección */}
                 <TitleSection
-                    textOverline="¿por qué elegirnos?"
-                    texth2="beneficios"
+                    textOverline="¿qué opinan de nosotros?"
+                    texth2="comentarios"
                     animation={fadeInUpLeft}
                 />
 
@@ -42,17 +36,16 @@ const BenefitsSection = ({ benefits }) => {
                     sx={{ px: { xs: 8, md: 12 } }}
                 >
                     <Grid container spacing={3}>
-                        {benefits.map((item) => (
+                        {reviews.map((item) => (
                             <Grid size={{ xs: 12, sm: 6, md: 3 }} key={item.id}>
-                                <BenefitCard item={item} />
+                                <CommentCard item={item} />
                             </Grid>
                         ))}
                     </Grid>
                 </Box>
             </Box>
-            <LayeredWaves fill1={oroAcento} fill2={colorSiguienteSeccion}/>
+            <TripleGlowWave colorTop={alternate} colorBottom={basic} reverse />
         </SectionContainer>
     );
 };
-
-export default BenefitsSection;
+export default CommentsSection;
