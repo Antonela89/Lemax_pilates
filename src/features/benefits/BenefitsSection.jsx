@@ -12,13 +12,15 @@ const BenefitsSection = ({ benefits }) => {
 
     const colorSiguienteSeccion = theme.palette.background.alternate;
     const oroAcento = theme.palette.primary.main;
+    const colorTop = theme.palette.background.default;
+    const colorBottom = theme.palette.background.paper;
 
     return (
         <SectionContainer
             background="background.default"
             animation={fadeInUpLeft}
         >
-            <TripleGlowWave />
+            <TripleGlowWave colorTop={colorTop} colorBottom={colorBottom}/>
             <Box
                 sx={{
                     px: { xs: 8, md: 12 },
@@ -48,7 +50,7 @@ const BenefitsSection = ({ benefits }) => {
                     </Grid>
                 </Box>
             </Box>
-            <LayeredWaves fill1={oroAcento} fill2={colorSiguienteSeccion} />
+            <LayeredWaves fill1={oroAcento} fill2={colorSiguienteSeccion}/>
         </SectionContainer>
     );
 };

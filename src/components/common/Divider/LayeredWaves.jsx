@@ -10,6 +10,7 @@ const LayeredWaves = ({ fill1, fill2 }) => {
                 height: '120px',
                 mt: -10,
                 zIndex: 1,
+                overflow: 'visible',
             }}
         >
             <svg
@@ -20,11 +21,12 @@ const LayeredWaves = ({ fill1, fill2 }) => {
                     width: '100%',
                     display: 'block',
                     shapeRendering: 'auto',
-                    marginTop: '-1px', 
-                    marginBottom: '-1px', 
+                    marginTop: '-1px',
+                    marginBottom: '-1px',
                     transform: 'translateY(1px)',
                 }}
             >
+
                 {/* Onda de Fondo (Más clara o transparente) */}
                 <motion.path
                     initial={{ y: 20, opacity: 0 }}
