@@ -7,7 +7,7 @@ import TitleSection from '@/components/common/TitleSection/TitleSection';
 import ReviewCard from '@/components/common/Cards/ReviewCard';
 import { fadeInUpLeft, staggerContainer } from '@/theme/animations';
 import LayeredWaves from '@/components/common/Divider/LayeredWaves';
-import Marquee from '@/components/common/Marquee/Marquee';
+import Marquee from '@/components/common/Sliders/Marquee';
 
 const Reviews = ({ reviews = [] }) => {
     const theme = useTheme();

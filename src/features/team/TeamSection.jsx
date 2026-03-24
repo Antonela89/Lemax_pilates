@@ -2,7 +2,7 @@ import { Container, useTheme, useMediaQuery, Box } from '@mui/material';
 import SectionContainer from '@/components/common/SectionContainer/SectionContainer';
 import TitleSection from '@/components/common/TitleSection/TitleSection';
 import TripleGlowWave from '@/components/common/Divider/TripleGlowWave';
-import AutoSlider from '@/components/common/Slider/AutoSlider';
+import AutoSlider from '@/components/common/Sliders/AutoSlider';
 import StaffCard from '@/components/common/Cards/StaffCard';
 
 const TeamSection = ({ staff = [] }) => {
