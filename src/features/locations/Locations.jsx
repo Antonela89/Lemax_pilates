@@ -3,7 +3,8 @@ import { Box, Container, useTheme } from '@mui/material';
 // Componentes Reutilizables
 import SectionContainer from '@/components/common/SectionContainer/SectionContainer';
 import TitleSection from '@/components/common/TitleSection/TitleSection';
-import LocationCard from '@/components/common/Cards/LocationCard'; // IMPORTANTE
+import LocationCard from '@/components/common/Cards/LocationCard';
+import TripleGlowWave from '@/components/common/Divider/TripleGlowWave';
 
 // Configuración y Animaciones
 import { fadeInUpLeft, staggerContainer } from '@/theme/animations';
@@ -16,6 +17,8 @@ import mapBgLight from '@/assets/images/location/map_bg_light.webp';
 
 const Locations = ({ locations = [] }) => {
     const theme = useTheme();
+    const bgNextSection = theme.palette.background.alternate;
+    // const bgDefault = theme.palette.background.default;
     const isDarkMode = theme.palette.mode === 'dark';
 
     const currentMap = isDarkMode ? mapBgDark : mapBgLight;
@@ -24,10 +27,13 @@ const Locations = ({ locations = [] }) => {
     return (
         <SectionContainer
             id="locales"
-            background="default"
+            background="transparent"
             animation={staggerContainer}
-            
         >
+            <TripleGlowWave
+                colorTop={bgNextSection}
+                colorBottom="transparent"
+            />
 
             <Box
                 sx={{
