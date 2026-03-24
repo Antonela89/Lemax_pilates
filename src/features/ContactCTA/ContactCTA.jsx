@@ -30,7 +30,8 @@ const ContactCTA = ({ contact }) => {
     const GOLD_BG = theme.palette.primary.main;
     const CREAM_TEXT = theme.palette.text.primary;
 
-    const whatsappNumber = contact[0].whatsapp;
+    const whatsappNumber =
+        contact && contact.length > 0 ? contact[0].whatsapp : '';
     const message = encodeURIComponent(
         '¡Hola! Me gustaría agendar mi clase de prueba en Le Max Pilates.'
     );
