@@ -61,7 +61,10 @@ const ReelsSection = () => {
                 <Grid container spacing={3} sx={{ mt: 4 }}>
                     {itemsToRender.map((post, index) => (
                         <Grid size={{ xs: 12, sm: 6, md: 3 }} key={index}>
-                            <ReelCard post={post} isLoading={loading} />
+                            <ReelCard
+                                post={loading ? null : post}
+                                isLoading={loading}
+                            />
                         </Grid>
                     ))}
                 </Grid>

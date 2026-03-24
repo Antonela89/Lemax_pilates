@@ -7,6 +7,7 @@ import {
     useTheme,
 } from '@mui/material';
 import { motion } from 'motion/react';
+import InstagramIcon from '@mui/icons-material/Instagram';
 import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
 
 const ReelCard = ({ post, isLoading = false }) => {
@@ -16,30 +17,74 @@ const ReelCard = ({ post, isLoading = false }) => {
         display: 'block',
         position: 'relative',
         aspectRatio: '9/16', // Mantiene la proporción de Reel
-        borderRadius: 4,
+        borderRadius: 2,
         overflow: 'hidden',
         border: '1px solid',
         borderColor: 'divider',
+        bgcolor: theme.palette.mode === 'dark' ? '#1e1e1e' : '#f5f5f5',
     };
 
     // --- ESTADO CARGANDO (SKELETON) ---
     if (isLoading) {
         return (
-            <Paper elevation={0} sx={cardStyles}>
+            <Box sx={cardStyles}>
                 <Skeleton
                     variant="rectangular"
                     width="100%"
                     height="100%"
                     animation="wave"
+                    sx={{ bgcolor: alpha(theme.palette.primary.main, 0.03) }}
                 />
-            </Paper>
+
+                {/* Elemento central para llamar la atención */}
+                <Box
+                    sx={{
+                        position: 'absolute',
+                        inset: 0,
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        gap: 2,
+                    }}
+                >
+                    <motion.div
+                        animate={{
+                            scale: [1, 1.1, 1],
+                            opacity: [0.3, 0.6, 0.3],
+                        }}
+                        transition={{
+                            duration: 2,
+                            repeat: Infinity,
+                            ease: 'easeInOut',
+                        }}
+                    >
+                        <InstagramIcon
+                            sx={{
+                                fontSize: 60,
+                                color: alpha(theme.palette.primary.main, 0.2),
+                            }}
+                        />
+                    </motion.div>
+                    <Typography
+                        variant="caption"
+                        sx={{
+                            color: alpha(theme.palette.text.secondary, 0.4),
+                            fontWeight: 600,
+                            letterSpacing: 1,
+                        }}
+                    >
+                        CARGANDO REELS...
+                    </Typography>
+                </Box>
+            </Box>
         );
     }
 
     return (
         <Paper
             component={motion.a}
-            href={post.permalink}
+            href={post?.permalink}
             target="_blank"
             rel="noopener noreferrer"
             initial={{ opacity: 0, scale: 0.9 }}
@@ -55,17 +100,22 @@ const ReelCard = ({ post, isLoading = false }) => {
             }}
         >
             {/* Imagen del Reel */}
-            <Box
-                component="img"
-                src={post.mediaUrl}
-                alt="Le Max Pilates Instagram"
-                sx={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover',
-                    transition: 'transform 0.6s ease',
-                }}
-            />
+            {post?.mediaUrl ? (
+                <Box
+                    component="img"
+                    src={post.mediaUrl}
+                    alt="LeMax Pilates Reel Instagram"
+                    sx={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        transition: 'transform 0.6s ease',
+                    }}
+                />
+            ) : (
+                // Fallback si por alguna razón no hay imagen
+                <Box sx={{ height: '100%', bgcolor: 'action.hover' }} />
+            )}
 
             {/* Overlay interactivo */}
             <Box
@@ -73,7 +123,7 @@ const ReelCard = ({ post, isLoading = false }) => {
                 sx={{
                     position: 'absolute',
                     inset: 0,
-                    bgcolor: alpha(theme.palette.primary.main, 0.4),
+                    bgcolor: alpha(theme.palette.primary.main, 0.6),
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
@@ -89,14 +139,10 @@ const ReelCard = ({ post, isLoading = false }) => {
                     sx={{ fontSize: 50, color: '#fff', mb: 1 }}
                 />
                 <Typography
-                    variant="caption"
-                    sx={{
-                        color: '#fff',
-                        fontWeight: 600,
-                        textTransform: 'uppercase',
-                    }}
+                    variant="button"
+                    sx={{ color: '#fff', fontWeight: 800 }}
                 >
-                    Siguenos en Instagram
+                    VER REEL
                 </Typography>
             </Box>
         </Paper>
