@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-import { Box, Container } from '@mui/material';
+import { Box, Container, useTheme } from '@mui/material';
 import { keyframes } from '@mui/system';
 
 // Componentes y Configuración
@@ -7,6 +7,7 @@ import SectionContainer from '@/components/common/SectionContainer/SectionContai
 import TitleSection from '@/components/common/TitleSection/TitleSection';
 import ReviewCard from '@/components/common/Cards/ReviewCard';
 import { fadeInUpLeft, staggerContainer } from '@/theme/animations';
+import LayeredWaves from '@/components/common/Divider/LayeredWaves';
 
 const scrollInfinite = keyframes`
     0% { transform: translateX(0); }
@@ -14,6 +15,10 @@ const scrollInfinite = keyframes`
 `;
 
 const Reviews = ({ reviews = [] }) => {
+        const theme = useTheme();
+
+    const GOLD_BG = theme.palette.primary.main;
+    const SECONDARY = theme.palette.text.secondary;
     // Inicialización aleatoria (una sola vez)
     const [shuffledReviews] = useState(() => 
         [...reviews].sort(() => Math.random() - 0.5)
