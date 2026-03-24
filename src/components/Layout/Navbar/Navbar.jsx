@@ -91,8 +91,6 @@ const Navbar = ({ mode, toggleColorMode }) => {
             sx={{
                 backgroundColor: 'transparent',
                 backdropFilter: 'blur(10px)',
-                mt: 1,
-
                 borderBottom: `1px solid ${theme.palette.divider}`,
                 zIndex: theme.zIndex.drawer + 1,
             }}
