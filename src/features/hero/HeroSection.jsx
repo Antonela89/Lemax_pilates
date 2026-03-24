@@ -1,34 +1,29 @@
 import { useTheme } from '@mui/material/styles';
 import { Box, Typography, Button } from '@mui/material';
+import SectionContainer from '@/components/common/SectionContainer/SectionContainer';
 import { motion } from 'motion/react';
 import { fadeInUpLeft, staggerContainer, imageEntry } from '@/theme/animations';
 import heroImg from '@/assets/images/hero/hero.webp';
 
 // Versiones "motion" de los componentes MUI para que acepten sx y variants
-const MotionBox = motion(Box);
-const MotionTypography = motion(Typography);
-const MotionButton = motion(Button);
+const MotionBox = motion.create(Box);
+const MotionTypography = motion.create(Typography);
+const MotionButton = motion.create(Button);
 
 const HeroSection = () => {
     const theme = useTheme();
     const isDarkMode = theme.palette.mode === 'dark';
-    
+
     return (
-        <Box
+        <SectionContainer
             id="inicio"
-            component={motion.section}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: false, amount: 0.2 }}
             sx={{
                 display: 'flex',
                 flexDirection: { xs: 'column', md: 'row-reverse' },
                 minHeight: '90vh',
                 alignItems: 'center',
                 justifyContent: 'center',
-                overflow: 'hidden',
                 gap: '2rem',
-                bgcolor: 'background.default',
             }}
         >
             {/* CONTENEDOR DE IMAGEN */}
@@ -40,6 +35,8 @@ const HeroSection = () => {
                 }}
             >
                 <MotionBox
+                    initial="hidden"
+                    whileInView="visible"
                     variants={imageEntry(isDarkMode)}
                     className="motion-img"
                     component="img"
@@ -56,6 +53,8 @@ const HeroSection = () => {
 
             {/* --- LADO DEL TEXTO --- */}
             <MotionBox
+                initial="hidden"
+                whileInView="visible"
                 variants={staggerContainer}
                 sx={{
                     width: { xs: '100%', md: '40%' },
@@ -64,6 +63,8 @@ const HeroSection = () => {
                     gap: '1rem',
                     alignItems: { xs: 'center', md: 'flex-start' },
                     textAlign: { xs: 'center', md: 'left' },
+                    pb: { xs: 6 },
+                    px: { xs: 2 },
                 }}
             >
                 <MotionTypography
@@ -113,7 +114,7 @@ const HeroSection = () => {
                     Reservar Clase
                 </MotionButton>
             </MotionBox>
-        </Box>
+        </SectionContainer>
     );
 };
 

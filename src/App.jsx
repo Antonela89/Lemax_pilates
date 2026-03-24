@@ -13,7 +13,7 @@ import ContactCTA from './features/ContactCTA/ContactCTA';
 import lemaxData from './data/data.json';
 
 function App() {
-    const { benefits, services, staff, locations, reviews, contact } = lemaxData;
+    const { benefits, services, staff, locations, reviews } = lemaxData;
     const [mode, setMode] = useState('light');
 
     useEffect(() => {
@@ -32,14 +32,14 @@ function App() {
             {/* CssBaseline normaliza el CSS y aplica el color de fondo del tema */}
             <CssBaseline />
 
-            <Layout mode={mode} toggleColorMode={toggleColorMode}>
+            <Layout mode={mode} toggleColorMode={toggleColorMode} data={lemaxData}>
                 <HeroSection />
                 <ServicesSection services={services} />
                 <BenefitsSection benefits={benefits}/> 
                 <Locations locations={locations} />
                 <TeamSection staff={staff} />
                 <Reviews reviews={reviews} />
-                <ContactCTA contact={contact} />
+                <ContactCTA contact={locations} />
             </Layout>
         </ThemeProvider>
     );

@@ -7,13 +7,17 @@ import {
 } from '@mui/material';
 import { motion, AnimatePresence } from 'motion/react';
 import { useState, useEffect } from 'react';
-import SectionContainer from '../../components/common/SectionContainer/SectionContainer';
-import TitleSection from '../../components/common/TitleSection/TitleSection';
+import SectionContainer from '@/components/common/SectionContainer/SectionContainer';
+import TitleSection from '@/components/common/TitleSection/TitleSection';
+import TripleGlowWave from '@/components/common/Divider/TripleGlowWave';
 
 const TeamSection = ({ staff = [] }) => {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
     const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'lg'));
+
+    const colorTop = theme.palette.background.paper;
+    const colorBottom = theme.palette.background.default;
 
     const itemsToShow = isMobile ? 1 : isTablet ? 2 : 3;
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -58,6 +62,7 @@ const TeamSection = ({ staff = [] }) => {
             id="equipo"
             animation={sectionAnimation}
         >
+            <TripleGlowWave colorTop={colorTop} colorBottom={colorBottom} reverse />
             <Container
                 maxWidth="lg"
                 sx={{

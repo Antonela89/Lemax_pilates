@@ -3,7 +3,7 @@ import Navbar from './Navbar/Navbar';
 // import WhatsAppButton from '../common/WhatsAppButton';
 import Footer from './Footer/Footer';
 
-const Layout = ({ children, mode, toggleColorMode }) => {
+const Layout = ({ children, mode, toggleColorMode, data }) => {
     return (
         <Box
             sx={{
@@ -23,7 +23,7 @@ const Layout = ({ children, mode, toggleColorMode }) => {
             {/* Botón flotante de WhatsApp */}
             {/* <WhatsAppButton /> */}
 
-            <Footer />
+            <Footer data={data}/>
         </Box>
     );
 };
