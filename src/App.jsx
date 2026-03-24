@@ -11,9 +11,6 @@ import TeamSection from './features/team/TeamSection';
 import Reviews from './features/reviews/Reviews';
 import ContactCTA from './features/ContactCTA/ContactCTA';
 import lemaxData from './data/data.json';
-import ZenWaveDivider from './components/common/Divider/ZenFlowDivider';
-import LayeredWaves from './components/common/Divider/LayeredWaves';
-import { alpha } from '@mui/material/styles';
 
 function App() {
     const { benefits, services, staff, locations, reviews } = lemaxData;
@@ -40,16 +37,7 @@ function App() {
                 <ServicesSection services={services} />
                 <BenefitsSection benefits={benefits} />
                 <Locations locations={locations} />
-                <LayeredWaves
-                    fill1={alpha(theme.palette.primary.main, 0.4)} // Dorado sutil
-                    fill2={theme.palette.background.default} // Color sólido de Staff
-                />
                 <TeamSection staff={staff} />
-                {/* DIVISOR SIN LÍNEAS RECTAS */}
-                <ZenWaveDivider
-                    colorTop={theme.palette.background.default} // El color de arriba
-                    colorBottom={theme.palette.background.paper} // El color de abajo
-                />
                 <Reviews reviews={reviews} />
                 <ContactCTA contact={locations} />
             </Layout>
