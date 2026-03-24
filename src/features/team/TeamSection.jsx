@@ -13,9 +13,12 @@ const TeamSection = ({ staff = [] }) => {
 
     if (!staff.length) return null;
 
+    const bgTop = theme.palette.background.paper;
+    const bgBottom = theme.palette.background.default;
+
     return (
         <SectionContainer id="equipo" background="background.default">
-            <TripleGlowWave reverse />
+            <TripleGlowWave colorTop={bgTop} colorBottom={bgBottom} reverse />
 
             <Container maxWidth="lg" sx={{ py: { xs: 8, md: 12 } }}>
                 <TitleSection
