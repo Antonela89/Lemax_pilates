@@ -25,7 +25,7 @@ const SectionContainer = ({ children, background, animation, id, sx = {} }) => {
                     {children}
                 </Box>
             ) : (
-                { children }
+                children 
             )}
         </Box>
     );
