@@ -8,7 +8,7 @@ const LayeredWaves = ({ fill1, fill2 }) => {
                 position: 'relative',
                 width: '100%',
                 height: '120px',
-                mt: -10,
+                mt: -15,
                 zIndex: 1,
                 overflow: 'visible',
             }}
