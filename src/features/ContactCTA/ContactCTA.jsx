@@ -1,4 +1,4 @@
-import { Box, Container, Typography, Button } from '@mui/material';
+import { Box, Container, Typography, Button, useTheme } from '@mui/material';
 import { motion } from 'motion/react';
 import { keyframes } from '@mui/system';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
@@ -8,10 +8,9 @@ import SectionContainer from '@/components/common/SectionContainer/SectionContai
 import TitleSection from '@/components/common/TitleSection/TitleSection';
 
 // Configuración y Animaciones
-import data from '@/data/data.json';
 import { fadeInUpLeft, staggerContainer } from '@/theme/animations';
 
-const MotionButton = motion(Button);
+const MotionButton = motion.create(Button);
 
 // ANIMACIÓN BOTON: Solo afecta a la sombra expansiva
 const pulseAura = keyframes`
@@ -26,12 +25,16 @@ const pulseAura = keyframes`
   }
 `;
 
-const ContactCTA = () => {
-    const GOLD_BG = '#C5A069';
-    const CREAM_TEXT = '#E8E6E1';
+const ContactCTA = ({ contact }) => {
+    const theme = useTheme();
+    const GOLD_BG = theme.palette.primary.main;
+    const CREAM_TEXT = theme.palette.text.primary;
 
-    const whatsappNumber = data.locations[0].whatsapp;
-    const message = encodeURIComponent("¡Hola! Me gustaría agendar mi clase de prueba en Le Max Pilates.");
+    const whatsappNumber =
+        contact && contact.length > 0 ? contact[0].whatsapp : '';
+    const message = encodeURIComponent(
+        '¡Hola! Me gustaría agendar mi clase de prueba en Le Max Pilates.'
+    );
     const whatsappLink = `https://wa.me/${whatsappNumber}?text=${message}`;
 
     return (
@@ -43,20 +46,18 @@ const ContactCTA = () => {
             <Box
                 sx={{
                     bgcolor: GOLD_BG,
-                    mt: { xs: 4, md: 8 },
                     pt: { xs: 8, md: 10 },
                     px: { xs: 2, md: 6 },
                     pb: { xs: 10, md: 14 },
                     width: '100%',
                     textAlign: 'center',
                     position: 'relative',
-                    '& .MuiTypography-root': { 
+                    '& .MuiTypography-root': {
                         color: `${CREAM_TEXT} `,
-                    }
+                    },
                 }}
             >
                 <Container maxWidth="lg">
-                    
                     <TitleSection
                         textOverline="ES TU MOMENTO"
                         texth2="COMIENZA TU TRANSFORMACIÓN"
@@ -67,25 +68,26 @@ const ContactCTA = () => {
                     <Box
                         component={motion.div}
                         variants={fadeInUpLeft}
-                        sx={{ 
-                            mt: -2, 
+                        sx={{
+                            mt: -2,
                             mb: 6,
                             display: 'flex',
-                            justifyContent: 'center'
+                            justifyContent: 'center',
                         }}
                     >
-                        <Typography 
+                        <Typography
                             variant="body1"
-                            sx={{ 
-                                fontStyle: 'italic ', 
+                            sx={{
+                                fontStyle: 'italic ',
                                 fontSize: { xs: '1.1rem', md: '1.35rem' },
                                 fontWeight: 400,
                                 opacity: 0.95,
                                 maxWidth: '800px',
-                                lineHeight: 1.6
+                                lineHeight: 1.6,
                             }}
                         >
-                            Agenda hoy tu clase de prueba y descubre cómo Pilates puede cambiar tu vida.
+                            Agenda hoy tu clase de prueba y descubre cómo
+                            Pilates puede cambiar tu vida.
                         </Typography>
                     </Box>
 
@@ -94,7 +96,9 @@ const ContactCTA = () => {
                         <MotionButton
                             variants={fadeInUpLeft}
                             variant="contained"
-                            startIcon={<WhatsAppIcon sx={{ fontSize: '1.5rem' }} />}
+                            startIcon={
+                                <WhatsAppIcon sx={{ fontSize: '1.5rem' }} />
+                            }
                             href={whatsappLink}
                             target="_blank"
                             sx={{
@@ -106,16 +110,16 @@ const ContactCTA = () => {
                                 fontWeight: 700,
                                 borderRadius: '10px',
                                 textTransform: 'none',
-                                                                
+
                                 animation: `${pulseAura} 2s infinite cubic-bezier(0.4, 0, 0.6, 1)`,
-                                
-                                transition: 'background-color 0.3s ease, transform 0.2s ease',
+
+                                transition:
+                                    'background-color 0.3s ease, transform 0.2s ease',
                                 '&:hover': {
                                     bgcolor: '#1a1a18',
-                                    animation: 'none', 
-                                }
+                                    animation: 'none',
+                                },
                             }}
-                           
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                         >

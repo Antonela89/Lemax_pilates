@@ -9,8 +9,7 @@ import {
     List,
     ListItem,
     ListItemText,
-    useTheme,
-    Typography,
+    useTheme
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
@@ -25,8 +24,8 @@ const NAV_LINKS = [
     { label: 'Equipo', href: '#equipo' }
 ];
 
-import logoDark from '../../../assets/logos/logo-lemax-dark.jpg';
-import logoLight from '../../../assets/logos/logo-lemax-light.png';
+import logoDark from '@/assets/logos/logo-lemax-dark.jpg';
+import logoLight from '@/assets/logos/logo-lemax-light.png';
 
 const Logo = ({ mode }) => {
     return (
@@ -92,7 +91,6 @@ const Navbar = ({ mode, toggleColorMode }) => {
             sx={{
                 backgroundColor: 'transparent',
                 backdropFilter: 'blur(10px)',
-                mt: 1,
                 borderBottom: `1px solid ${theme.palette.divider}`,
                 zIndex: theme.zIndex.drawer + 1,
             }}

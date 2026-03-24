@@ -16,8 +16,7 @@ import LayeredWaves from './components/common/Divider/LayeredWaves';
 import { alpha } from '@mui/material/styles';
 
 function App() {
-    const { benefits, services, staff, locations, reviews, contact } =
-        lemaxData;
+    const { benefits, services, staff, locations, reviews } = lemaxData;
     const [mode, setMode] = useState('light');
 
     useEffect(() => {
@@ -36,7 +35,7 @@ function App() {
             {/* CssBaseline normaliza el CSS y aplica el color de fondo del tema */}
             <CssBaseline />
 
-            <Layout mode={mode} toggleColorMode={toggleColorMode}>
+            <Layout mode={mode} toggleColorMode={toggleColorMode} data={lemaxData}>
                 <HeroSection />
                 <ServicesSection services={services} />
                 <BenefitsSection benefits={benefits} />
@@ -52,8 +51,7 @@ function App() {
                     colorBottom={theme.palette.background.paper} // El color de abajo
                 />
                 <Reviews reviews={reviews} />
-
-                <ContactCTA contact={contact} />
+                <ContactCTA contact={locations} />
             </Layout>
         </ThemeProvider>
     );

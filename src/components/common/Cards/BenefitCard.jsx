@@ -1,14 +1,35 @@
 import { Paper, Typography, Box } from '@mui/material';
 import { motion } from 'motion/react';
-import * as Icons from '@mui/icons-material';
+import {
+    AccessibilityNew,
+    SelfImprovement,
+    Balance,
+    FitnessCenter,
+    Spa,
+    Healing,
+    Bolt,
+    Air,
+    HelpOutline,
+} from '@mui/icons-material';
 import { fadeInUpLeft } from '@/theme/animations';
 
-const MotionPaper = motion(Paper);
+const iconMap = {
+    AccessibilityNew: AccessibilityNew,
+    SelfImprovement: SelfImprovement,
+    Balance: Balance,
+    FitnessCenter: FitnessCenter,
+    Spa: Spa,
+    Healing: Healing,
+    Bolt: Bolt,
+    Air: Air
+};
 
-const BenefitCard = ({item}) => {
-    const { title, description, iconName } = item;
+const MotionPaper = motion.create(Paper);
+
+const BenefitCard = ({ item }) => {
+    const { title, description, icon } = item;
     // Mapeo dinámico del icono
-    const IconComponent = Icons[iconName] || Icons.HelpOutline;
+    const IconComponent = iconMap[icon] || HelpOutline;
 
     return (
         <MotionPaper

@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import { Box, Container } from '@mui/material';
 import { keyframes } from '@mui/system';
 
@@ -9,8 +9,8 @@ import ReviewCard from '@/components/common/Cards/ReviewCard';
 import { fadeInUpLeft, staggerContainer } from '@/theme/animations';
 
 const scrollInfinite = keyframes`
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
 `;
 
 const Reviews = ({ reviews = [] }) => {
@@ -62,6 +62,7 @@ const Reviews = ({ reviews = [] }) => {
                     </Box>
                 </Box>
             </Box>
+            <LayeredWaves fill1={SECONDARY} fill2={GOLD_BG} />
         </SectionContainer>
     );
 };
