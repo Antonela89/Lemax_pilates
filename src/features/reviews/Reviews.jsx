@@ -1,6 +1,5 @@
-import { useState, useMemo } from 'react';
+import { useState } from 'react';
 import { Box, Container, useTheme } from '@mui/material';
-import { keyframes } from '@mui/system';
 
 // Componentes y Configuración
 import SectionContainer from '@/components/common/SectionContainer/SectionContainer';
@@ -8,34 +7,23 @@ import TitleSection from '@/components/common/TitleSection/TitleSection';
 import ReviewCard from '@/components/common/Cards/ReviewCard';
 import { fadeInUpLeft, staggerContainer } from '@/theme/animations';
 import LayeredWaves from '@/components/common/Divider/LayeredWaves';
-
-const scrollInfinite = keyframes`
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-`;
+import Marquee from '@/components/common/Marquee/Marquee';
 
 const Reviews = ({ reviews = [] }) => {
-        const theme = useTheme();
+    const theme = useTheme();
 
     const GOLD_BG = theme.palette.primary.main;
     const SECONDARY = theme.palette.text.secondary;
     // Inicialización aleatoria (una sola vez)
-    const [shuffledReviews] = useState(() => 
+    const [shuffledReviews] = useState(() =>
         [...reviews].sort(() => Math.random() - 0.5)
-    );
-
-    const doubledReviews = useMemo(
-        () => [...shuffledReviews, ...shuffledReviews],
-        [shuffledReviews]
     );
 
     if (reviews.length === 0) return null;
 
     return (
-        <SectionContainer background="background.default" animation={staggerContainer} id="reviews">
-            {/* Box envolvente para aire arriba */}
-            <Box sx={{ pt: { xs: 8, md: 15 }, pb: { xs: 4, md: 6 }, overflow: 'hidden' }}>
-                
+        <SectionContainer animation={staggerContainer} id="reviews">
+            <Box sx={{ pt: { xs: 4 }, pb: { xs: 8 }, mb: { xs: 4, md: 15 } }}>
                 <Container maxWidth="lg">
                     <TitleSection
                         textOverline="Comunidad"
@@ -44,27 +32,13 @@ const Reviews = ({ reviews = [] }) => {
                     />
                 </Container>
 
-                <Box sx={{
-                    width: '100%',
-                    position: 'relative',
-                    mt: 6,
-                    overflow: 'hidden',
-                    maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)',
-                    WebkitMaskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)',
-                }}>
-                    <Box sx={{
-                        display: 'flex',
-                        width: 'max-content',
-                        animation: `${scrollInfinite} 80s linear infinite`,
-                        '&:hover': { animationPlayState: 'paused' },
-                        '@media (max-width: 600px)': { animationDuration: '45s' },
-                    }}>
-                        {doubledReviews.map((review, idx) => (
-                            <Box key={`${review.id}-${idx}`} sx={{ width: { xs: '300px', md: '380px' }, px: 2, flexShrink: 0 }}>
-                                <ReviewCard review={review} />
-                            </Box>
-                        ))}
-                    </Box>
+                <Box sx={{ mt: 6 }}>
+                    <Marquee
+                        items={shuffledReviews}
+                        renderItem={(review) => <ReviewCard review={review} />}
+                        speed="90s" 
+                        itemWidth={{ xs: '280px', md: '400px' }}
+                    />
                 </Box>
             </Box>
             <LayeredWaves fill1={SECONDARY} fill2={GOLD_BG} />
