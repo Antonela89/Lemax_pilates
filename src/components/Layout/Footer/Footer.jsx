@@ -22,9 +22,9 @@ import MailIcon from '@mui/icons-material/Mail';
 // Components
 import FooterColumn from './FooterColumn';
 import FooterItem from './FooterItem';
-import data from '../../../data/data.json';
+// import data from '../../../data/data.json';
 
-export default function Footer() {
+export default function Footer({data}) {
   const currentYear = new Date().getFullYear();
 
   // ICONOS NAVBAR
@@ -110,7 +110,7 @@ export default function Footer() {
                 color: 'text.secondary',
               }}
             >
-              "Transforma tu bienestar a través del movimiento consciente."
+              Transforma tu bienestar a través del movimiento consciente.
             </Typography>
 
             {/* REDES */}
