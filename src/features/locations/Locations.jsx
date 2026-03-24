@@ -1,4 +1,3 @@
-import React from 'react';
 import { Box, Container, useTheme } from '@mui/material';
 
 // Componentes Reutilizables

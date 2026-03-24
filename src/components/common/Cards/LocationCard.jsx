@@ -17,7 +17,7 @@ import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import RoomIcon from '@mui/icons-material/Room';
 import { fadeInUpLeft, fadeInUpRight } from '@/theme/animations';
 
-const MotionBox = motion(Box);
+const MotionBox = motion.create(Box);
 
 // Componente Interno de Detalle (Label: Valor)
 const Detail = ({ icon, label, value }) => (

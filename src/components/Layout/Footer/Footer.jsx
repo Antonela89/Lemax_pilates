@@ -22,7 +22,6 @@ import MailIcon from '@mui/icons-material/Mail';
 // Components
 import FooterColumn from './FooterColumn';
 import FooterItem from './FooterItem';
-// import data from '../../../data/data.json';
 
 export default function Footer({data}) {
   const currentYear = new Date().getFullYear();
