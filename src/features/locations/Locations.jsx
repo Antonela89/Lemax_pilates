@@ -3,7 +3,8 @@ import { Box, Container, useTheme } from '@mui/material';
 // Componentes Reutilizables
 import SectionContainer from '@/components/common/SectionContainer/SectionContainer';
 import TitleSection from '@/components/common/TitleSection/TitleSection';
-import LocationCard from '@/components/common/Cards/LocationCard'; // IMPORTANTE
+import LocationCard from '@/components/common/Cards/LocationCard';
+import TripleGlowWave from '@/components/common/Divider/TripleGlowWave';
 
 // Configuración y Animaciones
 import { fadeInUpLeft, staggerContainer } from '@/theme/animations';
@@ -16,13 +17,24 @@ import mapBgLight from '@/assets/images/location/map_bg_light.webp';
 
 const Locations = ({ locations = [] }) => {
     const theme = useTheme();
+    const bgNextSection = theme.palette.background.alternate;
+    // const bgDefault = theme.palette.background.default;
     const isDarkMode = theme.palette.mode === 'dark';
 
     const currentMap = isDarkMode ? mapBgDark : mapBgLight;
     const images = [local1, local2];
 
     return (
-        <SectionContainer id="locales" background="default" animation={staggerContainer}>
+        <SectionContainer
+            id="locales"
+            background="transparent"
+            animation={staggerContainer}
+        >
+            <TripleGlowWave
+                colorTop={bgNextSection}
+                colorBottom="transparent"
+            />
+
             <Box
                 sx={{
                     position: 'relative',
@@ -35,7 +47,10 @@ const Locations = ({ locations = [] }) => {
                 <Box
                     sx={{
                         position: 'absolute',
-                        top: -50, left: 0, width: '100%', bottom: -100,
+                        top: -50,
+                        left: 0,
+                        width: '100%',
+                        bottom: -200,
                         backgroundImage: `url(${currentMap})`,
                         backgroundSize: 'cover',
                         backgroundPosition: 'center',
@@ -49,24 +64,41 @@ const Locations = ({ locations = [] }) => {
                 />
 
                 {/* 2. DESVANECIMIENTOS DE FONDO */}
-                <Box sx={{
-                    position: 'absolute',
-                    top: -75, left: 0, width: '100%', height: '350px',
-                    background: `linear-gradient(to bottom, ${theme.palette.background.default} 10%, transparent 100%)`,
-                    zIndex: 1,
-                    pointerEvents: 'none',
-                }} />
+                <Box
+                    sx={{
+                        position: 'absolute',
+                        top: -75,
+                        left: 0,
+                        width: '100%',
+                        height: '350px',
+                        background: `linear-gradient(to bottom, ${theme.palette.background.default} 10%, transparent 100%)`,
+                        zIndex: 1,
+                        pointerEvents: 'none',
+                    }}
+                />
 
-                <Box sx={{
-                    position: 'absolute',
-                    top: -100, left: 0, width: '100%', bottom: -100,
-                    background: `radial-gradient(circle at center, transparent 0%, ${theme.palette.background.default} 95%)`,
-                    zIndex: 1,
-                    pointerEvents: 'none',
-                }} />
+                <Box
+                    sx={{
+                        position: 'absolute',
+                        top: -100,
+                        left: 0,
+                        width: '100%',
+                        bottom: -100,
+                        background: `radial-gradient(circle at center, transparent 0%, ${theme.palette.background.default} 95%)`,
+                        zIndex: 1,
+                        pointerEvents: 'none',
+                    }}
+                />
 
                 {/* 3. CONTENIDO PRINCIPAL */}
-                <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 2, py: { xs: 4, md: 8 } }}>
+                <Container
+                    maxWidth="lg"
+                    sx={{
+                        position: 'relative',
+                        zIndex: 2,
+                        py: { xs: 4, md: 8 },
+                    }}
+                >
                     <TitleSection
                         textOverline="NUESTROS LOCALES"
                         texth2="VISITANOS"
@@ -83,18 +115,18 @@ const Locations = ({ locations = [] }) => {
                         }}
                     >
                         {locations.map((loc, index) => (
-                            <LocationCard 
-                                key={loc.id} 
-                                loc={loc} 
-                                index={index} 
-                                image={images[index]} 
+                            <LocationCard
+                                key={loc.id}
+                                loc={loc}
+                                index={index}
+                                image={images[index]}
                             />
                         ))}
                     </Box>
                 </Container>
-                
+
                 {/* Espacio para la onda separadora que viene después */}
-                <Box sx={{ height: { xs: '40px', md: '95px' } }} /> 
+                <Box sx={{ height: { xs: '40px', md: '95px' } }} />
             </Box>
         </SectionContainer>
     );

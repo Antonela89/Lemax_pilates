@@ -10,17 +10,18 @@ import LayeredWaves from '@/components/common/Divider/LayeredWaves';
 const BenefitsSection = ({ benefits }) => {
     const theme = useTheme();
 
-    const loading = !benefits || benefits.length === 0;
-    const items = loading ? [1, 2, 3, 4, 5, 6, 7, 8] : benefits;
-
-    const colorSiguienteSeccion = theme.palette.background.alternate;
-    const oroAcento = theme.palette.primary.main;
-    const colorTop = theme.palette.background.default;
-    const colorBottom = theme.palette.background.paper;
+    const bgNextSection = theme.palette.background.alternate;
+    const goldAccent = theme.palette.primary.main;
+    const bgTop = theme.palette.background.default;
+    const bgBottom = theme.palette.background.paper;
 
     return (
-        <SectionContainer animation={fadeInUpLeft}>
-            <TripleGlowWave colorTop={colorTop} colorBottom={colorBottom} />
+        <SectionContainer
+            background="background.default"
+            animation={fadeInUpLeft}
+            sx={{ position: 'relative', zIndex: 2 }}
+        >
+            <TripleGlowWave colorTop={bgTop} colorBottom={bgBottom} />
             <Box
                 sx={{
                     px: { xs: 8, md: 12 },
@@ -52,7 +53,7 @@ const BenefitsSection = ({ benefits }) => {
                     </Grid>
                 </Box>
             </Box>
-            <LayeredWaves fill1={oroAcento} fill2={colorSiguienteSeccion} />
+            <LayeredWaves fill1={goldAccent} fill2={bgNextSection} />
         </SectionContainer>
     );
 };

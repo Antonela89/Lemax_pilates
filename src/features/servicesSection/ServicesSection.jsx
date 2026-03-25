@@ -11,18 +11,24 @@ import LayeredWaves from '@/components/common/Divider/LayeredWaves';
 const ServicesSection = ({ services }) => {
     const theme = useTheme();
 
+    const loading = !services || services.length === 0;
+    const items = loading ? [1, 2, 3, 4] : services;
+
     const gold = theme.palette.primary.main;
     const text = theme.palette.background.default;
     const paper = theme.palette.background.paper;
 
-    if (!services) return null;
     return (
-        <SectionContainer id="servicios" background={gold} animation={fadeInUpRight}>
+        <SectionContainer
+            id="servicios"
+            background={gold}
+            animation={fadeInUpRight}
+        >
             <Box
                 sx={{
                     pt: { xs: 8 },
                     px: { xs: 2, md: 6 },
-                    pb: { xs: 8, md: 16 }
+                    pb: { xs: 12, sm: 18, md: 24 },
                 }}
             >
                 {/* Título de la sección */}
@@ -40,9 +46,19 @@ const ServicesSection = ({ services }) => {
                     viewport={{ once: true, amount: 0.2 }}
                 >
                     <Grid container spacing={3}>
-                        {services.map((item, i) => (
-                            <Grid size={{ xs: 12, sm: 6, md: 3 }} key={i}>
-                                <ServiceCard item={item} />
+                        {items.map((item, index) => (
+                            <Grid
+                                size={{ xs: 12, sm: 6, md: 3 }}
+                                key={
+                                    loading
+                                        ? `skeleton-${index}`
+                                        : `service-${index}`
+                                }
+                            >
+                                <ServiceCard
+                                    item={loading ? null : item}
+                                    isLoading={loading}
+                                />
                             </Grid>
                         ))}
                     </Grid>
