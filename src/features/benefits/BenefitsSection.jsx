@@ -25,7 +25,7 @@ const BenefitsSection = ({ benefits }) => {
             <Box
                 sx={{
                     px: { xs: 8, md: 12 },
-                    pb: { xs: 8, md: 16 },
+                    pb: { xs: 12, sm: 18, md: 24 },
                     bgcolor: 'background.paper',
                     mt: '-1px',
                 }}
@@ -39,9 +39,15 @@ const BenefitsSection = ({ benefits }) => {
 
                 <Box component={motion.div} variants={staggerContainer}>
                     <Grid container spacing={3}>
-                        {benefits.map((item) => (
-                            <Grid size={{ xs: 12, sm: 6, md: 3 }} key={item.id}>
-                                <BenefitCard item={item} />
+                        {items.map((item, index) => (
+                            <Grid
+                                size={{ xs: 12, sm: 6, md: 3 }}
+                                key={loading ? index : item.id}
+                            >
+                                <BenefitCard
+                                    item={loading ? null : item}
+                                    isLoading={loading}
+                                />
                             </Grid>
                         ))}
                     </Grid>
