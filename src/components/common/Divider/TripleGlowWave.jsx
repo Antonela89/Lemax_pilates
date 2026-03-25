@@ -25,8 +25,7 @@ const TripleGlowWave = ({ colorTop, colorBottom, reverse = false }) => {
                 position: 'relative',
                 background: `linear-gradient(to bottom, ${bgTop} 0%, ${bgBottom} 100%)`,
                 overflow: 'hidden',
-                mt: '-1px',
-                mb: '-1px',
+                my: '-1px',
                 py: { xs: 2, md: 4 },
             }}
         >
