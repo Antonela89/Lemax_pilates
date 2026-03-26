@@ -16,7 +16,7 @@ const Layout = ({ children, mode, toggleColorMode, data }) => {
         >
             <Navbar mode={mode} toggleColorMode={toggleColorMode} />
 
-            <Box component="main" sx={{ flexGrow: 1 }}>
+            <Box component="main" sx={{ flexGrow: 1, pt: { xs: '80px', md: '80px' } }}>
                 {children}
             </Box>
 
