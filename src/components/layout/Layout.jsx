@@ -1,6 +1,6 @@
 import { Box } from '@mui/material';
 import Navbar from './Navbar/Navbar';
-// import WhatsAppButton from '../common/WhatsAppButton';
+import QueryButton from '../common/QueryButton/QueryButton';
 import Footer from './Footer/Footer';
 
 const Layout = ({ children, mode, toggleColorMode, data }) => {
@@ -21,7 +21,7 @@ const Layout = ({ children, mode, toggleColorMode, data }) => {
             </Box>
 
             {/* Botón flotante de WhatsApp */}
-            {/* <WhatsAppButton /> */}
+            <QueryButton whatsappNumber={data.locations[0].whatsapp} />
 
             <Footer data={data}/>
         </Box>
