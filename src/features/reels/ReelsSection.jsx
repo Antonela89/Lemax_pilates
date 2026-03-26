@@ -54,7 +54,7 @@ const ReelsSection = () => {
             <Container maxWidth="lg" sx={{ py: { xs: 8, md: 12 } }}>
                 <TitleSection
                     textOverline="Social Media"
-                    texth2="LeMax en Instagram"
+                    texth2="Le Max en Instagram"
                     animation={fadeInUpLeft}
                 />
 
