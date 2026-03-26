@@ -16,7 +16,7 @@ const ReelCard = ({ post, isLoading = false }) => {
     const cardStyles = {
         display: 'block',
         position: 'relative',
-        aspectRatio: '9/16', // Mantiene la proporción de Reel
+        aspectRatio: '9/16', 
         borderRadius: 2,
         overflow: 'hidden',
         border: '1px solid',
@@ -33,7 +33,7 @@ const ReelCard = ({ post, isLoading = false }) => {
                     width="100%"
                     height="100%"
                     animation="wave"
-                    sx={{ bgcolor: alpha(theme.palette.primary.main, 0.03) }}
+                    sx={{ bgcolor: alpha(theme.palette.primary.main, 0.05) }}
                 />
 
                 {/* Elemento central para llamar la atención */}
