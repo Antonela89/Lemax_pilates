@@ -27,7 +27,7 @@ const GlowWave = ({ background }) => {
                     // Efecto de iluminación (Glow)
                     style={{
                         filter: 'drop-shadow(0px 0px 8px rgba(197, 160, 105, 0.8))',
-                        bgcolor: `background.${background}`,
+                        bgcolor: {background},
                     }}
                 />
 

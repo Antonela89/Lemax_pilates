@@ -1,9 +1,9 @@
 import { Box } from '@mui/material';
 import Navbar from './Navbar/Navbar';
-// import WhatsAppButton from '../common/WhatsAppButton';
+import QueryButton from '../common/QueryButton/QueryButton';
 import Footer from './Footer/Footer';
 
-const Layout = ({ children, mode, toggleColorMode }) => {
+const Layout = ({ children, mode, toggleColorMode, data }) => {
     return (
         <Box
             sx={{
@@ -16,14 +16,14 @@ const Layout = ({ children, mode, toggleColorMode }) => {
         >
             <Navbar mode={mode} toggleColorMode={toggleColorMode} />
 
-            <Box component="main" sx={{ flexGrow: 1 }}>
+            <Box component="main" sx={{ flexGrow: 1, pt: { xs: '80px', md: '80px' } }}>
                 {children}
             </Box>
 
             {/* Botón flotante de WhatsApp */}
-            {/* <WhatsAppButton /> */}
+            <QueryButton whatsappNumber={data.locations[0].whatsapp} />
 
-            <Footer />
+            <Footer data={data}/>
         </Box>
     );
 };

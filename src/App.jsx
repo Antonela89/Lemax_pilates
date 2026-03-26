@@ -2,14 +2,19 @@ import { useState, useEffect, useMemo } from 'react';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { getDesignTokens } from '@/theme/theme';
-import { Button } from '@mui/material';
 import Layout from './components/layout/Layout';
 import HeroSection from './features/hero/HeroSection';
+import ServicesSection from './features/servicesSection/ServicesSection';
 import BenefitsSection from './features/benefits/BenefitsSection';
+import Locations from './features/locations/Locations';
+import TeamSection from './features/team/TeamSection';
+import Reviews from './features/reviews/Reviews';
+import ContactCTA from './features/ContactCTA/ContactCTA';
+import ReelsSection from './features/reels/ReelsSection';
 import lemaxData from './data/data.json';
 
 function App() {
-    const { benefits } = lemaxData;
+    const { benefits, services, staff, locations, reviews } = lemaxData;
     const [mode, setMode] = useState('light');
 
     useEffect(() => {
@@ -28,9 +33,19 @@ function App() {
             {/* CssBaseline normaliza el CSS y aplica el color de fondo del tema */}
             <CssBaseline />
 
-            <Layout mode={mode} toggleColorMode={toggleColorMode}>
+            <Layout
+                mode={mode}
+                toggleColorMode={toggleColorMode}
+                data={lemaxData}
+            >
                 <HeroSection />
-                <BenefitsSection benefits={benefits}/> 
+                <ServicesSection services={services} />
+                <BenefitsSection benefits={benefits} />
+                <Locations locations={locations} />
+                <TeamSection staff={staff} />
+                <ReelsSection />
+                <Reviews reviews={reviews} />
+                <ContactCTA contact={locations} />
             </Layout>
         </ThemeProvider>
     );

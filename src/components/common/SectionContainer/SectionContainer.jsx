@@ -1,21 +1,32 @@
 import { Box } from '@mui/material';
 import { motion } from 'motion/react';
 
-const SectionContainer = ({ children, background, animation }) => {
-
+const SectionContainer = ({ children, background, animation, id, sx = {} }) => {
     return (
         <Box
-            component={motion.section}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: false, amount: 0.2 }}
-            variants={animation}
+            id={id}
+            component="section"
             sx={{
-                pb: { xs: 8, md: 12 },
-                bgcolor: `background.${background}`,
+                width: '100%',
+                bgcolor: background || 'background.default',
+                position: 'relative',
+                overflow: 'hidden',
+                ...sx,
             }}
         >
-            {children}
+            {animation ? (
+                <Box
+                    component={motion.div}
+                    variants={animation}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.2 }}
+                >
+                    {children}
+                </Box>
+            ) : (
+                children 
+            )}
         </Box>
     );
 };
