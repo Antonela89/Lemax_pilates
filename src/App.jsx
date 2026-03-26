@@ -10,6 +10,7 @@ import Locations from './features/locations/Locations';
 import TeamSection from './features/team/TeamSection';
 import Reviews from './features/reviews/Reviews';
 import ContactCTA from './features/ContactCTA/ContactCTA';
+import ReelsSection from './features/reels/ReelsSection';
 import lemaxData from './data/data.json';
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
                 <BenefitsSection benefits={benefits} />
                 <Locations locations={locations} />
                 <TeamSection staff={staff} />
+                <ReelsSection />
                 <Reviews reviews={reviews} />
                 <ContactCTA contact={locations} />
             </Layout>
