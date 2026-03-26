@@ -15,10 +15,12 @@ const Marquee = ({
     pauseOnHover = true,
     itemWidth = { xs: '300px', md: '380px' },
 }) => {
-    // Duplicar los items para el efecto infinito
-    const doubledItems = useMemo(() => [...items, ...items], [items]);
+    const doubledItems = useMemo(() => {
+        const safe = Array.isArray(items) ? items : [];
+        return safe.length > 0 ? [...safe, ...safe] : [];
+    }, [items]);
 
-    if (items.length === 0) return null;
+    if (doubledItems.length === 0) return null;
 
     return (
         <Box
@@ -26,7 +28,7 @@ const Marquee = ({
                 width: '100%',
                 position: 'relative',
                 overflow: 'hidden',
-                // Máscara para desvanecer bordes 
+                // Máscara para desvanecer bordes
                 maskImage:
                     'linear-gradient(to right, transparent, black 10%, black 90%, transparent)',
                 WebkitMaskImage:
@@ -48,7 +50,7 @@ const Marquee = ({
             >
                 {doubledItems.map((item, idx) => (
                     <Box
-                        key={`${item.id || idx}-${idx}`}
+                        key={`marquee-item-${idx}`}
                         sx={{
                             width: itemWidth,
                             p: 2,

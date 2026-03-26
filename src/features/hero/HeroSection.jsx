@@ -106,10 +106,7 @@ const HeroSection = () => {
                     variant="contained"
                     component="a"
                     href="#contacto"
-                    sx={{
-                        width: { xs: '90%', sm: '70%', md: '50%' },
-                        py: 1.5,
-                    }}
+                    sx={{ px: 4, py: 1.5, fontWeight: 700 }}
                 >
                     Reservar Clase
                 </MotionButton>
