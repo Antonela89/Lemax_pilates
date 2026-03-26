@@ -19,7 +19,7 @@ const ReviewCard = ({ review, loading = false }) => {
         borderRadius: `${theme.shape.borderRadius * 1.5}px`,
         border: '1px solid',
         position: 'relative',
-        overflow: 'hidden', // Evita que cualquier resto de imagen sobresalga
+        overflow: 'hidden', 
     };
 
     if (loading) {
@@ -66,29 +66,27 @@ const ReviewCard = ({ review, loading = false }) => {
                 boxShadow: isDarkMode ? `0 10px 25px ${alpha('#000', 0.5)}` : `0 10px 25px ${alpha(theme.palette.primary.main, 0.08)}`,
                 transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
                 
-                // 🔥 ANIMACIÓN HOVER
+                // ANIMACIÓN HOVER
                 '&:hover': {
                     transform: 'translateY(-8px)',
                     borderColor: theme.palette.primary.main,
                     boxShadow: `0 18px 35px ${alpha(theme.palette.primary.main, 0.2)}`,
                     
                     '& .card-silhouette': {
-                        // Movemos del centro (-50%) hacia la esquina derecha
-                        // El cálculo 'calc(-50% + 80px)' la empuja hacia abajo y a la derecha
                         transform: 'translate(calc(-50% + 55px), calc(-50% + 55px)) scale(1.1)',
                         opacity: isDarkMode ? 0.2 : 0.25, // Más color en hover
                     }
                 },
             }}
         >
-            {/* 🟡 SILUETA DORADA DINÁMICA */}
+            {/* SILUETA*/}
             <Box
                 className="card-silhouette"
                 sx={{
                     position: 'absolute',
                     top: '50%',
                     left: '50%',
-                    // Estado inicial: Perfectamente centrada
+                    // Estado inicial
                     transform: 'translate(-50%, -50%)',
                     
                     width: '220px',
@@ -98,11 +96,11 @@ const ReviewCard = ({ review, loading = false }) => {
                     backgroundRepeat: 'no-repeat',
                     backgroundPosition: 'center',
                     
-                    // Opacidad inicial (Más alta en modo claro como pediste)
+                    // Opacidad inicial 
                     opacity: isDarkMode ? 0.08 : 0.15, 
                     
                     zIndex: 0,
-                    transition: 'all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)', // Efecto elástico sutil
+                    transition: 'all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)', 
                     pointerEvents: 'none',
                 }}
             />

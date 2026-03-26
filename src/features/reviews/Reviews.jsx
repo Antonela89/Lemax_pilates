@@ -14,7 +14,7 @@ const Reviews = ({ reviews = [] }) => {
 
     useEffect(() => {
         const timer = setTimeout(() => {
-            // 🛡️ Verificamos que sea un array antes de intentar barajar
+            // Verificamos que sea un array
             if (Array.isArray(reviews) && reviews.length > 0) {
                 const shuffled = [...reviews].sort(() => Math.random() - 0.5);
                 setShuffledReviews(shuffled);
@@ -24,8 +24,7 @@ const Reviews = ({ reviews = [] }) => {
         return () => clearTimeout(timer);
     }, [reviews]);
 
-    // 🛡️ Si después de cargar NO hay datos, no mostramos la sección.
-    // Esto es mucho mejor que mostrar una sección vacía o rota.
+    // Si después de cargar NO hay datos, no mostramos la sección.
     if (!loading && shuffledReviews.length === 0) return null;
 
     const skeletonItems = Array.from({ length: 3 }, (_, i) => ({ id: `skeleton-${i}` }));

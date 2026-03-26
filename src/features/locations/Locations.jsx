@@ -18,7 +18,7 @@ import mapBgLight from '@/assets/images/location/map_bg_light.webp';
 
 const Locations = ({ locations = [] }) => {
     const theme = useTheme();
-    const [loading, setLoading] = useState(true); // 🟢 Estado de carga como en Reviews
+    const [loading, setLoading] = useState(true); 
     const isDarkMode = theme.palette.mode === 'dark';
 
     const bgNextSection = theme.palette.background.alternate;
@@ -26,7 +26,7 @@ const Locations = ({ locations = [] }) => {
     const images = [local1, local2];
 
     useEffect(() => {
-        // 🟢 Simulamos la carga para mostrar el Skeleton (Efecto Premium)
+        // Simulamos la carga para mostrar el Skeleton
         const timer = setTimeout(() => {
             setLoading(false);
         }, 1500); 
@@ -49,7 +49,7 @@ const Locations = ({ locations = [] }) => {
 
             <Box sx={{ position: 'relative', width: '100%', overflow: 'hidden' }}>
                 
-                {/* 1. EL MAPA (Fondo) */}
+                {/*  MAPA (Fondo) */}
                 <Box
                     sx={{
                         position: 'absolute',
@@ -65,7 +65,7 @@ const Locations = ({ locations = [] }) => {
                     }}
                 />
 
-                {/* 2. OVERLAYS DE GRADIENTE */}
+                {/* OVERLAYS DE GRADIENTE */}
                 <Box
                     sx={{
                         position: 'absolute',
@@ -76,7 +76,7 @@ const Locations = ({ locations = [] }) => {
                     }}
                 />
 
-                {/* 3. CONTENIDO (CARDS) */}
+                {/* CARDS*/}
                 <Container
                     maxWidth="lg"
                     sx={{
@@ -102,12 +102,12 @@ const Locations = ({ locations = [] }) => {
                         }}
                     >
                         {loading ? (
-                            // 🟢 Muestra Skeletons mientras carga (Igual que en Reviews)
+                            // skeleton de 2 cards
                             [1, 2].map((_, i) => (
                                 <LocationCard key={`skeleton-${i}`} loading={true} index={i} />
                             ))
                         ) : (
-                            // 🟢 Muestra los datos reales
+                            //Datos reales
                             locations.map((loc, index) => (
                                 <LocationCard
                                     key={loc.id || index}

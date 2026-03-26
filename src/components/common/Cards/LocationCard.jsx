@@ -1,15 +1,5 @@
 import React from 'react';
-import { 
-    Box, 
-    Typography, 
-    Button, 
-    Stack, 
-    Card, 
-    CardMedia, 
-    CardContent, 
-    alpha, 
-    useTheme,
-    Skeleton 
+import { Box, Typography, Button, Stack, Card, CardMedia, CardContent, alpha, useTheme, Skeleton 
 } from '@mui/material';
 import { motion } from 'framer-motion';
 import PlaceIcon from '@mui/icons-material/Place';
@@ -19,8 +9,6 @@ import RoomIcon from '@mui/icons-material/Room';
 import { fadeInUpLeft, fadeInUpRight } from '@/theme/animations';
 
 const MotionBox = motion.create(Box);
-
-// Componente de detalle con soporte para Skeleton
 const Detail = ({ icon, label, value, loading }) => (
     <Box sx={{ display: 'flex', gap: 2, alignItems: 'flex-start' }}>
         <Box sx={{ color: 'primary.main', mt: 0.3 }}>
@@ -62,7 +50,7 @@ const LocationCard = ({ loc, index, image, loading = false }) => {
         return `${days[0]} a ${days[days.length - 1]}: ${allHours[0]} - ${allHours[allHours.length - 1]}`;
     };
 
-    // 🟢 ESTADO DE CARGA (SKELETON)
+    // ESTADO DE CARGA
     if (loading) {
         return (
             <Box sx={{ flex: 1, minWidth: { xs: '100%', md: 350 }, height: '100%' }}>
@@ -87,7 +75,7 @@ const LocationCard = ({ loc, index, image, loading = false }) => {
         );
     }
 
-    // 🛡️ SEGURIDAD: Si no hay data y no está cargando, no mostramos nada roto
+    // Si no hay data y no está cargando
     if (!loc) return null;
 
     return (
