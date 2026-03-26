@@ -10,6 +10,9 @@ import LayeredWaves from '@/components/common/Divider/LayeredWaves';
 const BenefitsSection = ({ benefits }) => {
     const theme = useTheme();
 
+    const loading = !benefits || benefits.length === 0;
+    const items = loading ? [1, 2, 3, 4, 5, 6, 7, 8] : benefits;
+
     const bgNextSection = theme.palette.background.alternate;
     const goldAccent = theme.palette.primary.main;
     const bgTop = theme.palette.background.default;
