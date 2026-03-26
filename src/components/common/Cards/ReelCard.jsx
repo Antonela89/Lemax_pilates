@@ -16,7 +16,7 @@ const ReelCard = ({ post, isLoading = false }) => {
     const cardStyles = {
         display: 'block',
         position: 'relative',
-        aspectRatio: '9/16', 
+        aspectRatio: '9/16',
         borderRadius: 2,
         overflow: 'hidden',
         border: '1px solid',
@@ -24,8 +24,8 @@ const ReelCard = ({ post, isLoading = false }) => {
         bgcolor: theme.palette.mode === 'dark' ? '#1e1e1e' : '#f5f5f5',
     };
 
-    // --- ESTADO CARGANDO (SKELETON) ---
-    if (isLoading) {
+    // --- ESTADO CARGANDO / SIN CONEXION (SKELETON)  ---
+    if (isLoading || !post) {
         return (
             <Box sx={cardStyles}>
                 <Skeleton
