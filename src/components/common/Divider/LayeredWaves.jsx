@@ -8,8 +8,9 @@ const LayeredWaves = ({ fill1, fill2 }) => {
                 position: 'relative',
                 width: '100%',
                 height: '120px',
-                mt: -10,
+                mt: -15,
                 zIndex: 1,
+                bgcolor: 'transparent',
                 overflow: 'visible',
             }}
         >
@@ -26,7 +27,6 @@ const LayeredWaves = ({ fill1, fill2 }) => {
                     transform: 'translateY(1px)',
                 }}
             >
-
                 {/* Onda de Fondo (Más clara o transparente) */}
                 <motion.path
                     initial={{ y: 20, opacity: 0 }}

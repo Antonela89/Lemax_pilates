@@ -33,7 +33,11 @@ function App() {
             {/* CssBaseline normaliza el CSS y aplica el color de fondo del tema */}
             <CssBaseline />
 
-            <Layout mode={mode} toggleColorMode={toggleColorMode} data={lemaxData}>
+            <Layout
+                mode={mode}
+                toggleColorMode={toggleColorMode}
+                data={lemaxData}
+            >
                 <HeroSection />
                 <ServicesSection services={services} />
                 <BenefitsSection benefits={benefits} />

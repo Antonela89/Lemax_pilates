@@ -10,21 +10,25 @@ import LayeredWaves from '@/components/common/Divider/LayeredWaves';
 const BenefitsSection = ({ benefits }) => {
     const theme = useTheme();
 
-    const colorSiguienteSeccion = theme.palette.background.alternate;
-    const oroAcento = theme.palette.primary.main;
-    const colorTop = theme.palette.background.default;
-    const colorBottom = theme.palette.background.paper;
+    const loading = !benefits || benefits.length === 0;
+    const items = loading ? [1, 2, 3, 4, 5, 6, 7, 8] : benefits;
+
+    const bgNextSection = theme.palette.background.alternate;
+    const goldAccent = theme.palette.primary.main;
+    const bgTop = theme.palette.background.default;
+    const bgBottom = theme.palette.background.paper;
 
     return (
         <SectionContainer
             background="background.default"
             animation={fadeInUpLeft}
+            sx={{ position: 'relative', zIndex: 2 }}
         >
-            <TripleGlowWave colorTop={colorTop} colorBottom={colorBottom}/>
+            <TripleGlowWave colorTop={bgTop} colorBottom={bgBottom} />
             <Box
                 sx={{
                     px: { xs: 8, md: 12 },
-                    pb: { xs: 8, md: 16 },
+                    pb: { xs: 12, sm: 18, md: 24 },
                     bgcolor: 'background.paper',
                     mt: '-1px',
                 }}
@@ -36,20 +40,23 @@ const BenefitsSection = ({ benefits }) => {
                     animation={fadeInUpLeft}
                 />
 
-                <Box
-                    component={motion.div}
-                    variants={staggerContainer}
-                >
+                <Box component={motion.div} variants={staggerContainer}>
                     <Grid container spacing={3}>
-                        {benefits.map((item) => (
-                            <Grid size={{ xs: 12, sm: 6, md: 3 }} key={item.id}>
-                                <BenefitCard item={item} />
+                        {items.map((item, index) => (
+                            <Grid
+                                size={{ xs: 12, sm: 6, md: 3 }}
+                                key={loading ? index : item.id}
+                            >
+                                <BenefitCard
+                                    item={loading ? null : item}
+                                    isLoading={loading}
+                                />
                             </Grid>
                         ))}
                     </Grid>
                 </Box>
             </Box>
-            <LayeredWaves fill1={oroAcento} fill2={colorSiguienteSeccion}/>
+            <LayeredWaves fill1={goldAccent} fill2={bgNextSection} />
         </SectionContainer>
     );
 };

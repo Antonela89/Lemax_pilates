@@ -1,4 +1,4 @@
-import { Paper, Typography, Box } from '@mui/material';
+import { Paper, Typography, Box, Skeleton } from '@mui/material';
 import { motion } from 'motion/react';
 import {
     AccessibilityNew,
@@ -26,28 +26,50 @@ const iconMap = {
 
 const MotionPaper = motion.create(Paper);
 
-const BenefitCard = ({ item }) => {
+const BenefitCard = ({ item, isLoading = false }) => {
     const { title, description, icon } = item;
     // Mapeo dinámico del icono
     const IconComponent = iconMap[icon] || HelpOutline;
+
+    const cardStyles = {
+        p: 4,
+        height: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        textAlign: 'center',
+        borderRadius: 4,
+        border: '1px solid',
+        borderColor: 'divider',
+    };
+
+     // --- ESTADO CARGANDO (SKELETON) ---
+    if (isLoading) {
+        return (
+            <Paper elevation={0} sx={cardStyles}>
+                {/* Esqueleto del Icono */}
+                <Skeleton variant="circular" width={40} height={40} sx={{ mb: 2 }} />
+                
+                {/* Esqueleto del Título */}
+                <Skeleton variant="text" width="60%" height={32} sx={{ mb: 1 }} />
+                
+                {/* Esqueleto de la Descripción (2 o 3 líneas) */}
+                <Skeleton variant="text" width="90%" />
+                <Skeleton variant="text" width="70%" />
+            </Paper>
+        );
+    }
+
 
     return (
         <MotionPaper
             variants={fadeInUpLeft}
             elevation={0}
             sx={{
+                ...cardStyles,
                 background: 'transparent',
                 position: 'relative',
                 zIndex: 3,
-                p: 4,
-                height: '100%',
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                textAlign: 'center',
-                borderRadius: 4,
-                border: '1px solid',
-                borderColor: 'divider',
                 '&:hover': {
                     borderColor: 'primary.main',
                     transform: 'translateY(-8px)',
