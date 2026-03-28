@@ -1,4 +1,3 @@
-import React from 'react';
 import { Box, Typography, Stack, Rating, Avatar, useTheme, alpha, Skeleton } from '@mui/material';
 import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
 import PlaceIcon from '@mui/icons-material/Place';
