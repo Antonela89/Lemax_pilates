@@ -12,6 +12,7 @@ import Reviews from './features/reviews/Reviews';
 import ContactCTA from './features/ContactCTA/ContactCTA';
 import ReelsSection from './features/reels/ReelsSection';
 import lemaxData from './data/data.json';
+import SEO from './components/common/SEO/SEO';
 
 function App() {
     const { benefits, services, staff, locations, reviews } = lemaxData;
@@ -32,6 +33,12 @@ function App() {
         <ThemeProvider theme={theme}>
             {/* CssBaseline normaliza el CSS y aplica el color de fondo del tema */}
             <CssBaseline />
+
+            {/*Etiquetas meta*/}
+            <SEO 
+                title="Inicio" 
+                description="Descubrí el método que transforma tu cuerpo en Le Max Pilates. Clases personalizadas en Rafaela."
+            />
 
             <Layout
                 mode={mode}
