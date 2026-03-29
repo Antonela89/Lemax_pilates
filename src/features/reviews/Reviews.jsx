@@ -1,47 +1,61 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Box, Container, useTheme } from '@mui/material';
-
-// Componentes y Configuración
 import SectionContainer from '@/components/common/SectionContainer/SectionContainer';
 import TitleSection from '@/components/common/TitleSection/TitleSection';
 import ReviewCard from '@/components/common/Cards/ReviewCard';
-import { fadeInUpLeft, staggerContainer } from '@/theme/animations';
 import LayeredWaves from '@/components/common/Divider/LayeredWaves';
 import Marquee from '@/components/common/Sliders/Marquee';
+import { fadeInUpLeft, staggerContainer } from '@/theme/animations';
 
 const Reviews = ({ reviews = [] }) => {
     const theme = useTheme();
+    const [loading, setLoading] = useState(true);
+    const [shuffledReviews, setShuffledReviews] = useState([]);
 
-    const GOLD_BG = theme.palette.primary.main;
-    const SECONDARY = theme.palette.text.secondary;
-    // Inicialización aleatoria (una sola vez)
-    const [shuffledReviews] = useState(() =>
-        [...reviews].sort(() => Math.random() - 0.5)
-    );
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            // Verificamos que sea un array
+            if (Array.isArray(reviews) && reviews.length > 0) {
+                const shuffled = [...reviews].sort(() => Math.random() - 0.5);
+                setShuffledReviews(shuffled);
+            }
+            setLoading(false);
+        }, 800);
+        return () => clearTimeout(timer);
+    }, [reviews]);
 
-    if (reviews.length === 0) return null;
+    // Si después de cargar NO hay datos, no mostramos la sección.
+    if (!loading && shuffledReviews.length === 0) return null;
+
+    const skeletonItems = Array.from({ length: 3 }, (_, i) => ({ id: `skeleton-${i}` }));
 
     return (
         <SectionContainer animation={staggerContainer} id="reviews">
-            <Box sx={{ pt: { xs: 4 }, pb: { xs: 8 }, mb: { xs: 4, md: 15 } }}>
+            <Box sx={{ pt: 4, pb: 8, mb: { xs: 4, md: 15 } }}>
                 <Container maxWidth="lg">
-                    <TitleSection
-                        textOverline="Comunidad"
-                        texth2="Nuestra Comunidad"
-                        animation={fadeInUpLeft}
-                    />
+                    <TitleSection textOverline="Comunidad" texth2="Nuestra Comunidad" animation={fadeInUpLeft} />
                 </Container>
 
                 <Box sx={{ mt: 6 }}>
-                    <Marquee
-                        items={shuffledReviews}
-                        renderItem={(review) => <ReviewCard review={review} />}
-                        speed="90s" 
-                        itemWidth={{ xs: '280px', md: '400px' }}
-                    />
+                    {loading ? (
+                        <Box sx={{ display: 'flex', gap: 3, justifyContent: 'center', overflow: 'hidden', px: 2 }}>
+                            {skeletonItems.map((item) => (
+                                <Box key={item.id} sx={{ width: { xs: 280, md: 360 }, flexShrink: 0 }}>
+                                    <ReviewCard loading />
+                                </Box>
+                            ))}
+                        </Box>
+                    ) : (
+                        <Marquee
+                            items={shuffledReviews}
+                            renderItem={(item) => <ReviewCard review={item} />}
+                            speed="90s"
+                            itemWidth={{ xs: '260px', md: '360px' }}
+                        />
+                    )}
                 </Box>
             </Box>
-            <LayeredWaves fill1={SECONDARY} fill2={GOLD_BG} />
+            <LayeredWaves fill1={theme.palette.text.secondary} fill2={theme.palette.primary.main} />
         </SectionContainer>
     );
 };
