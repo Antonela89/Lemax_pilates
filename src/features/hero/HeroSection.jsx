@@ -24,11 +24,13 @@ const HeroSection = () => {
                 position: 'relative',
                 display: 'flex',
                 flexDirection: 'column',
+                height: '100vh',
                 minHeight: '100dvh',
                 alignItems: { xs: 'center', md: 'flex-start' },
                 justifyContent: 'center',
                 overflow: 'hidden',
                 mt: '80px', 
+                pb: { xs: 6, sm: 12, md: 18 },
             }}
         >
             {/* CONTENEDOR DE IMAGEN CON OVERLAY DINÁMICO */}
@@ -72,21 +74,20 @@ const HeroSection = () => {
                     width: { xs: '92%', md: '55%', lg: '45%' },
                     display: 'flex',
                     flexDirection: 'column',
-                    gap: { xs: 1, md: 2 },
+                    gap: 1,
                     alignItems: { xs: 'center', md: 'flex-start' },
                     textAlign: { xs: 'center', md: 'left' },
                     position: 'relative',
                     zIndex: 10,
-                    ml: { xs: 'auto', md: '8%', lg: '12%' },
+                    ml: { xs: 'auto', md: '4%', lg: '8%' },
                     mr: { xs: 'auto', md: 0 },
-                    p: { xs: 3, md: 6 },
+                    p: { xs: 3, md: 4 },
                     borderRadius: '32px',
                     backgroundColor: isDarkMode
                         ? alpha(theme.palette.background.default, 0.85) 
                         : alpha('#ffffff', 0.7),
                     backdropFilter: 'blur(16px)',
                     border: `1px solid ${alpha(theme.palette.primary.main, 0.2)}`,
-                    boxShadow: '0 20px 40px rgba(0,0,0,0.1)',
                 }}
             >
                 <MotionTypography
@@ -106,7 +107,7 @@ const HeroSection = () => {
                     variants={fadeInUpLeft}
                     variant="h1"
                     sx={{
-                        fontSize: { xs: '1.8rem', sm: '2.5rem', md: '3.5rem' },
+                        fontSize: { xs: '1.8rem', sm: '2.5rem', md: '3rem' },
                         fontWeight: 900,
                         textTransform: 'uppercase',
                         lineHeight: 1,

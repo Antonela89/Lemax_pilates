@@ -22,6 +22,7 @@ const TripleGlowWave = ({ colorTop, colorBottom, reverse = false }) => {
             variants={fadeInUpLeft}
             sx={{
                 width: '100%',
+                height: 160,
                 position: 'relative',
                 background: `linear-gradient(to bottom, ${bgTop} 0%, ${bgBottom} 100%)`,
                 overflow: 'hidden',

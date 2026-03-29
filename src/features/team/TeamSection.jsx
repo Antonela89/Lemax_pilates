@@ -20,16 +20,19 @@ const TeamSection = ({ staff = [] }) => {
             id="equipo"
             background="transparent"
             sx={{
-                mt: { xs: -10, md: -12 }, 
                 position: 'relative',
-                zIndex: 10, 
+                zIndex: 10,
                 backdropFilter: 'blur(4px)',
+                top: { xs: '-40px', sm:'-60px', md: '-80px' },
             }}
         >
+            <TripleGlowWave
+                colorTop={'transparent'}
+                colorBottom={bgBottom}
+                reverse
+            />
 
-            <TripleGlowWave colorTop={'transparent'} colorBottom={bgBottom} reverse />
-
-            <Container maxWidth="lg" sx={{ py: { xs: 8, md: 12 } }}>
+            <Container maxWidth="lg" sx={{ py: { xs: 4, md: 8 } }}>
                 <TitleSection
                     textOverline="NUESTRO EQUIPO"
                     texth2="INSTRUCTORES CERTIFICADOS"

@@ -42,10 +42,20 @@ const Locations = ({ locations = [] }) => {
             background="transparent"
             animation={staggerContainer}
         >
-            <TripleGlowWave
-                colorTop={bgNextSection}
-                colorBottom="transparent"
-            />
+            <Box
+                sx={{
+                    position: 'abolute',
+                    top: { xs: -10, md: 0 },
+                    left: 0,
+                    width: '100%',
+                    zIndex: 0,
+                }}
+            >
+                <TripleGlowWave
+                    colorTop={bgNextSection}
+                    colorBottom="transparent"
+                />
+            </Box>
 
             <Box
                 sx={{
@@ -62,7 +72,7 @@ const Locations = ({ locations = [] }) => {
                         top: -50,
                         left: 0,
                         width: '100%',
-                        bottom: -200,
+                        bottom: { xs: -300, md: -200 },
                         backgroundImage: `url(${currentMap})`,
                         backgroundSize: 'cover',
                         backgroundPosition: 'center',
@@ -95,6 +105,7 @@ const Locations = ({ locations = [] }) => {
                         position: 'relative',
                         zIndex: 2,
                         py: { xs: 4, md: 8 },
+                        mb: { xs: '60px', sm: '80px', md: '100px' },
                     }}
                 >
                     <TitleSection
@@ -134,8 +145,6 @@ const Locations = ({ locations = [] }) => {
                               ))}
                     </Box>
                 </Container>
-
-                <Box sx={{ height: { xs: '50px', sm: '70px', md: '90px' } }} />
             </Box>
         </SectionContainer>
     );
