@@ -27,7 +27,7 @@ const BenefitsSection = ({ benefits }) => {
             <TripleGlowWave colorTop={bgTop} colorBottom={bgBottom} />
             <Box
                 sx={{
-                    px: { xs: 8, md: 12 },
+                    px: { xs: 2, sm: 6, md: 12},
                     pb: { xs: 12, sm: 18, md: 24 },
                     bgcolor: 'background.paper',
                     mt: '-1px',
