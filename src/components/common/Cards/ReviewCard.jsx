@@ -21,7 +21,7 @@ const ReviewCard = ({ review, loading = false }) => {
     const cardStyles = {
         p: { xs: 3, md: 4 },
         height: '100%',
-        minHeight: { xs: 240, md: 280 },
+        minHeight: { xs: 260, md: 320 },
         display: 'flex',
         flexDirection: 'column',
         borderRadius: `${theme.shape.borderRadius * 1.5}px`,
@@ -166,7 +166,7 @@ const ReviewCard = ({ review, loading = false }) => {
                     backgroundPosition: 'center',
 
                     // Opacidad inicial
-                    opacity: isDarkMode ? 0.08 : 0.15,
+                    opacity: isDarkMode ? 0.08 : 0.12,
 
                     zIndex: 0,
                     transition: 'all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)',
@@ -204,10 +204,7 @@ const ReviewCard = ({ review, loading = false }) => {
                         lineHeight: 1.6,
                         color: 'text.secondary',
                         flexGrow: 1,
-                        display: '-webkit-box',
-                        WebkitLineClamp: 3,
-                        WebkitBoxOrient: 'vertical',
-                        overflow: 'hidden',
+                        mb: 2,
                         textShadow: !isDarkMode
                             ? '0 0 10px rgba(255,255,255,0.5)'
                             : 'none',
