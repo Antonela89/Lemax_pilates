@@ -4,7 +4,6 @@ import TitleSection from '@/components/common/TitleSection/TitleSection';
 import TripleGlowWave from '@/components/common/Divider/TripleGlowWave';
 import AutoSlider from '@/components/common/Sliders/AutoSlider';
 import StaffCard from '@/components/common/Cards/StaffCard';
-// import Degraded from '@/components/common/Divider/Degraded';
 
 const TeamSection = ({ staff = [] }) => {
     const theme = useTheme();
@@ -14,7 +13,6 @@ const TeamSection = ({ staff = [] }) => {
 
     if (!staff.length) return null;
 
-    // const bgTop = theme.palette.background.paper;
     const bgBottom = theme.palette.background.default;
 
     return (
