@@ -18,7 +18,7 @@ import mapBgLight from '@/assets/images/location/map_bg_light.webp';
 
 const Locations = ({ locations = [] }) => {
     const theme = useTheme();
-    const [loading, setLoading] = useState(true); 
+    const [loading, setLoading] = useState(true);
     const isDarkMode = theme.palette.mode === 'dark';
 
     const bgNextSection = theme.palette.background.alternate;
@@ -29,7 +29,7 @@ const Locations = ({ locations = [] }) => {
         // Simulamos la carga para mostrar el Skeleton
         const timer = setTimeout(() => {
             setLoading(false);
-        }, 1500); 
+        }, 1500);
         return () => clearTimeout(timer);
     }, []);
 
@@ -47,18 +47,27 @@ const Locations = ({ locations = [] }) => {
                 colorBottom="transparent"
             />
 
-            <Box sx={{ position: 'relative', width: '100%', overflow: 'hidden' }}>
-                
+            <Box
+                sx={{
+                    position: 'relative',
+                    width: '100%',
+                    overflow: 'hidden',
+                    px: { xs: 2, sm: 6, md: 12 },
+                }}
+            >
                 {/*  MAPA (Fondo) */}
                 <Box
                     sx={{
                         position: 'absolute',
-                        top: -50, left: 0, width: '100%', bottom: -200,
+                        top: -50,
+                        left: 0,
+                        width: '100%',
+                        bottom: -200,
                         backgroundImage: `url(${currentMap})`,
                         backgroundSize: 'cover',
                         backgroundPosition: 'center',
-                        filter: isDarkMode 
-                            ? 'brightness(0.7) saturate(1.5)' 
+                        filter: isDarkMode
+                            ? 'brightness(0.7) saturate(1.5)'
                             : 'brightness(0.9) opacity(0.5)',
                         zIndex: 0,
                         pointerEvents: 'none',
@@ -69,7 +78,10 @@ const Locations = ({ locations = [] }) => {
                 <Box
                     sx={{
                         position: 'absolute',
-                        top: -75, left: 0, width: '100%', height: '350px',
+                        top: -75,
+                        left: 0,
+                        width: '100%',
+                        height: '350px',
                         background: `linear-gradient(to bottom, ${theme.palette.background.default} 10%, transparent 100%)`,
                         zIndex: 1,
                         pointerEvents: 'none',
@@ -101,27 +113,29 @@ const Locations = ({ locations = [] }) => {
                             alignItems: 'stretch',
                         }}
                     >
-                        {loading ? (
-                            // skeleton de 2 cards
-                            [1, 2].map((_, i) => (
-                                <LocationCard key={`skeleton-${i}`} loading={true} index={i} />
-                            ))
-                        ) : (
-                            //Datos reales
-                            locations.map((loc, index) => (
-                                <LocationCard
-                                    key={loc.id || index}
-                                    loc={loc}
-                                    index={index}
-                                    image={images[index] || local1}
-                                    loading={false}
-                                />
-                            ))
-                        )}
+                        {loading
+                            ? // skeleton de 2 cards
+                              [1, 2].map((_, i) => (
+                                  <LocationCard
+                                      key={`skeleton-${i}`}
+                                      loading={true}
+                                      index={i}
+                                  />
+                              ))
+                            : //Datos reales
+                              locations.map((loc, index) => (
+                                  <LocationCard
+                                      key={loc.id || index}
+                                      loc={loc}
+                                      index={index}
+                                      image={images[index] || local1}
+                                      loading={false}
+                                  />
+                              ))}
                     </Box>
                 </Container>
 
-                <Box sx={{ height: { xs: '40px', md: '95px' } }} />
+                <Box sx={{ height: { xs: '50px', sm: '70px', md: '90px' } }} />
             </Box>
         </SectionContainer>
     );

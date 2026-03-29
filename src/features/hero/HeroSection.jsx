@@ -28,7 +28,7 @@ const HeroSection = () => {
                 alignItems: { xs: 'center', md: 'flex-start' },
                 justifyContent: 'center',
                 overflow: 'hidden',
-                mt: '80px',
+                mt: '80px', 
             }}
         >
             {/* CONTENEDOR DE IMAGEN CON OVERLAY DINÁMICO */}

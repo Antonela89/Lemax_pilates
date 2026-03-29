@@ -27,7 +27,7 @@ const ServicesSection = ({ services }) => {
             <Box
                 sx={{
                     pt: { xs: 8 },
-                    px: { xs: 2, md: 6 },
+                    px: { xs: 2, sm: 6, md: 12},
                     pb: { xs: 12, sm: 18, md: 24 },
                 }}
             >
