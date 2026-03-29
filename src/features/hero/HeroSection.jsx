@@ -6,7 +6,6 @@ import { fadeInUpLeft, staggerContainer, imageEntry } from '@/theme/animations';
 import heroImg from '@/assets/images/hero/hero.webp';
 import LayeredWaves from '@/components/common/Divider/LayeredWaves';
 
-// Versiones "motion" de los componentes MUI para que acepten sx y variants
 const MotionBox = motion.create(Box);
 const MotionTypography = motion.create(Typography);
 const MotionButton = motion.create(Button);
@@ -22,31 +21,28 @@ const HeroSection = () => {
         <SectionContainer
             id="inicio"
             sx={{
+                position: 'relative',
                 display: 'flex',
-                flexDirection: { xs: 'column' },
-                minHeight: '90vh',
-                alignItems: 'center',
+                flexDirection: 'column',
+                minHeight: '100dvh',
+                alignItems: { xs: 'center', md: 'flex-start' },
                 justifyContent: 'center',
-                gap: '2rem',
-                mt: { xs: '65px', md: '80px' },
+                overflow: 'hidden',
+                mt: '80px',
             }}
         >
-            {/* CONTENEDOR DE IMAGEN CON OVERLAY */}
+            {/* CONTENEDOR DE IMAGEN CON OVERLAY DINÁMICO */}
             <Box
                 sx={{
-                    position: 'relative',
+                    position: 'absolute',
+                    inset: 0,
                     width: '100%',
-                    height: '100dvh',
-                    overflow: 'hidden',
-                    // CAPA DE GRADIENTE PARA CONTRASTE
+                    height: '100%',
+                    zIndex: 0,
                     '&::after': {
                         content: '""',
                         position: 'absolute',
                         inset: 0,
-                        background: isDarkMode
-                            ? 'linear-gradient(to right, rgba(26, 26, 24, 0.8) 0%, rgba(26, 26, 24, 0.4) 50%, transparent 100%)'
-                            : 'linear-gradient(to right, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.2) 40%, transparent 100%)',
-                        zIndex: 1,
                     },
                 }}
             >
@@ -62,45 +58,45 @@ const HeroSection = () => {
                         width: '100%',
                         height: '100%',
                         objectFit: 'cover',
-                        objectPosition: 'center',
+                        objectPosition: { xs: 'center', md: '80% center' },
                     }}
                 />
             </Box>
 
-            {/* --- LADO DEL TEXTO (ESTILO GLASSMORPHISM) --- */}
+            {/* --- BLOQUE DE TEXTO (GLASSMORPHISM) --- */}
             <MotionBox
                 initial="hidden"
                 whileInView="visible"
                 variants={staggerContainer}
                 sx={{
-                    width: { xs: '90%', md: '50%', lg: '40%' },
+                    width: { xs: '92%', md: '55%', lg: '45%' },
                     display: 'flex',
                     flexDirection: 'column',
-                    gap: '1rem',
+                    gap: { xs: 1, md: 2 },
                     alignItems: { xs: 'center', md: 'flex-start' },
                     textAlign: { xs: 'center', md: 'left' },
-                    p: { xs: 1, md: 3 },
-                    position: 'absolute',
-                    left: { xs: '1%', md: '2.5%', lg: '4%' },
-                    top: { xs: '1.5%', md: '3%', lg: '6%' },
+                    position: 'relative',
                     zIndex: 10,
-                    // EFECTO DE VIDRIO PARA RESALTAR
-                    borderRadius: '1rem',
-                    backgroundColor: alpha(
-                        theme.palette.background.default,
-                        0.1
-                    ),
-                    backdropFilter: 'blur(8px)',
-                    border: `1px solid ${alpha(theme.palette.primary.main, 0.1)}`,
+                    ml: { xs: 'auto', md: '8%', lg: '12%' },
+                    mr: { xs: 'auto', md: 0 },
+                    p: { xs: 3, md: 6 },
+                    borderRadius: '32px',
+                    backgroundColor: isDarkMode
+                        ? alpha(theme.palette.background.default, 0.85) 
+                        : alpha('#ffffff', 0.7),
+                    backdropFilter: 'blur(16px)',
+                    border: `1px solid ${alpha(theme.palette.primary.main, 0.2)}`,
+                    boxShadow: '0 20px 40px rgba(0,0,0,0.1)',
                 }}
             >
                 <MotionTypography
                     variants={fadeInUpLeft}
                     variant="overline"
                     sx={{
-                        color: 'primary.main', // Usamos el dorado para el overline
+                        color: 'primary.main',
                         fontWeight: 800,
-                        letterSpacing: 3,
+                        letterSpacing: { xs: 2, md: 4 },
+                        fontSize: { xs: '0.7rem', md: '0.9rem' },
                         display: 'block',
                     }}
                 >
@@ -110,16 +106,13 @@ const HeroSection = () => {
                     variants={fadeInUpLeft}
                     variant="h1"
                     sx={{
-                        my: 1,
-                        fontSize: { xs: '2rem', md: '3rem', xl: '3.5rem' },
-                        fontWeight: 800,
+                        fontSize: { xs: '1.8rem', sm: '2.5rem', md: '3.5rem' },
+                        fontWeight: 900,
                         textTransform: 'uppercase',
                         lineHeight: 1,
-                        color: 'text.primary',
-                        // Sombra de texto sutil para separar de la imagen
                         textShadow: isDarkMode
                             ? 'none'
-                            : '0px 2px 4px rgba(0,0,0,0.1)',
+                            : '0px 4px 10px rgba(0,0,0,0.05)',
                     }}
                 >
                     Transforma tu <br />
@@ -129,16 +122,17 @@ const HeroSection = () => {
                 </MotionTypography>
                 <MotionTypography
                     variants={fadeInUpLeft}
-                    variant="subtitle1"
+                    variant="body1"
                     sx={{
                         color: 'text.secondary',
                         fontWeight: 500,
+                        fontSize: { xs: '0.95rem', md: '1.1rem' },
                         maxWidth: '450px',
+                        mb: 2,
                     }}
                 >
-                    En Le Max, combinamos técnicas de Pilates clásico y
-                    contemporáneo para ofrecerte una experiencia de
-                    entrenamiento única y personalizada.
+                    Clases personalizadas de Pilates Reformer y Clínico en
+                    Rafaela para todos los niveles.
                 </MotionTypography>
                 <MotionButton
                     variants={fadeInUpLeft}
@@ -146,18 +140,32 @@ const HeroSection = () => {
                     component="a"
                     href="#contacto"
                     sx={{
-                        px: 6,
-                        py: 2,
+                        px: { xs: 4, md: 6 },
+                        py: 1.8,
                         fontWeight: 800,
                         borderRadius: '50px',
-                        mt: 2,
-                        boxShadow: `0 8px 20px ${alpha(theme.palette.primary.main, 0.3)}`,
+                        width: { xs: '100%', sm: 'auto' },
+                        boxShadow: `0 12px 24px ${alpha(theme.palette.primary.main, 0.4)}`,
+                        '&:hover': {
+                            boxShadow: `0 15px 30px ${alpha(theme.palette.primary.main, 0.5)}`,
+                        },
                     }}
                 >
                     Reservar Clase
                 </MotionButton>
             </MotionBox>
-            <LayeredWaves fill1={bgSecondary} fill2={bgBasic} />
+
+            {/* Ondas decorativas al final */}
+            <Box
+                sx={{
+                    position: 'absolute',
+                    bottom: 0,
+                    width: '100%',
+                    zIndex: 5,
+                }}
+            >
+                <LayeredWaves fill1={bgSecondary} fill2={bgBasic} />
+            </Box>
         </SectionContainer>
     );
 };
