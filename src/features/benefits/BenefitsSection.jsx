@@ -27,7 +27,7 @@ const BenefitsSection = ({ benefits }) => {
             <TripleGlowWave colorTop={bgTop} colorBottom={bgBottom} />
             <Box
                 sx={{
-                    px: { xs: 8, md: 12 },
+                    px: { xs: 2, sm: 6, md: 12},
                     pb: { xs: 12, sm: 18, md: 24 },
                     bgcolor: 'background.paper',
                     mt: '-1px',
@@ -41,7 +41,7 @@ const BenefitsSection = ({ benefits }) => {
                 />
 
                 <Box component={motion.div} variants={staggerContainer}>
-                    <Grid container spacing={3}>
+                    <Grid container spacing={{ xs: 2, md: 3 }}>
                         {items.map((item, index) => (
                             <Grid
                                 size={{ xs: 12, sm: 6, md: 3 }}
