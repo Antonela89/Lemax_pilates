@@ -17,6 +17,9 @@ const HeroSection = () => {
     const bgSecondary = theme.palette.text.secondary;
     const bgBasic = theme.palette.primary.main;
 
+    const navHeight = { xs: '64px', md: '80px' };
+
+
     return (
         <SectionContainer
             id="inicio"
@@ -29,7 +32,7 @@ const HeroSection = () => {
                 alignItems: { xs: 'center', md: 'flex-start' },
                 justifyContent: 'center',
                 overflow: 'hidden',
-                mt: '80px', 
+                mt: navHeight,
                 pb: { xs: 6, sm: 12, md: 18 },
             }}
         >
