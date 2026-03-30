@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   Box,
   Container,
@@ -7,40 +6,21 @@ import {
   Divider,
   Link,
 } from '@mui/material';
-
 // Icons
 import InstagramIcon from '@mui/icons-material/Instagram';
+import FacebookIcon from '@mui/icons-material/Facebook';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import PhoneIcon from '@mui/icons-material/Phone';
-
-import HomeIcon from '@mui/icons-material/Home';
-import SelfImprovementIcon from '@mui/icons-material/SelfImprovement';
-import PlaceIcon from '@mui/icons-material/Place';
-import GroupsIcon from '@mui/icons-material/Groups';
-import MailIcon from '@mui/icons-material/Mail';
-
+import { iconMap } from '@/utils/navigationUtils';
 // Components
-import FooterColumn from './FooterColumn';
-import FooterItem from './FooterItem';
-
+import {FooterColumn} from './FooterColumn';
+import {FooterItem} from './FooterItem';
 export default function Footer({data}) {
   const currentYear = new Date().getFullYear();
 
-  // ICONOS NAVBAR
-  const iconMap = {
-    Home: <HomeIcon />,
-    SelfImprovement: <SelfImprovementIcon />,
-    Place: <PlaceIcon />,
-    Groups: <GroupsIcon />,
-    Instagram: <InstagramIcon />,
-    Mail: <MailIcon />,
-  };
-
-  const navLinks = data.navbar.map((item) => ({
-    name: item.label,
-    href: item.path,
-    icon: iconMap[item.icon],
-  }));
+  const businessName = data?.businessName || "Le Max Pilates";
+  const nameParts = businessName.split(' ');
+  const navLinks = data?.navbar || [];
 
   // FUNCIÓN HORARIOS
   const getScheduleInfo = (schedule) => {
@@ -60,6 +40,7 @@ export default function Footer({data}) {
   return (
     <Box
       component="footer"
+      role="contentinfo"
       sx={{
         bgcolor: 'background.default',
         color: 'text.primary',
@@ -92,14 +73,15 @@ export default function Footer({data}) {
                 fontFamily: 'Montserrat, sans-serif',
               }}
             >
-              {data.businessName.split(' ')[0]}{' '}
+              {nameParts[0]}{' '}
               <Box component="span" sx={{ color: 'primary.main' }}>
-                {data.businessName.split(' ')[1]}
+                {nameParts.slice(1).join(' ')}
               </Box>
             </Typography>
 
             <Typography
               sx={{
+                variant: "body2",
                 mt: 3,
                 fontStyle: 'italic',
                 maxWidth: 300,
@@ -130,41 +112,70 @@ export default function Footer({data}) {
                   mb: 0.5,
                 }}
               >
-                Seguinos en Instagram
+                Seguinos en Redes
               </Typography>
 
-              <IconButton
-                component="a"
-                href={data?.social?.instagram_url}
-                target="_blank"
-                rel="noopener noreferrer"
-                sx={{
-                  alignSelf: { xs: 'center', md: 'flex-start' },
-                  color: 'text.secondary',
-                  transition: 'all 0.25s ease',
-                  '&:hover': {
-                    color: 'primary.main',
-                    transform: 'translateY(-4px) scale(1.15)',
-                  },
-                }}
-              >
-                <InstagramIcon sx={{ fontSize: '2rem' }} />
-              </IconButton>
+              <Box 
+              sx={{
+                display: 'flex',
+                alignItems: { xs: 'center', md: 'flex-start' },
+                gap: 1,
+              }}>
+                <IconButton
+                  component="a"
+                  href={data?.social?.instagram_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Visitar nuestro perfil de Instagram"
+                  sx={{
+                    alignSelf: { xs: 'center', md: 'flex-start' },
+                    color: 'text.secondary',
+                    transition: 'all 0.25s ease',
+                    '&:hover': {
+                      color: 'primary.main',
+                      transform: 'translateY(-4px) scale(1.15)',
+                    },
+                  }}
+                >
+                  <InstagramIcon sx={{ fontSize: '2rem' }} />
+                </IconButton>
+                <IconButton
+                  component="a"
+                  href={data?.social?.facebook_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Visitar nuestro perfil de Facebook"
+                  sx={{
+                    alignSelf: { xs: 'center', md: 'flex-start' },
+                    color: 'text.secondary',
+                    transition: 'all 0.25s ease',
+                    '&:hover': {
+                      color: 'primary.main',
+                      transform: 'translateY(-4px) scale(1.15)',
+                    },
+                  }}
+                >
+                  <FacebookIcon sx={{ fontSize: '2rem' }} />
+                </IconButton>
+              </Box>
             </Box>
           </Box>
 
           {/* EXPLORAR */}
           <FooterColumn title="Explorar">
-            {navLinks.map((link) => (
+            {navLinks.map((link) => {
+              const IconComponent = iconMap[link.icon];
+              return (
               <Link
-                key={link.name}
-                href={link.href}
+                key={link.label}
+                href={link.path}
                 underline="none"
                 sx={{
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: { xs: 'center', md: 'flex-start' },
                   gap: 1.5,
+                  py: 0.5,
                   color: 'text.secondary',
                   transition: 'all 0.25s ease',
                   '&:hover': {
@@ -173,15 +184,11 @@ export default function Footer({data}) {
                   },
                 }}
               >
-                {React.cloneElement(link.icon, {
-                  sx: {
-                    color: 'primary.main',
-                    fontSize: '1.3rem',
-                  },
-                })}
-                {link.name}
-              </Link>
-            ))}
+                {IconComponent && <IconComponent sx={{ fontSize: '1.2rem', color: 'primary.main' }} />}
+                  {link.label}
+                </Link>
+              );
+})}
           </FooterColumn>
 
           {/* HORARIOS */}
@@ -189,20 +196,20 @@ export default function Footer({data}) {
             {data.locations.map((loc) => (
               <Box key={loc.id} sx={{ mb: 3 }}>
                 <Typography
+                  variant="body2"
                   sx={{
                     fontWeight: 600,
                     mb: 0.5,
-                    color: 'text.primary',
                   }}
                 >
                   {loc.name}
                 </Typography>
 
                 <Typography
+                variant="caption"
                   sx={{
-                    fontSize: '0.9rem',
                     color: 'text.secondary',
-                    lineHeight: 1.4,
+                    display: 'block',
                   }}
                 >
                   {getScheduleInfo(loc.schedule)}
@@ -216,47 +223,36 @@ export default function Footer({data}) {
             {data.locations.map((loc) => (
               <Box key={loc.id} sx={{ mb: 3 }}>
                 <Typography
+                variant="body2"
                   sx={{
                     fontWeight: 600,
                     mb: 0.5,
-                    color: 'text.primary',
                   }}
                 >
                   {loc.name}
                 </Typography>
 
                 {/* Dirección clickeable */}
-                <FooterItem
-                  component="a"
-                  href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-                    loc.address
-                  )}`}
-                  target="_blank"
-                  icon={<LocationOnIcon sx={{ color: 'primary.main' }} />}
-                  sx={{
-                    fontSize: '0.9rem',
-                    color: 'text.secondary',
-                    lineHeight: 1.4,
-                    mb: 1,
-                    textDecoration: 'none',
-                  }}
+                <FooterItem 
+                    icon={<LocationOnIcon sx={{ fontSize: 18 }} />}
+                    aria-label={`Ubicación de ${loc.name}`}
                 >
-                  {loc.address}
+                  <Link 
+                    href={`https://maps.google.com/?q=${encodeURIComponent(loc.address)}`}
+                    target="_blank"
+                    color="inherit"
+                    underline="none"
+                    sx={{ fontSize: '0.85rem' }}
+                  >
+                    {loc.address}
+                  </Link>
                 </FooterItem>
-
-                {/* Teléfono clickeable */}
-                <FooterItem
-                  component="a"
-                  href={`tel:${loc.phone}`}
-                  icon={<PhoneIcon sx={{ color: 'primary.main' }} />}
-                  sx={{
-                    fontSize: '0.9rem',
-                    color: 'text.secondary',
-                    lineHeight: 1.4,
-                    textDecoration: 'none',
-                  }}
+                <FooterItem 
+                    icon={<PhoneIcon sx={{ fontSize: 18 }} />}
                 >
-                  {loc.phone}
+                  <Link href={`tel:${loc.phone}`} color="inherit" underline="none" sx={{ fontSize: '0.85rem' }}>
+                    {loc.phone}
+                  </Link>
                 </FooterItem>
               </Box>
             ))}
