@@ -3,7 +3,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
 import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
 
-const NavbarActions = ({mode, toggleColorMode, handleDrawerToggle, theme}) => {
+const NavbarActions = ({mode, toggleColorMode, onOpenMenu, theme}) => {
   return (
     <Box sx={{ display: { xs: 'flex', md: 'none' }, alignItems: 'center', gap: 1 }}>
                     <IconButton onClick={toggleColorMode} color={theme.palette.text.primary}>
@@ -13,7 +13,7 @@ const NavbarActions = ({mode, toggleColorMode, handleDrawerToggle, theme}) => {
                         color={theme.palette.text.primary}
                         aria-label="open drawer"
                         edge="end"
-                        onClick={handleDrawerToggle}
+                        onClick={onOpenMenu}
                     >
                         <MenuIcon />
                     </IconButton>
@@ -22,4 +22,4 @@ const NavbarActions = ({mode, toggleColorMode, handleDrawerToggle, theme}) => {
   )
 }
 
-export default NavbarActions
+export default NavbarActions 

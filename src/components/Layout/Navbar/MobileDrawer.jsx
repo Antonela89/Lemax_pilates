@@ -51,7 +51,7 @@ const MobileDrawer = ({ open, onClose, links, theme }) => (
                                 }}
                             >
                                 <ListItemIcon sx={{ color: 'primary.main', minWidth: 40 }}>
-                                   {IconComponent && <IconComponent sx={{ mr: 1 }} />} 
+                                    {IconComponent && <IconComponent sx={{ mr: 1 }} />} 
                                 </ListItemIcon>
                                 <ListItemText
                                     primary={link.label}
@@ -82,7 +82,7 @@ const MobileDrawer = ({ open, onClose, links, theme }) => (
                         boxShadow: `0 8px 20px -5px ${theme.palette.primary.main}66`
                     }}
                 >
-                    Reservar Clase
+                    Contacto
                 </Button>
             </Box>
         </Box>

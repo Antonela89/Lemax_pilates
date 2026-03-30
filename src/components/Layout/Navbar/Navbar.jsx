@@ -9,8 +9,6 @@ import Logo from './Logo';
 const Navbar = ({ mode, toggleColorMode, data }) => {
     const [mobileOpen, setMobileOpen] = useState(false);
     const theme = useTheme();
-
-    console.log("¿Qué llega al Navbar?:", data);
     
     const navLinks = data?.navbar || []; 
 
@@ -18,8 +16,9 @@ const Navbar = ({ mode, toggleColorMode, data }) => {
     return formatNavLinks(navLinks); 
 }, [navLinks]);
 
-    const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
-
+const handleDrawerToggle = () => {
+    setMobileOpen((prev) => !prev);
+};
     const navHeight = { xs: '64px', md: '80px' };
 
     const linkStyle = {
@@ -61,7 +60,7 @@ const Navbar = ({ mode, toggleColorMode, data }) => {
                     linkStyle={linkStyle} 
                 />
 
-                  <NavbarActions 
+                <NavbarActions 
                     mode={mode} 
                     toggleColorMode={toggleColorMode} 
                     onOpenMenu={handleDrawerToggle} 
