@@ -3,7 +3,7 @@
     "navbar": [
         {
             "label": "Inicio",
-            "path": "#hero",
+            "path": "#inicio",
             "icon": "Home"
         },
         {
@@ -17,13 +17,13 @@
             "icon": "Place"
         },
         {
-            "label": "Staff",
-            "path": "#staff",
+            "label": "Equipo",
+            "path": "#equipo",
             "icon": "Groups"
         },
         {
             "label": "Instagram",
-            "path": "#reels",
+            "path": "#instagram",
             "icon": "Instagram"
         },
         {
