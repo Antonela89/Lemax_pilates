@@ -3,7 +3,7 @@
     "navbar": [
         {
             "label": "Inicio",
-            "path": "#hero",
+            "path": "#inicio",
             "icon": "Home"
         },
         {
@@ -18,7 +18,7 @@
         },
         {
             "label": "Staff",
-            "path": "#staff",
+            "path": "#equipo",
             "icon": "Groups"
         },
         {
@@ -29,7 +29,7 @@
         {
             "label": "Contacto",
             "path": "#contacto",
-            "icon": "Mail"
+            "icon": "WhatsApp"
         }
     ],
     "themeIcons": {
