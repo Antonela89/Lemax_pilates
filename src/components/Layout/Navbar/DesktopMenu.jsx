@@ -2,7 +2,7 @@ import { Box, Button, IconButton, Tooltip } from '@mui/material';
 import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
 import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
 
-const DesktopMenu = ({ links, mode, toggleColorMode, linkStyle }) => (
+const DesktopMenu = ({ links, mode, toggleColorMode, linkStyle, theme }) => (
     <Box
         sx={{
             display: { xs: 'none', md: 'flex' },
@@ -11,8 +11,17 @@ const DesktopMenu = ({ links, mode, toggleColorMode, linkStyle }) => (
         }}
     >
         {/* Switch de Modo */}
-        <Tooltip title={mode === 'dark' ? "Cambiar a modo claro" : "Cambiar a modo oscuro"}>
-            <IconButton onClick={toggleColorMode} color="inherit">
+        <Tooltip
+            title={
+                mode === 'dark'
+                    ? 'Cambiar a modo claro'
+                    : 'Cambiar a modo oscuro'
+            }
+        >
+            <IconButton
+                onClick={toggleColorMode}
+                color={theme.palette.text.primary}
+            >
                 {mode === 'dark' ? (
                     <LightModeOutlinedIcon />
                 ) : (
@@ -30,11 +39,11 @@ const DesktopMenu = ({ links, mode, toggleColorMode, linkStyle }) => (
                         component="a"
                         href={link.href}
                         variant="contained"
-                        sx={{ 
-                            py: 1.2, 
-                            px: 3, 
+                        sx={{
+                            py: 1.2,
+                            px: 3,
                             fontWeight: 700,
-                            borderRadius: '50px' 
+                            borderRadius: '50px',
                         }}
                     >
                         {link.label}
@@ -43,10 +52,10 @@ const DesktopMenu = ({ links, mode, toggleColorMode, linkStyle }) => (
             }
 
             return (
-                <Box 
-                    key={link.label} 
-                    component="a" 
-                    href={link.href} 
+                <Box
+                    key={link.label}
+                    component="a"
+                    href={link.href}
                     sx={linkStyle}
                 >
                     {link.label}

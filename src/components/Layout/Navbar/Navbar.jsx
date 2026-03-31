@@ -58,6 +58,7 @@ const handleDrawerToggle = () => {
                     mode={mode} 
                     toggleColorMode={toggleColorMode} 
                     linkStyle={linkStyle} 
+                    theme={theme}
                 />
 
                 <NavbarActions 
