@@ -6,7 +6,7 @@ import {
   Divider,
   Link,
 } from '@mui/material';
-import { MotionBox } from '@/components/MotionBox';
+import { motion } from '@/components/MotionBox';
 // Icons
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
@@ -16,6 +16,9 @@ import { iconMap } from '@/utils/navigationUtils';
 // Components
 import {FooterColumn} from './FooterColumn';
 import {FooterItem} from './FooterItem';
+
+const MotionBox = motion.create(Box);
+
 export default function Footer({data}) {
   const currentYear = new Date().getFullYear();
 
