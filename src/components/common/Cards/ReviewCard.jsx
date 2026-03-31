@@ -135,15 +135,18 @@ const ReviewCard = ({ review, loading = false }) => {
                 transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
 
                 // ANIMACIÓN HOVER
-                '&:hover': {
-                    transform: 'translateY(-8px)',
-                    borderColor: theme.palette.primary.main,
-                    boxShadow: `0 18px 35px ${alpha(theme.palette.primary.main, 0.2)}`,
+                
+                '@media (hover: hover)': {
+                    '&:hover': {
+                        transform: 'translateY(-8px)',
+                        borderColor: theme.palette.primary.main,
+                        boxShadow: `0 18px 35px ${alpha(theme.palette.primary.main, 0.2)}`,
 
-                    '& .card-silhouette': {
-                        transform:
-                            'translate(calc(-50% + 55px), calc(-50% + 55px)) scale(1.1)',
-                        opacity: isDarkMode ? 0.2 : 0.25, // Más color en hover
+                        '& .card-silhouette': {
+                            transform:
+                                'translate(calc(-50% + 55px), calc(-50% + 55px)) scale(1.1)',
+                            opacity: isDarkMode ? 0.2 : 0.25,
+                        },
                     },
                 },
             }}

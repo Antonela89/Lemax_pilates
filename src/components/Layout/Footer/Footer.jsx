@@ -6,24 +6,32 @@ import {
   IconButton,
   Divider,
   Link,
+  Tooltip,
 } from '@mui/material';
 
 // Icons
 import InstagramIcon from '@mui/icons-material/Instagram';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import EmailIcon from '@mui/icons-material/Email';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import PhoneIcon from '@mui/icons-material/Phone';
-
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import HomeIcon from '@mui/icons-material/Home';
 import SelfImprovementIcon from '@mui/icons-material/SelfImprovement';
 import PlaceIcon from '@mui/icons-material/Place';
 import GroupsIcon from '@mui/icons-material/Groups';
 import MailIcon from '@mui/icons-material/Mail';
 
+// Animación
+import { motion } from 'framer-motion';
+
 // Components
 import FooterColumn from './FooterColumn';
 import FooterItem from './FooterItem';
 
-export default function Footer({data}) {
+const MotionBox = motion.create(Box);
+
+export default function Footer({ data }) {
   const currentYear = new Date().getFullYear();
 
   // ICONOS NAVBAR
@@ -33,7 +41,7 @@ export default function Footer({data}) {
     Place: <PlaceIcon />,
     Groups: <GroupsIcon />,
     Instagram: <InstagramIcon />,
-    Mail: <MailIcon />,
+    WhatsApp: <WhatsAppIcon />,
   };
 
   const navLinks = data.navbar.map((item) => ({
@@ -113,44 +121,102 @@ export default function Footer({data}) {
             </Typography>
 
             {/* REDES */}
-            <Box
+            <MotionBox
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
               sx={{
                 mt: 4,
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: { xs: 'center', md: 'flex-start' },
-                gap: 1,
+                gap: 2,
               }}
             >
               <Typography
                 sx={{
                   fontWeight: 600,
-                  color: 'text.primary',
                   fontSize: '1rem',
-                  mb: 0.5,
+                  letterSpacing: 1,
                 }}
               >
-                Seguinos en Instagram
+                Seguinos
               </Typography>
 
-              <IconButton
-                component="a"
-                href={data?.social?.instagram_url}
-                target="_blank"
-                rel="noopener noreferrer"
+              <Box
                 sx={{
-                  alignSelf: { xs: 'center', md: 'flex-start' },
-                  color: 'text.secondary',
-                  transition: 'all 0.25s ease',
-                  '&:hover': {
-                    color: 'primary.main',
-                    transform: 'translateY(-4px) scale(1.15)',
-                  },
+                  display: 'flex',
+                  gap: 1.5,
+                  p: 1,
+                  borderRadius: '20px',
+                  backdropFilter: 'blur(10px)',
+                  background: 'rgba(255,255,255,0.05)',
+                  border: '1px solid rgba(255,255,255,0.08)',
                 }}
               >
-                <InstagramIcon sx={{ fontSize: '2rem' }} />
-              </IconButton>
-            </Box>
+                {/* Instagram */}
+                <Tooltip title="Instagram" arrow>
+                  <IconButton
+                    component="a"
+                    href={data?.social?.instagram_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    sx={{
+                      color: 'text.secondary',
+                      '&:hover': {
+                        color: 'primary.main',
+                        transform: 'translateY(-6px) scale(1.2)',
+                        boxShadow:
+                          '0 10px 25px rgba(225,48,108,0.4)',
+                      },
+                    }}
+                  >
+                    <InstagramIcon />
+                  </IconButton>
+                </Tooltip>
+
+                {/* Facebook */}
+                <Tooltip title="Facebook" arrow>
+                  <IconButton
+                    component="a"
+                    href={data?.social?.facebook_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    sx={{
+                      color: 'text.secondary',
+                      '&:hover': {
+                        color: 'primary.main',
+                        transform: 'translateY(-6px) scale(1.2)',
+                        boxShadow:
+                          '0 10px 25px rgba(24,119,242,0.4)',
+                      },
+                    }}
+                  >
+                    <FacebookIcon />
+                  </IconButton>
+                </Tooltip>
+
+                {/* Mail */}
+                <Tooltip title="Enviar email" arrow>
+                  <IconButton
+                    component="a"
+                    href={`mailto:${data?.social?.email}`}
+                    sx={{
+                      color: 'text.secondary',
+                      '&:hover': {
+                        color: 'primary.main',
+                        transform: 'translateY(-6px) scale(1.2)',
+                        boxShadow:
+                          '0 10px 25px rgba(0,0,0,0.2)',
+                      },
+                    }}
+                  >
+                    <EmailIcon />
+                  </IconButton>
+                </Tooltip>
+              </Box>
+            </MotionBox>
           </Box>
 
           {/* EXPLORAR */}
@@ -166,7 +232,6 @@ export default function Footer({data}) {
                   justifyContent: { xs: 'center', md: 'flex-start' },
                   gap: 1.5,
                   color: 'text.secondary',
-                  transition: 'all 0.25s ease',
                   '&:hover': {
                     color: 'text.primary',
                     transform: 'translateX(5px)',
@@ -174,10 +239,7 @@ export default function Footer({data}) {
                 }}
               >
                 {React.cloneElement(link.icon, {
-                  sx: {
-                    color: 'primary.main',
-                    fontSize: '1.3rem',
-                  },
+                  sx: { color: 'primary.main', fontSize: '1.3rem' },
                 })}
                 {link.name}
               </Link>
@@ -188,23 +250,10 @@ export default function Footer({data}) {
           <FooterColumn title="Horarios">
             {data.locations.map((loc) => (
               <Box key={loc.id} sx={{ mb: 3 }}>
-                <Typography
-                  sx={{
-                    fontWeight: 600,
-                    mb: 0.5,
-                    color: 'text.primary',
-                  }}
-                >
+                <Typography sx={{ fontWeight: 600 }}>
                   {loc.name}
                 </Typography>
-
-                <Typography
-                  sx={{
-                    fontSize: '0.9rem',
-                    color: 'text.secondary',
-                    lineHeight: 1.4,
-                  }}
-                >
+                <Typography sx={{ fontSize: '0.9rem', color: 'text.secondary' }}>
                   {getScheduleInfo(loc.schedule)}
                 </Typography>
               </Box>
@@ -215,17 +264,10 @@ export default function Footer({data}) {
           <FooterColumn title="Contacto">
             {data.locations.map((loc) => (
               <Box key={loc.id} sx={{ mb: 3 }}>
-                <Typography
-                  sx={{
-                    fontWeight: 600,
-                    mb: 0.5,
-                    color: 'text.primary',
-                  }}
-                >
+                <Typography sx={{ fontWeight: 600 }}>
                   {loc.name}
                 </Typography>
 
-                {/* Dirección clickeable */}
                 <FooterItem
                   component="a"
                   href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
@@ -233,28 +275,14 @@ export default function Footer({data}) {
                   )}`}
                   target="_blank"
                   icon={<LocationOnIcon sx={{ color: 'primary.main' }} />}
-                  sx={{
-                    fontSize: '0.9rem',
-                    color: 'text.secondary',
-                    lineHeight: 1.4,
-                    mb: 1,
-                    textDecoration: 'none',
-                  }}
                 >
                   {loc.address}
                 </FooterItem>
 
-                {/* Teléfono clickeable */}
                 <FooterItem
                   component="a"
                   href={`tel:${loc.phone}`}
                   icon={<PhoneIcon sx={{ color: 'primary.main' }} />}
-                  sx={{
-                    fontSize: '0.9rem',
-                    color: 'text.secondary',
-                    lineHeight: 1.4,
-                    textDecoration: 'none',
-                  }}
                 >
                   {loc.phone}
                 </FooterItem>
