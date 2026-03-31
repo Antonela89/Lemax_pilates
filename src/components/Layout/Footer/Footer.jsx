@@ -6,6 +6,7 @@ import {
   Divider,
   Link,
 } from '@mui/material';
+import { MotionBox } from '@/components/MotionBox';
 // Icons
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
@@ -95,21 +96,24 @@ export default function Footer({data}) {
             </Typography>
 
             {/* REDES */}
-            <Box
+            <MotionBox
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
               sx={{
                 mt: 4,
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: { xs: 'center', md: 'flex-start' },
-                gap: 1,
+                gap: 2,
               }}
             >
               <Typography
                 sx={{
                   fontWeight: 600,
-                  color: 'text.primary',
                   fontSize: '1rem',
-                  mb: 0.5,
+                  letterSpacing: 1,
                 }}
               >
                 Seguinos en Redes
@@ -158,7 +162,7 @@ export default function Footer({data}) {
                   <FacebookIcon sx={{ fontSize: '2rem' }} />
                 </IconButton>
               </Box>
-            </Box>
+            </MotionBox>
           </Box>
 
           {/* EXPLORAR */}
@@ -177,7 +181,6 @@ export default function Footer({data}) {
                   gap: 1.5,
                   py: 0.5,
                   color: 'text.secondary',
-                  transition: 'all 0.25s ease',
                   '&:hover': {
                     color: 'text.primary',
                     transform: 'translateX(5px)',

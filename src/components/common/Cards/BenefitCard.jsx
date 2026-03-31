@@ -26,8 +26,12 @@ const iconMap = {
 
 const MotionPaper = motion.create(Paper);
 
-const BenefitCard = ({ item, isLoading = false }) => {
-    const { title, description, icon } = item || {};
+const BenefitCard = ({ item, loading = false }) => {
+    const title = item?.title || '';
+    const description = item?.description || '';
+    const icon = item?.icon || '';
+
+    // Mapeo dinámico del icono
     const IconComponent = iconMap[icon] || HelpOutline;
 
     const cardStyles = {
@@ -42,14 +46,31 @@ const BenefitCard = ({ item, isLoading = false }) => {
         borderColor: 'divider',
     };
 
-     // --- ESTADO CARGANDO (SKELETON) ---
-    if (isLoading) {
+    // --- ESTADO CARGANDO (SKELETON) ---
+    if (loading) {
         return (
             <Paper elevation={0} sx={cardStyles}>
-                <Skeleton variant="circular" width={48} height={48} sx={{ mb: 2 }} />
-                <Skeleton variant="text" width="70%" height={28} sx={{ mb: 1 }} />
-                <Skeleton variant="text" width="90%" />
-                <Skeleton variant="text" width="60%" />
+                {/* Esqueleto del Icono */}
+                <Skeleton
+                    variant="circular"
+                    width={40}
+                    height={40}
+                    sx={{ mb: 2 }}
+                    animation="wave"
+                />
+
+                {/* Esqueleto del Título */}
+                <Skeleton
+                    variant="text"
+                    width="60%"
+                    height={32}
+                    sx={{ mb: 1 }}
+                    animation="wave"
+                />
+
+                {/* Esqueleto de la Descripción (2 o 3 líneas) */}
+                <Skeleton variant="text" width="90%" animation="wave" />
+                <Skeleton variant="text" width="70%" animation="wave" />
             </Paper>
         );
     }

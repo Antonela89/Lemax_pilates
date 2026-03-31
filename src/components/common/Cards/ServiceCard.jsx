@@ -4,8 +4,10 @@ import { fadeInUpLeft } from '@/theme/animations';
 
 const MotionPaper = motion.create(Paper);
 
-const ServiceCard = ({ item, isLoading = false }) => {
-    const { title, description, image } = item || {};
+const ServiceCard = ({ item, loading = false }) => {
+    const title = item?.title || '';
+    const description = item?.description || '';
+    const image = item?.image || '';
 
     const cardStyles = {
         background: (theme) => theme.palette.background.paper,
@@ -21,7 +23,7 @@ const ServiceCard = ({ item, isLoading = false }) => {
     };
 
     // --- ESTADO CARGANDO (SKELETON) ---
-    if (isLoading) {
+    if (loading) {
         return (
             <Paper elevation={0} sx={cardStyles}>
                 {/* Esqueleto de la Imagen */}
@@ -36,12 +38,15 @@ const ServiceCard = ({ item, isLoading = false }) => {
                 <Box sx={{ p: '1rem' }}>
                     <Skeleton
                         variant="text"
-                        width="60%"
+                        width="70%"
                         height={32}
-                        sx={{ mb: 1 }}
+                        sx={{ mb: 2 }}
+                        animation="wave"
                     />
-                    <Skeleton variant="text" width="100%" />
-                    <Skeleton variant="text" width="85%" />
+
+                    {/* Descripción (2 líneas) */}
+                    <Skeleton variant="text" width="100%" animation="wave" />
+                    <Skeleton variant="text" width="85%" animation="wave" />
                 </Box>
             </Paper>
         );

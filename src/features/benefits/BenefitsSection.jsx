@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { Box, Grid, useTheme } from '@mui/material';
 import { motion } from 'motion/react';
 import { staggerContainer, fadeInUpLeft } from '@/theme/animations';
@@ -9,9 +10,18 @@ import LayeredWaves from '@/components/common/Divider/LayeredWaves';
 
 const BenefitsSection = ({ benefits }) => {
     const theme = useTheme();
+    const [loading, setLoading] = useState(true);
 
-    const loading = !benefits || benefits.length === 0;
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setLoading(false);
+        }, 1500);
+        return () => clearTimeout(timer);
+    }, []);
+
+    if (!loading && (!benefits || benefits.length === 0)) return null;
     const items = loading ? Array.from(new Array(8)) : benefits;
+
 
     const bgNextSection = theme.palette.background.alternate;
     const goldAccent = theme.palette.primary.main;
@@ -54,11 +64,11 @@ const BenefitsSection = ({ benefits }) => {
                         {items.map((item, index) => (
                             <Grid
                                 size={{ xs: 12, sm: 6, md: 3 }}
-                                key={loading ? `sk-ben-${index}` : item.id}
+                                key={loading ? `skeleton-${index}` : item.id}
                             >
                                 <BenefitCard
                                     item={loading ? null : item}
-                                    isLoading={loading}
+                                    loading={loading}
                                 />
                             </Grid>
                         ))}

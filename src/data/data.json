@@ -29,7 +29,7 @@
         {
             "label": "Contacto",
             "path": "#contacto",
-            "icon": "Mail"
+            "icon": "WhatsApp"
         }
     ],
     "themeIcons": {
