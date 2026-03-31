@@ -32,7 +32,11 @@ const Reviews = ({ reviews = [] }) => {
     }));
 
     return (
-        <SectionContainer animation={staggerContainer} id="reviews">
+        <SectionContainer
+            animation={staggerContainer}
+            id="reviews"
+            aria-labelledby="reviews-title"
+        >
             <Box
                 sx={{
                     pt: 4,
@@ -42,6 +46,7 @@ const Reviews = ({ reviews = [] }) => {
             >
                 <Container maxWidth="lg">
                     <TitleSection
+                        id="reviews-title"
                         textOverline="Comunidad"
                         texth2="Nuestra Comunidad"
                         animation={fadeInUpLeft}
@@ -75,16 +80,26 @@ const Reviews = ({ reviews = [] }) => {
                         <Marquee
                             items={shuffledReviews}
                             renderItem={(item) => <ReviewCard review={item} />}
-                            speed="90s"
-                            itemWidth={{ xs: '260px', md: '360px' }}
+                            pauseOnHover={true}
+                            speed="80s"
+                            itemWidth={{ xs: '280px', md: '380px' }}
                         />
                     )}
                 </Box>
             </Box>
-            <LayeredWaves
-                fill1={theme.palette.text.secondary}
-                fill2={theme.palette.primary.main}
-            />
+            <Box
+                sx={{
+                    position: 'absolute',
+                    bottom: 0,
+                    width: '100%',
+                    zIndex: 10,
+                }}
+            >
+                <LayeredWaves
+                    fill1={theme.palette.text.secondary}
+                    fill2={theme.palette.primary.main}
+                />
+            </Box>
         </SectionContainer>
     );
 };
