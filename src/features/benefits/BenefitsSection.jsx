@@ -11,7 +11,7 @@ const BenefitsSection = ({ benefits }) => {
     const theme = useTheme();
 
     const loading = !benefits || benefits.length === 0;
-    const items = loading ? [1, 2, 3, 4, 5, 6, 7, 8] : benefits;
+    const items = loading ? Array.from(new Array(8)) : benefits;
 
     const bgNextSection = theme.palette.background.alternate;
     const goldAccent = theme.palette.primary.main;
@@ -20,14 +20,16 @@ const BenefitsSection = ({ benefits }) => {
 
     return (
         <SectionContainer
+            id="beneficios"
             background="background.default"
             animation={fadeInUpLeft}
             sx={{ position: 'relative', zIndex: 2 }}
+            aria-labelledby="benefits-title"
         >
             <TripleGlowWave colorTop={bgTop} colorBottom={bgBottom} />
             <Box
                 sx={{
-                    px: { xs: 2, sm: 6, md: 12},
+                    px: { xs: 2, sm: 6, md: 12 },
                     pb: { xs: 12, sm: 18, md: 24 },
                     bgcolor: 'background.paper',
                     mt: '-1px',
@@ -35,17 +37,24 @@ const BenefitsSection = ({ benefits }) => {
             >
                 {/* Título de la sección */}
                 <TitleSection
+                    id="benefits-title"
                     textOverline="¿por qué elegirnos?"
                     texth2="beneficios"
                     animation={fadeInUpLeft}
                 />
 
-                <Box component={motion.div} variants={staggerContainer}>
+                <Box
+                    component={motion.div}
+                    variants={staggerContainer}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.1 }}
+                >
                     <Grid container spacing={{ xs: 2, md: 3 }}>
                         {items.map((item, index) => (
                             <Grid
                                 size={{ xs: 12, sm: 6, md: 3 }}
-                                key={loading ? index : item.id}
+                                key={loading ? `sk-ben-${index}` : item.id}
                             >
                                 <BenefitCard
                                     item={loading ? null : item}
@@ -56,7 +65,16 @@ const BenefitsSection = ({ benefits }) => {
                     </Grid>
                 </Box>
             </Box>
-            <LayeredWaves fill1={goldAccent} fill2={bgNextSection} />
+            <Box
+                sx={{
+                    position: 'absolute',
+                    bottom: 0,
+                    width: '100%',
+                    zIndex: 5,
+                }}
+            >
+                <LayeredWaves fill1={goldAccent} fill2={bgNextSection} />
+            </Box>
         </SectionContainer>
     );
 };

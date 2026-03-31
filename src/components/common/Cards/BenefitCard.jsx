@@ -1,4 +1,4 @@
-import { Paper, Typography, Box, Skeleton } from '@mui/material';
+import { Paper, Typography, Box, Skeleton, alpha } from '@mui/material';
 import { motion } from 'motion/react';
 import {
     AccessibilityNew,
@@ -27,8 +27,7 @@ const iconMap = {
 const MotionPaper = motion.create(Paper);
 
 const BenefitCard = ({ item, isLoading = false }) => {
-    const { title, description, icon } = item;
-    // Mapeo dinámico del icono
+    const { title, description, icon } = item || {};
     const IconComponent = iconMap[icon] || HelpOutline;
 
     const cardStyles = {
@@ -47,15 +46,10 @@ const BenefitCard = ({ item, isLoading = false }) => {
     if (isLoading) {
         return (
             <Paper elevation={0} sx={cardStyles}>
-                {/* Esqueleto del Icono */}
-                <Skeleton variant="circular" width={40} height={40} sx={{ mb: 2 }} />
-                
-                {/* Esqueleto del Título */}
-                <Skeleton variant="text" width="60%" height={32} sx={{ mb: 1 }} />
-                
-                {/* Esqueleto de la Descripción (2 o 3 líneas) */}
+                <Skeleton variant="circular" width={48} height={48} sx={{ mb: 2 }} />
+                <Skeleton variant="text" width="70%" height={28} sx={{ mb: 1 }} />
                 <Skeleton variant="text" width="90%" />
-                <Skeleton variant="text" width="70%" />
+                <Skeleton variant="text" width="60%" />
             </Paper>
         );
     }
@@ -65,6 +59,7 @@ const BenefitCard = ({ item, isLoading = false }) => {
         <MotionPaper
             variants={fadeInUpLeft}
             elevation={0}
+            component="article" 
             sx={{
                 ...cardStyles,
                 background: 'transparent',
@@ -73,17 +68,17 @@ const BenefitCard = ({ item, isLoading = false }) => {
                 '&:hover': {
                     borderColor: 'primary.main',
                     transform: 'translateY(-8px)',
-                    transition: 'all 0.3s ease',
+                    boxShadow: (theme) => `0 10px 30px ${alpha(theme.palette.primary.main, 0.1)}`
                 },
             }}
         >
             <Box sx={{ color: 'primary.main', mb: 2 }}>
-                <IconComponent sx={{ fontSize: 40 }} />
+                <IconComponent sx={{ fontSize: 40 }}  aria-hidden="true"  />
             </Box>
-            <Typography variant="h6" sx={{ fontWeight: 700, mb: 1 }}>
+            <Typography variant="h6" component="h3" sx={{ fontWeight: 700, mb: 1 }}>
                 {title}
             </Typography>
-            <Typography variant="body2" color="text.secondary">
+            <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.6 }}>
                 {description}
             </Typography>
         </MotionPaper>
