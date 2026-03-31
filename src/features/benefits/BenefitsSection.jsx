@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { Box, Grid, useTheme } from '@mui/material';
 import { motion } from 'motion/react';
 import { staggerContainer, fadeInUpLeft } from '@/theme/animations';
@@ -9,8 +10,18 @@ import LayeredWaves from '@/components/common/Divider/LayeredWaves';
 
 const BenefitsSection = ({ benefits }) => {
     const theme = useTheme();
+    const [loading, setLoading] = useState(true);
 
-    const loading = !benefits || benefits.length === 0;
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setLoading(false);
+        }, 1500);
+        return () => clearTimeout(timer);
+    }, []);
+
+    // Si no cargando y no hay beneficios, no mostramos nada
+    if (!loading && (!benefits || benefits.length === 0)) return null;
+
     const items = loading ? [1, 2, 3, 4, 5, 6, 7, 8] : benefits;
 
     const bgNextSection = theme.palette.background.alternate;
@@ -27,7 +38,7 @@ const BenefitsSection = ({ benefits }) => {
             <TripleGlowWave colorTop={bgTop} colorBottom={bgBottom} />
             <Box
                 sx={{
-                    px: { xs: 2, sm: 6, md: 12},
+                    px: { xs: 2, sm: 6, md: 12 },
                     pb: { xs: 12, sm: 18, md: 24 },
                     bgcolor: 'background.paper',
                     mt: '-1px',
@@ -45,11 +56,11 @@ const BenefitsSection = ({ benefits }) => {
                         {items.map((item, index) => (
                             <Grid
                                 size={{ xs: 12, sm: 6, md: 3 }}
-                                key={loading ? index : item.id}
+                                key={loading ? `skeleton-${index}` : item.id}
                             >
                                 <BenefitCard
                                     item={loading ? null : item}
-                                    isLoading={loading}
+                                    loading={loading}
                                 />
                             </Grid>
                         ))}
