@@ -7,7 +7,7 @@ import TitleSection from '@/components/common/TitleSection/TitleSection';
 import ServiceCard from '@/components/common/Cards/ServiceCard';
 import LayeredWaves from '@/components/common/Divider/LayeredWaves';
 
-// const MotionBox = motion.create(Box);
+const MotionBox = motion.create(Box);
 
 const ServicesSection = ({ services }) => {
     const theme = useTheme();
@@ -39,7 +39,7 @@ const ServicesSection = ({ services }) => {
                 sx={{
                     pt: { xs: 8, sm: 12, md: 16 },
                     px: { xs: 2, sm: 8, md: 12 },
-                    pb: { xs: 12, sm: 18, md: 24, lg: 32 },
+                    pb: { xs: 12, sm: 18, md: 24, lg: 32, xl: 40 },
                 }}
             >
                 {/* Título de la sección */}
@@ -49,7 +49,7 @@ const ServicesSection = ({ services }) => {
                     texth2="nuestros servicios"
                     animation={fadeInUpRight}
                 />
-                <Box
+                <MotionBox
                     component={motion.div}
                     variants={staggerContainer}
                     initial="hidden"
@@ -73,7 +73,7 @@ const ServicesSection = ({ services }) => {
                             </Grid>
                         ))}
                     </Grid>
-                </Box>
+                </MotionBox>
             </Box>
             <Box
                 sx={{

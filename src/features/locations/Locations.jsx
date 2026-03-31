@@ -41,14 +41,19 @@ const Locations = ({ locations = [] }) => {
             background="transparent"
             animation={staggerContainer}
             aria-labelledby="locales-title"
+            sx={{
+                overflow: 'visible !important',
+                position: 'relative',
+                zIndex: 1,
+            }}
         >
             <Box
                 sx={{
-                    position: 'relative',
+                    position: 'absolute',
                     top: 0,
                     left: 0,
                     width: '100%',
-                    zIndex: 0,
+                    zIndex: 10,
                 }}
             >
                 <TripleGlowWave
@@ -60,9 +65,12 @@ const Locations = ({ locations = [] }) => {
             <Box
                 sx={{
                     position: 'relative',
+                    zIndex: 1,
                     width: '100%',
                     overflow: 'hidden',
-                    px: { xs: 2, sm: 6, md: 12 },
+                    pt: { xs: 8, sm: 12, md: 16, lg: 20, xl: 24 },
+                    px: { xs: 2, sm: 8, md: 12 },
+                    pb: { xs: 12, sm: 18, md: 24, lg: 32, xl: 40 },
                 }}
             >
                 {/*  MAPA (Fondo) */}
@@ -70,7 +78,7 @@ const Locations = ({ locations = [] }) => {
                     aria-hidden="true"
                     sx={{
                         position: 'absolute',
-                        top: -50,
+                        top: 0,
                         left: 0,
                         width: '100%',
                         bottom: { xs: -300, md: -200 },
@@ -89,13 +97,14 @@ const Locations = ({ locations = [] }) => {
                 <Box
                     sx={{
                         position: 'absolute',
-                        top: -75,
+                        top: 0,
                         left: 0,
                         width: '100%',
                         height: '400px',
                         background: `linear-gradient(to bottom, ${theme.palette.background.default} 10%, transparent 100%)`,
-                        zIndex: 1,
+                        zIndex: 3,
                         pointerEvents: 'none',
+                        opacity: 0.8,
                     }}
                 />
 
@@ -103,6 +112,7 @@ const Locations = ({ locations = [] }) => {
                 <Container
                     maxWidth="lg"
                     sx={{
+                        bgcolor: 'transparent',
                         position: 'relative',
                         zIndex: 2,
                         py: { xs: 4, md: 8 },
@@ -128,23 +138,23 @@ const Locations = ({ locations = [] }) => {
                     >
                         {loading
                             ? // skeleton de 2 cards
-                                [1, 2].map((_, i) => (
-                                    <LocationCard
-                                        key={`skeleton-${i}`}
-                                        loading={true}
-                                        index={i}
-                                    />
-                                ))
+                              [1, 2].map((_, i) => (
+                                  <LocationCard
+                                      key={`skeleton-${i}`}
+                                      loading={true}
+                                      index={i}
+                                  />
+                              ))
                             : //Datos reales
-                                locations.map((loc, index) => (
-                                    <LocationCard
-                                        key={loc.id || index}
-                                        loc={loc}
-                                        index={index}
-                                        image={images[index] || local1}
-                                        loading={false}
-                                    />
-                                ))}
+                              locations.map((loc, index) => (
+                                  <LocationCard
+                                      key={loc.id || index}
+                                      loc={loc}
+                                      index={index}
+                                      image={images[index] || local1}
+                                      loading={false}
+                                  />
+                              ))}
                     </Box>
                 </Container>
             </Box>
