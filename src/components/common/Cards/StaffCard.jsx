@@ -6,16 +6,17 @@ const StaffCard = ({ person }) => {
 
     return (
         <Box
+            component="article"
             sx={{
-                p: { xs: 2, md: 2.5 },
-                pb: { xs: 3, md: 3.5 },
-                height: '100%', // Asegura que todas midan lo mismo en el slider
+                p: { xs: 2.5, md: 3 },
+                pb: { xs: 4, md: 4.5 },
+                height: '100%',
                 display: 'flex',
                 flexDirection: 'column',
                 backgroundColor: isDarkMode
                     ? theme.palette.background.paper
                     : '#ffffff',
-                borderRadius: '20px',
+                borderRadius: '24px',
                 boxShadow: isDarkMode
                     ? '0 4px 20px rgba(0,0,0,0.3)'
                     : '0 4px 20px rgba(0,0,0,0.03)',
@@ -35,7 +36,7 @@ const StaffCard = ({ person }) => {
                     width: '100%',
                     aspectRatio: '1/1',
                     overflow: 'hidden',
-                    borderRadius: '14px',
+                    borderRadius: '16px',
                     mb: 3,
                     position: 'relative',
                     backgroundColor: theme.palette.background.default,
@@ -45,12 +46,11 @@ const StaffCard = ({ person }) => {
                 <Box
                     component="img"
                     src={person.image}
-                    alt={person.name}
+                    alt={`Instructor/a de Le Max Pilates: ${person.name}`}
                     sx={{
                         width: '100%',
                         height: '100%',
                         objectFit: 'cover',
-                        // Tu genial efecto de color
                         filter: 'grayscale(100%) contrast(1.1) brightness(0.95)',
                         transition: 'all 0.5s ease',
                         '&:hover': {
@@ -79,7 +79,7 @@ const StaffCard = ({ person }) => {
 
             <Typography
                 variant="body2"
-                color="primary.main"
+                color="primary.dark"
                 sx={{
                     textAlign: 'center',
                     fontWeight: 600,
@@ -93,7 +93,7 @@ const StaffCard = ({ person }) => {
 
             <Typography
                 variant="body2"
-                color="text.secondary"
+                color="text.primary"
                 sx={{
                     textAlign: 'center',
                     mt: 1,

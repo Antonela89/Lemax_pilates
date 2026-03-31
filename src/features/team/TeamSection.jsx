@@ -11,6 +11,10 @@ const TeamSection = ({ staff = [] }) => {
     const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'lg'));
     const itemsToShow = isMobile ? 1 : isTablet ? 2 : 3;
 
+    const prefersReducedMotion = useMediaQuery(
+        '(prefers-reduced-motion: reduce)'
+    );
+
     if (!staff.length) return null;
 
     const bgBottom = theme.palette.background.default;
@@ -19,11 +23,12 @@ const TeamSection = ({ staff = [] }) => {
         <SectionContainer
             id="equipo"
             background="transparent"
+            aria-labelledby="team-section-title"
             sx={{
                 position: 'relative',
                 zIndex: 10,
                 backdropFilter: 'blur(4px)',
-                top: { xs: '-40px', sm:'-60px', md: '-80px' },
+                mt: { xs: '-40px', sm: '-60px', md: '-80px' },
             }}
         >
             <TripleGlowWave
@@ -34,14 +39,20 @@ const TeamSection = ({ staff = [] }) => {
 
             <Container maxWidth="lg" sx={{ py: { xs: 4, md: 8 } }}>
                 <TitleSection
+                    id="team-section-title"
                     textOverline="NUESTRO EQUIPO"
                     texth2="INSTRUCTORES CERTIFICADOS"
                 />
 
-                <Box sx={{ mt: 6 }}>
+                <Box
+                    sx={{ mt: { xs: 4, md: 8 } }}
+                    role="region"
+                    aria-label="Carrusel de instructores"
+                >
                     <AutoSlider
                         items={staff}
                         itemsToShow={itemsToShow}
+                        interval={prefersReducedMotion ? 10000 : 5000}
                         renderItem={(person) => <StaffCard person={person} />}
                     />
                 </Box>
