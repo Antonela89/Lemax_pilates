@@ -17,13 +17,13 @@
             "icon": "Place"
         },
         {
-            "label": "Staff",
+            "label": "Equipo",
             "path": "#equipo",
             "icon": "Groups"
         },
         {
             "label": "Instagram",
-            "path": "#reels",
+            "path": "#instagram",
             "icon": "Instagram"
         },
         {

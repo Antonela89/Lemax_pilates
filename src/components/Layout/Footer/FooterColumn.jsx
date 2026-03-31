@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material";
 
-export default function FooterColumn({ title, children, sx = {} }) {
+export function FooterColumn({ title, children, sx = {} }) {
   return (
     <Box
       sx={{

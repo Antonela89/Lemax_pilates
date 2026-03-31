@@ -1,4 +1,4 @@
-import { Paper, Typography, Box, Skeleton } from '@mui/material';
+import { Paper, Typography, Box, Skeleton, alpha } from '@mui/material';
 import { motion } from 'motion/react';
 import {
     AccessibilityNew,
@@ -80,6 +80,7 @@ const BenefitCard = ({ item, loading = false }) => {
         <MotionPaper
             variants={fadeInUpLeft}
             elevation={0}
+            component="article" 
             sx={{
                 ...cardStyles,
                 background: 'transparent',
@@ -88,17 +89,17 @@ const BenefitCard = ({ item, loading = false }) => {
                 '&:hover': {
                     borderColor: 'primary.main',
                     transform: 'translateY(-8px)',
-                    transition: 'all 0.3s ease',
+                    boxShadow: (theme) => `0 10px 30px ${alpha(theme.palette.primary.main, 0.1)}`
                 },
             }}
         >
             <Box sx={{ color: 'primary.main', mb: 2 }}>
-                <IconComponent sx={{ fontSize: 40 }} />
+                <IconComponent sx={{ fontSize: 40 }}  aria-hidden="true"  />
             </Box>
-            <Typography variant="h6" sx={{ fontWeight: 700, mb: 1 }}>
+            <Typography variant="h6" component="h3" sx={{ fontWeight: 700, mb: 1 }}>
                 {title}
             </Typography>
-            <Typography variant="body2" color="text.secondary">
+            <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.6 }}>
                 {description}
             </Typography>
         </MotionPaper>

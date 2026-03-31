@@ -1,5 +1,13 @@
 import { useState, useEffect } from 'react';
-import { Box, Container, Button, useTheme, Typography } from '@mui/material';
+import {
+    Box,
+    Container,
+    Button,
+    useTheme,
+    Typography,
+    useMediaQuery,
+    alpha,
+} from '@mui/material';
 import { motion } from 'motion/react';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import SectionContainer from '@/components/common/SectionContainer/SectionContainer';
@@ -17,6 +25,10 @@ const ReelsSection = () => {
     const [error, setError] = useState(false);
     const [loading, setLoading] = useState(true);
 
+    const prefersReducedMotion = useMediaQuery(
+        '(prefers-reduced-motion: reduce)'
+    );
+
     const BEHOLD_URL = import.meta.env.VITE_BEHOLD_URL;
     const REELS_COUNT = 8;
 
@@ -26,10 +38,16 @@ const ReelsSection = () => {
     useEffect(() => {
         // Simulación o llamada real a Behold.so
         const fetchInstagram = async () => {
+            if (!BEHOLD_URL) {
+                setLoading(false);
+                return;
+            }
             try {
-                const response = await fetch('BEHOLD_URL');
+                const response = await fetch(BEHOLD_URL);
+                if (!response.ok) throw new Error();
                 const data = await response.json();
                 setReels(data.slice(0, REELS_COUNT));
+                setLoading(false);
 
                 // MOCK para desarrollo
                 // setTimeout(() => {
@@ -50,17 +68,13 @@ const ReelsSection = () => {
         };
 
         fetchInstagram();
-    }, []);
+    }, [BEHOLD_URL]);
 
-    if (!BEHOLD_URL) {
-        console.error('Falta la URL de Behold en el archivo .env');
-        setLoading(false);
-        return;
-    }
+    if (!BEHOLD_URL) return null;
 
     const itemsToRender = loading ? Array.from(new Array(REELS_COUNT)) : reels;
 
-    const background = `linear-gradient(to bottom, 
+    const backgroundGradient = `linear-gradient(to bottom, 
                     ${bgDefault} 0%, 
                     ${bgAlternate} 15%, 
                     ${bgAlternate} 85%, 
@@ -72,82 +86,72 @@ const ReelsSection = () => {
             <SectionContainer
                 id="instagram"
                 background="transparent"
+                aria-labelledby="instagram-title"
                 sx={{
-                    background: background,
+                    background: backgroundGradient,
                     py: 0,
                 }}
             >
-                <Container maxWidth="md" sx={{ textAlign: 'center', py: 10 }}>
-                    <InstagramIcon
-                        sx={{ fontSize: 50, color: 'primary.main', mb: 2 }}
+                <Container maxWidth="lg" sx={{ py: { xs: 8, md: 12 } }}>
+                    <TitleSection
+                        id="instagram-title"
+                        textOverline="Social Media"
+                        texth2="Le Max en Instagram"
+                        animation={fadeInUpLeft}
                     />
-                    <Typography variant="h5" sx={{ fontWeight: 700, mb: 2 }}>
-                        ¡Visitá nuestro Instagram para ver más!
-                    </Typography>
-                    <Typography color="text.secondary" sx={{ mb: 4 }}>
-                        No pudimos cargar los Reels en este momento, pero podés
-                        encontrar todos nuestros tips de bienestar en nuestra
-                        cuenta oficial.
-                    </Typography>
-                    <Button
-                        variant="contained"
-                        href="https://www.instagram.com/lemax.centrodepilates/"
-                        target="_blank"
-                    >
-                        Ir a @lemax.centrodepilates
-                    </Button>
+
+                    {error ? (
+                        /* Fallback elegante si falla la API */
+                        <Box sx={{ textAlign: 'center', py: 6 }}>
+                            <Typography
+                                variant="h6"
+                                sx={{ mb: 2, fontWeight: 700 }}
+                            >
+                                Seguinos en Instagram para ver nuestro contenido
+                                diario
+                            </Typography>
+                            <MotionBox
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{ once: true, amount: 0.5 }}
+                                sx={{ mt: 8, textAlign: 'center' }}
+                            >
+                                <MotionButton
+                                    variants={fadeInUpLeft}
+                                    variant="contained"
+                                    startIcon={<InstagramIcon />}
+                                    href="https://www.instagram.com/lemax.centrodepilates/"
+                                    target="_blank"
+                                    rel="noopener"
+                                    aria-label="Ver perfil completo de LeMax en Instagram"
+                                    sx={{
+                                        px: 6,
+                                        py: 1.8,
+                                        fontWeight: 800,
+                                        borderRadius: '50px',
+                                        boxShadow: `0 10px 30px ${alpha(theme.palette.primary.main, 0.3)}`,
+                                    }}
+                                >
+                                    Ver más en Instagram
+                                </MotionButton>
+                            </MotionBox>
+                        </Box>
+                    ) : (
+                        <Box sx={{ mt: 6, width: '100%' }}>
+                            <Marquee
+                                items={itemsToRender}
+                                speed={prefersReducedMotion ? '0s' : '100s'}
+                                itemWidth={{ xs: '260px', md: '320px' }}
+                                renderItem={(post) => (
+                                    <ReelCard post={post} isLoading={loading} />
+                                )}
+                            />
+                        </Box>
+                    )}
                 </Container>
             </SectionContainer>
         );
     }
-
-    return (
-        <SectionContainer
-            id="instagram"
-            background="transparent"
-            sx={{
-                background: background,
-                py: 0,
-            }}
-        >
-            <Container maxWidth="lg" sx={{ py: { xs: 8, md: 12 } }}>
-                <TitleSection
-                    textOverline="Social Media"
-                    texth2="Le Max en Instagram"
-                    animation={fadeInUpLeft}
-                />
-
-                <Box sx={{ mt: 6, width: '100%' }}>
-                    <Marquee
-                        items={itemsToRender}
-                        speed="100s"
-                        itemWidth={{ xs: '250px', md: '320px' }}
-                        renderItem={(post) => (
-                            <ReelCard post={post} isLoading={loading} />
-                        )}
-                    />
-                </Box>
-
-                <MotionBox
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, amount: 0.5 }}
-                    sx={{ mt: 6, textAlign: 'center' }}
-                >
-                    <MotionButton
-                        variants={fadeInUpLeft}
-                        variant="contained"
-                        startIcon={<InstagramIcon />}
-                        href="https://www.instagram.com/lemax.centrodepilates/"
-                        target="_blank"
-                        sx={{ px: 4, py: 1.5, fontWeight: 700 }}
-                    >
-                        Seguinos en Instagram
-                    </MotionButton>
-                </MotionBox>
-            </Container>
-        </SectionContainer>
-    );
 };
 
 export default ReelsSection;

@@ -14,7 +14,7 @@ const Layout = ({ children, mode, toggleColorMode, data }) => {
                 overflowX: 'hidden'
             }}
         >
-            <Navbar mode={mode} toggleColorMode={toggleColorMode} />
+            <Navbar mode={mode} toggleColorMode={toggleColorMode} data={data} />
 
             <Box component="main" sx={{ flexGrow: 1 }}>
                 {children}

@@ -26,14 +26,13 @@ const Locations = ({ locations = [] }) => {
     const images = [local1, local2];
 
     useEffect(() => {
-        // Simulamos la carga para mostrar el Skeleton
+        // Simulación de carga para mostrar el Skeleton
         const timer = setTimeout(() => {
             setLoading(false);
         }, 1500);
         return () => clearTimeout(timer);
     }, []);
 
-    // Si no hay datos y terminó de cargar, ocultamos la sección
     if (!loading && (!locations || locations.length === 0)) return null;
 
     return (
@@ -41,11 +40,12 @@ const Locations = ({ locations = [] }) => {
             id="locales"
             background="transparent"
             animation={staggerContainer}
+            aria-labelledby="locales-title"
         >
             <Box
                 sx={{
-                    position: 'abolute',
-                    top: { xs: -10, md: 0 },
+                    position: 'relative',
+                    top: 0,
                     left: 0,
                     width: '100%',
                     zIndex: 0,
@@ -67,6 +67,7 @@ const Locations = ({ locations = [] }) => {
             >
                 {/*  MAPA (Fondo) */}
                 <Box
+                    aria-hidden="true"
                     sx={{
                         position: 'absolute',
                         top: -50,
@@ -77,8 +78,8 @@ const Locations = ({ locations = [] }) => {
                         backgroundSize: 'cover',
                         backgroundPosition: 'center',
                         filter: isDarkMode
-                            ? 'brightness(0.7) saturate(1.5)'
-                            : 'brightness(0.9) opacity(0.5)',
+                            ? 'brightness(0.6) saturate(1.2) contrast(1.1)'
+                            : 'brightness(0.9) opacity(0.4)',
                         zIndex: 0,
                         pointerEvents: 'none',
                     }}
@@ -91,7 +92,7 @@ const Locations = ({ locations = [] }) => {
                         top: -75,
                         left: 0,
                         width: '100%',
-                        height: '350px',
+                        height: '400px',
                         background: `linear-gradient(to bottom, ${theme.palette.background.default} 10%, transparent 100%)`,
                         zIndex: 1,
                         pointerEvents: 'none',
@@ -109,6 +110,7 @@ const Locations = ({ locations = [] }) => {
                     }}
                 >
                     <TitleSection
+                        id="locales-title"
                         textOverline="NUESTROS LOCALES"
                         texth2="VISITANOS"
                         animation={fadeInUpLeft}
@@ -119,30 +121,30 @@ const Locations = ({ locations = [] }) => {
                             mt: 4,
                             display: 'flex',
                             flexDirection: { xs: 'column', md: 'row' },
-                            gap: 5,
+                            gap: { xs: 4, md: 6 },
                             justifyContent: 'center',
                             alignItems: 'stretch',
                         }}
                     >
                         {loading
                             ? // skeleton de 2 cards
-                              [1, 2].map((_, i) => (
-                                  <LocationCard
-                                      key={`skeleton-${i}`}
-                                      loading={true}
-                                      index={i}
-                                  />
-                              ))
+                                [1, 2].map((_, i) => (
+                                    <LocationCard
+                                        key={`skeleton-${i}`}
+                                        loading={true}
+                                        index={i}
+                                    />
+                                ))
                             : //Datos reales
-                              locations.map((loc, index) => (
-                                  <LocationCard
-                                      key={loc.id || index}
-                                      loc={loc}
-                                      index={index}
-                                      image={images[index] || local1}
-                                      loading={false}
-                                  />
-                              ))}
+                                locations.map((loc, index) => (
+                                    <LocationCard
+                                        key={loc.id || index}
+                                        loc={loc}
+                                        index={index}
+                                        image={images[index] || local1}
+                                        loading={false}
+                                    />
+                                ))}
                     </Box>
                 </Container>
             </Box>

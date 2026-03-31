@@ -1,25 +1,25 @@
-import { Paper, Typography, Box, Container, Skeleton } from '@mui/material';
+import { Paper, Typography, Box, Skeleton, alpha } from '@mui/material';
 import { motion } from 'motion/react';
 import { fadeInUpLeft } from '@/theme/animations';
 
 const MotionPaper = motion.create(Paper);
 
 const ServiceCard = ({ item, loading = false }) => {
-    // Si está cargando, item puede ser nulo
     const title = item?.title || '';
     const description = item?.description || '';
     const image = item?.image || '';
 
     const cardStyles = {
-        background: 'background.paper',
+        background: (theme) => theme.palette.background.paper,
         p: 0,
         height: '100%',
         display: 'flex',
         flexDirection: 'column',
-        borderRadius: 1,
+        borderRadius: 4,
         overflow: 'hidden',
         border: '1px solid',
         borderColor: 'divider',
+        boxShadow: '0 4px 12px rgba(0,0,0,0.05)',
     };
 
     // --- ESTADO CARGANDO (SKELETON) ---
@@ -35,8 +35,7 @@ const ServiceCard = ({ item, loading = false }) => {
                 />
 
                 {/* Esqueleto del Contenido */}
-                <Container sx={{ p: '2rem' }}>
-                    {/* Título */}
+                <Box sx={{ p: '1rem' }}>
                     <Skeleton
                         variant="text"
                         width="70%"
@@ -48,7 +47,7 @@ const ServiceCard = ({ item, loading = false }) => {
                     {/* Descripción (2 líneas) */}
                     <Skeleton variant="text" width="100%" animation="wave" />
                     <Skeleton variant="text" width="85%" animation="wave" />
-                </Container>
+                </Box>
             </Paper>
         );
     }
@@ -57,36 +56,57 @@ const ServiceCard = ({ item, loading = false }) => {
         <MotionPaper
             variants={fadeInUpLeft}
             elevation={0}
+            component="article"
             sx={{
                 ...cardStyles,
+                transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
                 '&:hover': {
-                    borderColor: 'primary.main',
-                    transform: 'translateY(-8px)',
-                    transition: 'all 0.3s ease',
+                    borderColor: 'primary.light',
+                    transform: 'translateY(-10px)',
+                    boxShadow: (theme) =>
+                        `0 20px 40px ${alpha(theme.palette.common.black, 0.15)}`,
                 },
             }}
         >
             <Box
                 component="img"
                 src={image}
-                alt={title}
+                alt={`Servicio de ${title}`}
                 sx={{
                     width: '100%',
-                    height: '250px',
+                    height: '220px',
                     objectFit: 'cover',
                 }}
             />
-            <Container sx={{ p: '1rem' }}>
+            <Box
+                sx={{
+                    p: 3,
+                    flexGrow: 1,
+                    display: 'flex',
+                    flexDirection: 'column',
+                }}
+            >
                 <Typography
                     variant="h6"
-                    sx={{ fontWeight: 700, mb: 1, textTransform: 'uppercase' }}
+                    component="h3"
+                    sx={{
+                        fontWeight: 800,
+                        mb: 1.5,
+                        textTransform: 'uppercase',
+                        fontSize: '1.1rem',
+                        color: 'text.primary',
+                    }}
                 >
                     {title}
                 </Typography>
-                <Typography variant="body2" color="text.secondary">
+                <Typography
+                    variant="body2"
+                    color="text.secondary"
+                    sx={{ lineHeight: 1.6 }}
+                >
                     {description}
                 </Typography>
-            </Container>
+            </Box>
         </MotionPaper>
     );
 };

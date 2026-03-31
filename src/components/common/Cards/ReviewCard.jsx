@@ -1,6 +1,3 @@
-<<<<<<< fix-info
-import { Box, Typography, Stack, Rating, Avatar, useTheme, alpha, Skeleton } from '@mui/material';
-=======
 import {
     Box,
     Typography,
@@ -11,7 +8,6 @@ import {
     alpha,
     Skeleton,
 } from '@mui/material';
->>>>>>> dev
 import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
 import PlaceIcon from '@mui/icons-material/Place';
 
@@ -125,6 +121,7 @@ const ReviewCard = ({ review, loading = false }) => {
 
     return (
         <Box
+            component="article"
             sx={{
                 ...cardStyles,
                 backdropFilter: 'blur(12px) saturate(1.8)',
@@ -139,18 +136,14 @@ const ReviewCard = ({ review, loading = false }) => {
                 transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
 
                 // ANIMACIÓN HOVER
-                
-                '@media (hover: hover)': {
-                    '&:hover': {
-                        transform: 'translateY(-8px)',
-                        borderColor: theme.palette.primary.main,
-                        boxShadow: `0 18px 35px ${alpha(theme.palette.primary.main, 0.2)}`,
-
-                        '& .card-silhouette': {
-                            transform:
-                                'translate(calc(-50% + 55px), calc(-50% + 55px)) scale(1.1)',
-                            opacity: isDarkMode ? 0.2 : 0.25,
-                        },
+                '&:hover': {
+                    transform: 'translateY(-8px)',
+                    borderColor: theme.palette.primary.main,
+                    boxShadow: `0 18px 35px ${alpha(theme.palette.primary.main, 0.2)}`,
+                    '& .card-silhouette': {
+                        transform:
+                            'translate(calc(-50% + 55px), calc(-50% + 55px)) scale(1.1)',
+                        opacity: isDarkMode ? 0.2 : 0.25, // Más color en hover
                     },
                 },
             }}
@@ -194,13 +187,15 @@ const ReviewCard = ({ review, loading = false }) => {
                         value={rating}
                         readOnly
                         size="small"
-                        sx={{ color: theme.palette.primary.main }}
+                        sx={{ color: 'primary.main' }}
+                        aria-label={`Calificación de ${review.rating} estrellas`}
                     />
                     <FormatQuoteIcon
                         sx={{
                             color: alpha(theme.palette.primary.main, 0.25),
-                            fontSize: 30,
+                            fontSize: 35,
                         }}
+                        aria-hidden="true"
                     />
                 </Stack>
 
@@ -208,8 +203,8 @@ const ReviewCard = ({ review, loading = false }) => {
                     variant="body2"
                     sx={{
                         fontStyle: 'italic',
-                        lineHeight: 1.6,
-                        color: 'text.secondary',
+                        lineHeight: 1.7,
+                        color: 'text.primary',
                         flexGrow: 1,
                         mb: 2,
                         textShadow: !isDarkMode
@@ -228,12 +223,11 @@ const ReviewCard = ({ review, loading = false }) => {
                 >
                     <Avatar
                         sx={{
-                            bgcolor: theme.palette.primary.main,
-                            color: theme.palette.primary.contrastText,
-                            fontWeight: 700,
-                            width: 40,
-                            height: 40,
-                            fontSize: '0.85rem',
+                            bgcolor: 'primary.main',
+                            color: 'primary.contrastText',
+                            fontWeight: 800,
+                            width: 42,
+                            height: 42,
                         }}
                     >
                         {initials}
@@ -257,8 +251,8 @@ const ReviewCard = ({ review, loading = false }) => {
                         >
                             <PlaceIcon
                                 sx={{
-                                    fontSize: 12,
-                                    color: theme.palette.primary.main,
+                                    fontSize: 14,
+                                    color: 'primary.main',
                                 }}
                             />
                             <Typography

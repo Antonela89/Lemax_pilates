@@ -1,304 +1,313 @@
-import React from 'react';
 import {
-  Box,
-  Container,
-  Typography,
-  IconButton,
-  Divider,
-  Link,
-  Tooltip,
+    Box,
+    Container,
+    Typography,
+    IconButton,
+    Divider,
+    Link,
 } from '@mui/material';
-
+import { motion } from 'motion/react';
 // Icons
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
-import EmailIcon from '@mui/icons-material/Email';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import PhoneIcon from '@mui/icons-material/Phone';
-import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-import HomeIcon from '@mui/icons-material/Home';
-import SelfImprovementIcon from '@mui/icons-material/SelfImprovement';
-import PlaceIcon from '@mui/icons-material/Place';
-import GroupsIcon from '@mui/icons-material/Groups';
-import MailIcon from '@mui/icons-material/Mail';
-
-// Animación
-import { motion } from 'framer-motion';
-
+import { iconMap } from '@/utils/navigationUtils';
 // Components
-import FooterColumn from './FooterColumn';
-import FooterItem from './FooterItem';
+import { FooterColumn } from './FooterColumn';
+import { FooterItem } from './FooterItem';
 
 const MotionBox = motion.create(Box);
 
 export default function Footer({ data }) {
-  const currentYear = new Date().getFullYear();
+    const currentYear = new Date().getFullYear();
 
-  // ICONOS NAVBAR
-  const iconMap = {
-    Home: <HomeIcon />,
-    SelfImprovement: <SelfImprovementIcon />,
-    Place: <PlaceIcon />,
-    Groups: <GroupsIcon />,
-    Instagram: <InstagramIcon />,
-    WhatsApp: <WhatsAppIcon />,
-  };
+    const businessName = data?.businessName || 'Le Max Pilates';
+    const nameParts = businessName.split(' ');
+    const navLinks = data?.navbar || [];
 
-  const navLinks = data.navbar.map((item) => ({
-    name: item.label,
-    href: item.path,
-    icon: iconMap[item.icon],
-  }));
+    // FUNCIÓN HORARIOS
+    const getScheduleInfo = (schedule) => {
+        const days = Object.keys(schedule);
+        if (!days.length) return '';
 
-  // FUNCIÓN HORARIOS
-  const getScheduleInfo = (schedule) => {
-    const days = Object.keys(schedule);
-    if (!days.length) return '';
+        const allHours = Object.values(schedule).flat().sort();
+        const firstHour = allHours[0];
+        const lastHour = allHours[allHours.length - 1];
 
-    const allHours = Object.values(schedule).flat().sort();
-    const firstHour = allHours[0];
-    const lastHour = allHours[allHours.length - 1];
+        const firstDay = days[0];
+        const lastDay = days[days.length - 1];
 
-    const firstDay = days[0];
-    const lastDay = days[days.length - 1];
+        return `${firstDay} a ${lastDay}: ${firstHour} - ${lastHour}`;
+    };
 
-    return `${firstDay} a ${lastDay}: ${firstHour} - ${lastHour}`;
-  };
-
-  return (
-    <Box
-      component="footer"
-      sx={{
-        bgcolor: 'background.default',
-        color: 'text.primary',
-        pt: { xs: 6, md: 10 },
-        pb: 4,
-        borderTop: 1,
-        borderColor: 'divider',
-      }}
-    >
-      <Container maxWidth="lg">
+    return (
         <Box
-          sx={{
-            display: 'grid',
-            gridTemplateColumns: {
-              xs: '1fr',
-              sm: '1fr 1fr',
-              md: '1.2fr 1fr 1fr 1fr',
-            },
-            gap: { xs: 5, md: 5 },
-            textAlign: { xs: 'center', md: 'left' },
-          }}
+            component="footer"
+            role="contentinfo"
+            sx={{
+                bgcolor: 'background.default',
+                color: 'text.primary',
+                pt: { xs: 6, md: 10 },
+                pb: 4,
+                borderTop: 1,
+                borderColor: 'divider',
+            }}
         >
-          {/* BRANDING */}
-          <Box>
-            <Typography
-              variant="h6"
-              sx={{
-                letterSpacing: 4,
-                fontWeight: 800,
-                fontFamily: 'Montserrat, sans-serif',
-              }}
-            >
-              {data.businessName.split(' ')[0]}{' '}
-              <Box component="span" sx={{ color: 'primary.main' }}>
-                {data.businessName.split(' ')[1]}
-              </Box>
-            </Typography>
-
-            <Typography
-              sx={{
-                mt: 3,
-                fontStyle: 'italic',
-                maxWidth: 300,
-                mx: { xs: 'auto', md: 0 },
-                fontSize: { xs: '0.95rem', md: '1rem' },
-                lineHeight: 1.5,
-                color: 'text.secondary',
-              }}
-            >
-              Transforma tu bienestar a través del movimiento consciente.
-            </Typography>
-
-            {/* REDES */}
-            <MotionBox
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              sx={{
-                mt: 4,
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: { xs: 'center', md: 'flex-start' },
-                gap: 2,
-              }}
-            >
-              <Typography
-                sx={{
-                  fontWeight: 600,
-                  fontSize: '1rem',
-                  letterSpacing: 1,
-                }}
-              >
-                Seguinos
-              </Typography>
-
-              <Box
-                sx={{
-                  display: 'flex',
-                  gap: 1.5,
-                  p: 1,
-                  borderRadius: '20px',
-                  backdropFilter: 'blur(10px)',
-                  background: 'rgba(255,255,255,0.05)',
-                  border: '1px solid rgba(255,255,255,0.08)',
-                }}
-              >
-                {/* Instagram */}
-                <Tooltip title="Instagram" arrow>
-                  <IconButton
-                    component="a"
-                    href={data?.social?.instagram_url}
-                    target="_blank"
-                    rel="noopener noreferrer"
+            <Container maxWidth="lg">
+                <Box
                     sx={{
-                      color: 'text.secondary',
-                      '&:hover': {
-                        color: 'primary.main',
-                        transform: 'translateY(-6px) scale(1.2)',
-                        boxShadow:
-                          '0 10px 25px rgba(225,48,108,0.4)',
-                      },
+                        display: 'grid',
+                        gridTemplateColumns: {
+                            xs: '1fr',
+                            sm: '1fr 1fr',
+                            md: '1.2fr 1fr 1fr 1fr',
+                        },
+                        gap: { xs: 5, md: 5 },
+                        textAlign: { xs: 'center', md: 'left' },
                     }}
-                  >
-                    <InstagramIcon />
-                  </IconButton>
-                </Tooltip>
-
-                {/* Facebook */}
-                <Tooltip title="Facebook" arrow>
-                  <IconButton
-                    component="a"
-                    href={data?.social?.facebook_url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    sx={{
-                      color: 'text.secondary',
-                      '&:hover': {
-                        color: 'primary.main',
-                        transform: 'translateY(-6px) scale(1.2)',
-                        boxShadow:
-                          '0 10px 25px rgba(24,119,242,0.4)',
-                      },
-                    }}
-                  >
-                    <FacebookIcon />
-                  </IconButton>
-                </Tooltip>
-
-                {/* Mail */}
-                <Tooltip title="Enviar email" arrow>
-                  <IconButton
-                    component="a"
-                    href={`mailto:${data?.social?.email}`}
-                    sx={{
-                      color: 'text.secondary',
-                      '&:hover': {
-                        color: 'primary.main',
-                        transform: 'translateY(-6px) scale(1.2)',
-                        boxShadow:
-                          '0 10px 25px rgba(0,0,0,0.2)',
-                      },
-                    }}
-                  >
-                    <EmailIcon />
-                  </IconButton>
-                </Tooltip>
-              </Box>
-            </MotionBox>
-          </Box>
-
-          {/* EXPLORAR */}
-          <FooterColumn title="Explorar">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                underline="none"
-                sx={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: { xs: 'center', md: 'flex-start' },
-                  gap: 1.5,
-                  color: 'text.secondary',
-                  '&:hover': {
-                    color: 'text.primary',
-                    transform: 'translateX(5px)',
-                  },
-                }}
-              >
-                {React.cloneElement(link.icon, {
-                  sx: { color: 'primary.main', fontSize: '1.3rem' },
-                })}
-                {link.name}
-              </Link>
-            ))}
-          </FooterColumn>
-
-          {/* HORARIOS */}
-          <FooterColumn title="Horarios">
-            {data.locations.map((loc) => (
-              <Box key={loc.id} sx={{ mb: 3 }}>
-                <Typography sx={{ fontWeight: 600 }}>
-                  {loc.name}
-                </Typography>
-                <Typography sx={{ fontSize: '0.9rem', color: 'text.secondary' }}>
-                  {getScheduleInfo(loc.schedule)}
-                </Typography>
-              </Box>
-            ))}
-          </FooterColumn>
-
-          {/* CONTACTO */}
-          <FooterColumn title="Contacto">
-            {data.locations.map((loc) => (
-              <Box key={loc.id} sx={{ mb: 3 }}>
-                <Typography sx={{ fontWeight: 600 }}>
-                  {loc.name}
-                </Typography>
-
-                <FooterItem
-                  component="a"
-                  href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-                    loc.address
-                  )}`}
-                  target="_blank"
-                  icon={<LocationOnIcon sx={{ color: 'primary.main' }} />}
                 >
-                  {loc.address}
-                </FooterItem>
+                    {/* BRANDING */}
+                    <Box>
+                        <Typography
+                            variant="h6"
+                            sx={{
+                                letterSpacing: 4,
+                                fontWeight: 800,
+                                fontFamily: 'Montserrat, sans-serif',
+                            }}
+                        >
+                            {nameParts[0]}{' '}
+                            <Box
+                                component="span"
+                                sx={{ color: 'primary.main' }}
+                            >
+                                {nameParts[1]}
+                            </Box>
+                        </Typography>
 
-                <FooterItem
-                  component="a"
-                  href={`tel:${loc.phone}`}
-                  icon={<PhoneIcon sx={{ color: 'primary.main' }} />}
-                >
-                  {loc.phone}
-                </FooterItem>
-              </Box>
-            ))}
-          </FooterColumn>
+                        <Typography
+                            sx={{
+                                variant: 'body2',
+                                mt: 3,
+                                fontStyle: 'italic',
+                                maxWidth: 300,
+                                mx: { xs: 'auto', md: 0 },
+                                fontSize: { xs: '0.95rem', md: '1rem' },
+                                lineHeight: 1.5,
+                                color: 'text.secondary',
+                            }}
+                        >
+                            Transforma tu bienestar a través del movimiento
+                            consciente.
+                        </Typography>
+
+                        {/* REDES */}
+                        <MotionBox
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6 }}
+                            viewport={{ once: true }}
+                            sx={{
+                                mt: 4,
+                                display: 'flex',
+                                flexDirection: 'column',
+                                alignItems: { xs: 'center', md: 'flex-start' },
+                                gap: 2,
+                            }}
+                        >
+                            <Typography
+                                sx={{
+                                    fontWeight: 600,
+                                    fontSize: '1rem',
+                                    letterSpacing: 1,
+                                }}
+                            >
+                                Seguinos en Redes
+                            </Typography>
+
+                            <Box
+                                sx={{
+                                    display: 'flex',
+                                    alignItems: {
+                                        xs: 'center',
+                                        md: 'flex-start',
+                                    },
+                                    gap: 1,
+                                }}
+                            >
+                                <IconButton
+                                    component="a"
+                                    href={data?.social?.instagram_url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label="Visitar nuestro perfil de Instagram"
+                                    sx={{
+                                        alignSelf: {
+                                            xs: 'center',
+                                            md: 'flex-start',
+                                        },
+                                        color: 'text.secondary',
+                                        transition: 'all 0.25s ease',
+                                        '&:hover': {
+                                            color: 'primary.main',
+                                            transform:
+                                                'translateY(-4px) scale(1.15)',
+                                        },
+                                    }}
+                                >
+                                    <InstagramIcon sx={{ fontSize: '2rem' }} />
+                                </IconButton>
+                                <IconButton
+                                    component="a"
+                                    href={data?.social?.facebook_url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label="Visitar nuestro perfil de Facebook"
+                                    sx={{
+                                        alignSelf: {
+                                            xs: 'center',
+                                            md: 'flex-start',
+                                        },
+                                        color: 'text.secondary',
+                                        transition: 'all 0.25s ease',
+                                        '&:hover': {
+                                            color: 'primary.main',
+                                            transform:
+                                                'translateY(-4px) scale(1.15)',
+                                        },
+                                    }}
+                                >
+                                    <FacebookIcon sx={{ fontSize: '2rem' }} />
+                                </IconButton>
+                            </Box>
+                        </MotionBox>
+                    </Box>
+
+                    {/* EXPLORAR */}
+                    <FooterColumn title="Explorar">
+                        {navLinks.map((link) => {
+                            const IconComponent = iconMap[link.icon];
+
+                            return link.label === 'Contacto' ? null : (
+                                <Link
+                                    key={link.label}
+                                    href={link.path}
+                                    underline="none"
+                                    sx={{
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: {
+                                            xs: 'center',
+                                            md: 'flex-start',
+                                        },
+                                        gap: 1.5,
+                                        py: 0.5,
+                                        color: 'text.secondary',
+                                        '&:hover': {
+                                            color: 'text.primary',
+                                            transform: 'translateX(5px)',
+                                        },
+                                    }}
+                                >
+                                    {IconComponent && (
+                                        <IconComponent
+                                            sx={{
+                                                fontSize: '1.2rem',
+                                                color: 'primary.main',
+                                            }}
+                                        />
+                                    )}
+                                    {link.label}
+                                </Link>
+                            );
+                        })}
+                    </FooterColumn>
+
+                    {/* HORARIOS */}
+                    <FooterColumn title="Horarios">
+                        {data.locations.map((loc) => (
+                            <Box key={loc.id} sx={{ mb: 3 }}>
+                                <Typography
+                                    variant="body2"
+                                    sx={{
+                                        fontWeight: 600,
+                                        mb: 0.5,
+                                    }}
+                                >
+                                    {loc.name}
+                                </Typography>
+
+                                <Typography
+                                    variant="caption"
+                                    sx={{
+                                        color: 'text.secondary',
+                                        display: 'block',
+                                    }}
+                                >
+                                    {getScheduleInfo(loc.schedule)}
+                                </Typography>
+                            </Box>
+                        ))}
+                    </FooterColumn>
+
+                    {/* CONTACTO */}
+                    <FooterColumn title="Contacto">
+                        {data.locations.map((loc) => (
+                            <Box key={loc.id} sx={{ mb: 3 }}>
+                                <Typography
+                                    variant="body2"
+                                    sx={{
+                                        fontWeight: 600,
+                                        mb: 0.5,
+                                    }}
+                                >
+                                    {loc.name}
+                                </Typography>
+
+                                {/* Dirección clickeable */}
+                                <FooterItem
+                                    icon={
+                                        <LocationOnIcon sx={{ fontSize: 18 }} />
+                                    }
+                                    aria-label={`Ubicación de ${loc.name}`}
+                                >
+                                    <Link
+                                        href={`https://maps.google.com/?q=${encodeURIComponent(loc.address)}`}
+                                        target="_blank"
+                                        color="inherit"
+                                        underline="none"
+                                        sx={{ fontSize: '0.85rem' }}
+                                    >
+                                        {loc.address}
+                                    </Link>
+                                </FooterItem>
+                                <FooterItem
+                                    icon={<PhoneIcon sx={{ fontSize: 18 }} />}
+                                >
+                                    <Link
+                                        href={`tel:${loc.phone}`}
+                                        color="inherit"
+                                        underline="none"
+                                        sx={{ fontSize: '0.85rem' }}
+                                    >
+                                        {loc.phone}
+                                    </Link>
+                                </FooterItem>
+                            </Box>
+                        ))}
+                    </FooterColumn>
+                </Box>
+
+                <Divider sx={{ mt: 8, mb: 4 }} />
+
+                <Box sx={{ textAlign: 'center' }}>
+                    <Typography variant="caption" color="text.secondary">
+                        © {currentYear} <strong>{data.businessName}</strong>.
+                        Todos los derechos reservados.
+                    </Typography>
+                </Box>
+            </Container>
         </Box>
-
-        <Divider sx={{ mt: 8, mb: 4 }} />
-
-        <Box sx={{ textAlign: 'center' }}>
-          <Typography variant="caption" color="text.secondary">
-            © {currentYear} <strong>{data.businessName}</strong>. Todos los derechos reservados.
-          </Typography>
-        </Box>
-      </Container>
-    </Box>
-  );
+    );
 }

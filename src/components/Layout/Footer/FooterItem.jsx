@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material";
 
-export default function FooterItem({ icon, children, ...props }) {
+export function FooterItem({ icon, children, ...props }) {
   return (
     <Box
       {...props}
@@ -36,3 +36,5 @@ export default function FooterItem({ icon, children, ...props }) {
     </Box>
   );
 }
+
+export default FooterItem;

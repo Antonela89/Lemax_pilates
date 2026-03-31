@@ -7,6 +7,8 @@ import {
     MenuItem,
     ListItemIcon,
     ListItemText,
+    Tooltip,
+    alpha,
 } from '@mui/material';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import InfoIcon from '@mui/icons-material/Info';
@@ -27,6 +29,7 @@ const QueryButton = ({
     const theme = useTheme();
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
+    const menuId = 'whatsapp-query-menu';
 
     const handleOpen = (event) => {
         setAnchorEl(event.currentTarget);
@@ -38,52 +41,73 @@ const QueryButton = ({
 
     const sendWhatsapp = (msg, targetNumber = primaryNumber) => {
         const url = `https://wa.me/${targetNumber}?text=${encodeURIComponent(msg)}`;
-        window.open(url, '_blank');
+        window.open(url, '_blank', 'noopener noreferrer');
         handleClose();
     };
 
     return (
         <>
-            <Zoom in={true} style={{ transitionDelay: '500ms' }}>
-                <MotionFab
-                    color="primary"
-                    aria-label="whatsapp-query"
-                    onClick={handleOpen}
-                    sx={{
-                        position: 'fixed',
-                        bottom: { xs: 20, md: 30 },
-                        right: { xs: 20, md: 30 },
-                        bgcolor: theme.palette.primary.main,
-                        color: '#fff',
-                        width: { xs: 56, md: 64 },
-                        height: { xs: 56, md: 64 },
-                        boxShadow: '0 4px 20px rgba(0,0,0,0.3)',
-                        zIndex: 2000,
-                        '&:hover': {
-                            bgcolor: theme.palette.primary.dark,
-                        },
-                    }}
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                >
-                    <WhatsAppIcon sx={{ fontSize: { xs: 28, md: 32 } }} />
-                </MotionFab>
-            </Zoom>
+            <Tooltip title="Consultas por WhatsApp" placement="left" arrow>
+                <Zoom in={true} style={{ transitionDelay: '500ms' }}>
+                    <MotionFab
+                        color="primary"
+                        id="whatsapp-fab"
+                        aria-label="Abrir opciones de contacto por WhatsApp"
+                        aria-controls={open ? menuId : undefined}
+                        aria-haspopup="true"
+                        aria-expanded={open ? 'true' : undefined}
+                        onClick={handleOpen}
+                        sx={{
+                            position: 'fixed',
+                            bottom: { xs: 16, md: 30 },
+                            right: { xs: 16, md: 30 },
+                            bgcolor: theme.palette.primary.main,
+                            color: '#fff',
+                            width: { xs: 56, md: 64 },
+                            height: { xs: 56, md: 64 },
+                            boxShadow: '0 4px 20px rgba(0,0,0,0.3)',
+                            zIndex: 2000,
+                            '&:hover': {
+                                bgcolor: theme.palette.primary.dark,
+                                transform: 'scale(1.1)',
+                            },
+                            transition: 'all 0.3s ease-in-out',
+                        }}
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                    >
+                        <WhatsAppIcon sx={{ fontSize: { xs: 28, md: 32 } }} />
+                    </MotionFab>
+                </Zoom>
+            </Tooltip>
 
             <Menu
+                id={menuId}
                 anchorEl={anchorEl}
                 open={open}
                 onClose={handleClose}
+                MenuListProps={{
+                    'aria-labelledby': 'whatsapp-fab',
+                    role: 'listbox',
+                }}
                 anchorOrigin={{ vertical: 'top', horizontal: 'left' }}
                 transformOrigin={{ vertical: 'bottom', horizontal: 'right' }}
                 PaperProps={{
                     sx: {
-                        borderRadius: 3,
+                        borderRadius: '16px',
                         boxShadow: '0 8px 32px rgba(0,0,0,0.15)',
                         mt: -1.5,
+                        minWidth: '240px',
                         '& .MuiMenuItem-root': {
-                            py: 1.5,
-                            px: 2.5,
+                            py: 2,
+                            px: 3,
+                            transition: 'all 0.2s',
+                            '&:hover': {
+                                bgcolor: alpha(
+                                    theme.palette.primary.main,
+                                    0.08
+                                ),
+                            },
                         },
                     },
                 }}
