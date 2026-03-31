@@ -1,3 +1,6 @@
+<<<<<<< fix-info
+import { Box, Typography, Stack, Rating, Avatar, useTheme, alpha, Skeleton } from '@mui/material';
+=======
 import {
     Box,
     Typography,
@@ -8,6 +11,7 @@ import {
     alpha,
     Skeleton,
 } from '@mui/material';
+>>>>>>> dev
 import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
 import PlaceIcon from '@mui/icons-material/Place';
 
