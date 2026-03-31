@@ -17,7 +17,7 @@ const ReelCard = ({ post, isLoading = false }) => {
         display: 'block',
         position: 'relative',
         aspectRatio: '9/16',
-        borderRadius: 2,
+        borderRadius: '24px',
         overflow: 'hidden',
         border: '1px solid',
         borderColor: 'divider',
@@ -27,7 +27,7 @@ const ReelCard = ({ post, isLoading = false }) => {
     // --- ESTADO CARGANDO / SIN CONEXION (SKELETON)  ---
     if (isLoading || !post) {
         return (
-            <Box sx={cardStyles}>
+            <Box sx={cardStyles} aria-hidden="true">
                 <Skeleton
                     variant="rectangular"
                     width="100%"
@@ -87,6 +87,7 @@ const ReelCard = ({ post, isLoading = false }) => {
             href={post?.permalink}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label={`Ver video de LeMax en Instagram: ${post?.caption || 'Pilates Reel'}`}
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -104,7 +105,11 @@ const ReelCard = ({ post, isLoading = false }) => {
                 <Box
                     component="img"
                     src={post.mediaUrl}
-                    alt="LeMax Pilates Reel Instagram"
+                    alt={
+                        post?.caption
+                            ? `LeMax Pilates: ${post.caption.substring(0, 50)}...`
+                            : 'Reel de Pilates LeMax'
+                    }
                     sx={{
                         width: '100%',
                         height: '100%',
@@ -123,24 +128,24 @@ const ReelCard = ({ post, isLoading = false }) => {
                 sx={{
                     position: 'absolute',
                     inset: 0,
-                    bgcolor: alpha(theme.palette.primary.main, 0.6),
+                    bgcolor: alpha(theme.palette.primary.main, 0.7),
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
                     justifyContent: 'center',
                     opacity: 0,
-                    transition: 'all 0.3s ease',
-                    backdropFilter: 'blur(4px)',
-                    p: 2,
+                    transition: 'all 0.4s ease',
+                    backdropFilter: 'blur(6px)',
+                    p: 3,
                     textAlign: 'center',
                 }}
             >
                 <PlayCircleOutlineIcon
-                    sx={{ fontSize: 50, color: '#fff', mb: 1 }}
+                    sx={{ fontSize: 60, color: '#fff', mb: 1 }}
                 />
                 <Typography
                     variant="button"
-                    sx={{ color: '#fff', fontWeight: 800 }}
+                    sx={{ color: '#fff', fontWeight: 800, letterSpacing: 1 }}
                 >
                     VER REEL
                 </Typography>
