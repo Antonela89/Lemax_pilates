@@ -27,20 +27,46 @@ const Reviews = ({ reviews = [] }) => {
     // Si después de cargar NO hay datos, no mostramos la sección.
     if (!loading && shuffledReviews.length === 0) return null;
 
-    const skeletonItems = Array.from({ length: 3 }, (_, i) => ({ id: `skeleton-${i}` }));
+    const skeletonItems = Array.from({ length: 3 }, (_, i) => ({
+        id: `skeleton-${i}`,
+    }));
 
     return (
         <SectionContainer animation={staggerContainer} id="reviews">
-            <Box sx={{ pt: 4, pb: 8, mb: { xs: 4, md: 15 } }}>
+            <Box
+                sx={{
+                    pt: 4,
+                    pb: { xs: 12, sm: 18, md: 24 },
+                    mb: { xs: 4, md: 15 },
+                }}
+            >
                 <Container maxWidth="lg">
-                    <TitleSection textOverline="Comunidad" texth2="Nuestra Comunidad" animation={fadeInUpLeft} />
+                    <TitleSection
+                        textOverline="Comunidad"
+                        texth2="Nuestra Comunidad"
+                        animation={fadeInUpLeft}
+                    />
                 </Container>
 
                 <Box sx={{ mt: 6 }}>
                     {loading ? (
-                        <Box sx={{ display: 'flex', gap: 3, justifyContent: 'center', overflow: 'hidden', px: 2 }}>
+                        <Box
+                            sx={{
+                                display: 'flex',
+                                gap: 3,
+                                justifyContent: 'center',
+                                overflow: 'hidden',
+                                px: 2,
+                            }}
+                        >
                             {skeletonItems.map((item) => (
-                                <Box key={item.id} sx={{ width: { xs: 280, md: 360 }, flexShrink: 0 }}>
+                                <Box
+                                    key={item.id}
+                                    sx={{
+                                        width: { xs: 280, md: 360 },
+                                        flexShrink: 0,
+                                    }}
+                                >
                                     <ReviewCard loading />
                                 </Box>
                             ))}
@@ -55,7 +81,10 @@ const Reviews = ({ reviews = [] }) => {
                     )}
                 </Box>
             </Box>
-            <LayeredWaves fill1={theme.palette.text.secondary} fill2={theme.palette.primary.main} />
+            <LayeredWaves
+                fill1={theme.palette.text.secondary}
+                fill2={theme.palette.primary.main}
+            />
         </SectionContainer>
     );
 };
