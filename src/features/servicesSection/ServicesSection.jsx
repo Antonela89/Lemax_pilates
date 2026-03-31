@@ -12,29 +12,31 @@ const ServicesSection = ({ services }) => {
     const theme = useTheme();
 
     const loading = !services || services.length === 0;
-    const items = loading ? [1, 2, 3, 4] : services;
+    const items = loading ? Array.from(new Array(4)) : services;
 
     const gold = theme.palette.primary.main;
-    const text = theme.palette.background.default;
+    const textOnGold = theme.palette.primary.contrastText;
     const paper = theme.palette.background.paper;
+    const nextBg = theme.palette.background.default;
 
     return (
         <SectionContainer
             id="servicios"
+            aria-labelledby="servicios-title"
             background={gold}
             animation={fadeInUpRight}
         >
             <Box
                 sx={{
-                    pt: { xs: 8 },
-                    px: { xs: 2, sm: 6, md: 12},
-                    pb: { xs: 12, sm: 18, md: 24 },
+                    pt: { xs: 8, sm: 12, md: 16 },
+                    px: { xs: 2, sm: 8, md: 12 },
+                    pb: { xs: 12, sm: 18, md: 24, lg: 32 },
                 }}
             >
                 {/* Título de la sección */}
                 <TitleSection
                     textOverline="lo que ofrecemos"
-                    colorOverline={text}
+                    colorOverline={textOnGold}
                     texth2="nuestros servicios"
                     animation={fadeInUpRight}
                 />
@@ -43,9 +45,9 @@ const ServicesSection = ({ services }) => {
                     variants={staggerContainer}
                     initial="hidden"
                     whileInView="visible"
-                    viewport={{ once: true, amount: 0.2 }}
+                    viewport={{ once: true, amount: 0.1 }}
                 >
-                    <Grid container spacing={3}>
+                    <Grid container spacing={{ xs: 2, md: 4 }}>
                         {items.map((item, index) => (
                             <Grid
                                 size={{ xs: 12, sm: 6, md: 3 }}
@@ -64,7 +66,16 @@ const ServicesSection = ({ services }) => {
                     </Grid>
                 </Box>
             </Box>
-            <LayeredWaves fill1={paper} fill2={text} />
+            <Box
+                sx={{
+                    position: 'absolute',
+                    bottom: 0,
+                    width: '100%',
+                    zIndex: 5,
+                }}
+            >
+                <LayeredWaves fill1={paper} fill2={nextBg} />
+            </Box>
         </SectionContainer>
     );
 };
