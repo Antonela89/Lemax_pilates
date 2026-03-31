@@ -18,6 +18,7 @@ const TitleSection = ({
             whileInView="visible"
             viewport={{ once: true, amount: 0.5 }}
             sx={{
+                backgroundColor: 'transparent',
                 textAlign: 'center',
                 mb: { xs: 4, sm: 6, md: 8 },
                 px: 2,

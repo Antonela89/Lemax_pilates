@@ -22,7 +22,6 @@ const BenefitsSection = ({ benefits }) => {
     if (!loading && (!benefits || benefits.length === 0)) return null;
     const items = loading ? Array.from(new Array(8)) : benefits;
 
-
     const bgNextSection = theme.palette.background.alternate;
     const goldAccent = theme.palette.primary.main;
     const bgTop = theme.palette.background.default;
@@ -33,14 +32,16 @@ const BenefitsSection = ({ benefits }) => {
             id="beneficios"
             background="background.default"
             animation={fadeInUpLeft}
-            sx={{ position: 'relative', zIndex: 2 }}
+            sx={{ position: 'relative', zIndex: 2, overflow: 'visible !important' }}
             aria-labelledby="benefits-title"
         >
-            <TripleGlowWave colorTop={bgTop} colorBottom={bgBottom} />
+            <TripleGlowWave colorTop={bgTop} colorBottom={bgBottom} sx={{ zIndex: 100 }} />
+            
             <Box
                 sx={{
-                    px: { xs: 2, sm: 6, md: 12 },
-                    pb: { xs: 12, sm: 18, md: 24 },
+                    pt: { xs: 8, sm: 12, md: 16, lg: 20, xl: 24 },
+                    px: { xs: 2, sm: 6, md: 12, lg: 16, xl: 20 },
+                    pb: { xs: 12, sm: 18, md: 24, lg: 32, xl: 40 },
                     bgcolor: 'background.paper',
                     mt: '-1px',
                 }}
