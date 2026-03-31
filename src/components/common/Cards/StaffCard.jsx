@@ -1,8 +1,59 @@
-import { Box, Typography, useTheme } from '@mui/material';
+import { Box, Typography, useTheme, Skeleton, alpha } from '@mui/material';
 
-const StaffCard = ({ person }) => {
+const StaffCard = ({ person, loading = false }) => {
     const theme = useTheme();
     const isDarkMode = theme.palette.mode === 'dark';
+
+    if (loading) {
+        return (
+            <Box
+                sx={{
+                    p: { xs: 2, md: 2.5 },
+                    pb: { xs: 3, md: 3.5 },
+                    height: '100%',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    backgroundColor: isDarkMode
+                        ? theme.palette.background.paper
+                        : '#ffffff',
+                    borderRadius: '20px',
+                    border: `1px solid ${theme.palette.divider}`,
+                }}
+            >
+                <Skeleton
+                    variant="rectangular"
+                    sx={{
+                        width: '100%',
+                        aspectRatio: '1/1',
+                        borderRadius: '14px',
+                        mb: 3,
+                    }}
+                    animation="wave"
+                />
+                <Skeleton 
+                    variant="text" 
+                    width="60%" 
+                    height={32} 
+                    sx={{ mx: 'auto', mb: 1 }} 
+                    animation="wave"
+                />
+                <Skeleton 
+                    variant="text" 
+                    width="40%" 
+                    sx={{ mx: 'auto', mb: 1 }} 
+                    animation="wave"
+                />
+                <Skeleton 
+                    variant="text" 
+                    width="80%" 
+                    sx={{ mx: 'auto' }} 
+                    animation="wave"
+                />
+            </Box>
+        );
+    }
+
+    if (!person) return null;
 
     return (
         <Box

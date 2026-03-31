@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { Box, Grid, useTheme } from '@mui/material';
 import { motion } from 'motion/react';
 import { staggerContainer, fadeInUpRight } from '@/theme/animations';
@@ -10,8 +11,18 @@ import LayeredWaves from '@/components/common/Divider/LayeredWaves';
 
 const ServicesSection = ({ services }) => {
     const theme = useTheme();
+    const [loading, setLoading] = useState(true);
 
-    const loading = !services || services.length === 0;
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setLoading(false);
+        }, 1500);
+        return () => clearTimeout(timer);
+    }, []);
+
+    // Si no cargando y no hay servicios, no mostramos nada
+    if (!loading && (!services || services.length === 0)) return null;
+
     const items = loading ? [1, 2, 3, 4] : services;
 
     const gold = theme.palette.primary.main;
@@ -27,7 +38,7 @@ const ServicesSection = ({ services }) => {
             <Box
                 sx={{
                     pt: { xs: 8 },
-                    px: { xs: 2, sm: 6, md: 12},
+                    px: { xs: 2, sm: 6, md: 12 },
                     pb: { xs: 12, sm: 18, md: 24 },
                 }}
             >
@@ -57,7 +68,7 @@ const ServicesSection = ({ services }) => {
                             >
                                 <ServiceCard
                                     item={loading ? null : item}
-                                    isLoading={loading}
+                                    loading={loading}
                                 />
                             </Grid>
                         ))}
