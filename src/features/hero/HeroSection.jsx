@@ -3,7 +3,7 @@ import { Box, Typography, Button, alpha, useMediaQuery } from '@mui/material';
 import SectionContainer from '@/components/common/SectionContainer/SectionContainer';
 import { motion } from 'motion/react';
 import { fadeInUpLeft, staggerContainer, imageEntry } from '@/theme/animations';
-import heroImg from '@/assets/images/hero/hero.webp';
+import heroImg from '@/assets/images/hero/hero-lemax.jpg';
 import LayeredWaves from '@/components/common/Divider/LayeredWaves';
 
 const MotionBox = motion.create(Box);
@@ -51,8 +51,8 @@ const HeroSection = () => {
                         position: 'absolute',
                         inset: 0,
                         background: isDarkMode
-                            ? 'linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.6))'
-                            : 'linear-gradient(to bottom, rgba(255,255,255,0.1), rgba(255,255,255,0.4))',
+                            ? 'linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.4))'
+                            : 'linear-gradient(to bottom, rgba(255,255,255,0.1), rgba(255,255,255,0.2))',
                     },
                 }}
             >
@@ -65,12 +65,12 @@ const HeroSection = () => {
                     className="motion-img"
                     component="img"
                     src={heroImg}
-                    alt="Mujer practicando ejercicios de estiramiento en cama de Pilates Reformer en el estudio Le Max"
+                    alt="Logo de Le Max Centro de Pilates grabado en una cama de Pilates Reformer con otras máquinas de fondo desenfocadas"
                     sx={{
                         width: '100%',
                         height: '100%',
                         objectFit: 'cover',
-                        objectPosition: { xs: 'center', md: '80% center' },
+                        objectPosition: { xs: '50% 80%', md: '80% 85%' },
                     }}
                 />
             </Box>
