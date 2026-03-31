@@ -88,7 +88,7 @@ const LocationCard = ({ loc, index, image, loading = false }) => {
                 <Card
                     sx={{
                         height: '100%',
-                        borderRadius: '20px',
+                        borderRadius: '24px',
                         bgcolor: alpha(theme.palette.background.paper, 0.4),
                         border: '1px solid',
                         borderColor: alpha(theme.palette.divider, 0.1),
