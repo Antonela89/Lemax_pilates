@@ -1,4 +1,11 @@
-import { Box, Container, Typography, Button, useTheme } from '@mui/material';
+import {
+    Box,
+    Container,
+    Typography,
+    Button,
+    useTheme,
+    useMediaQuery,
+} from '@mui/material';
 import { motion } from 'motion/react';
 import { keyframes } from '@mui/system';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
@@ -27,8 +34,11 @@ const pulseAura = keyframes`
 
 const ContactCTA = ({ contact }) => {
     const theme = useTheme();
+    const prefersReducedMotion = useMediaQuery(
+        '(prefers-reduced-motion: reduce)'
+    );
     const GOLD_BG = theme.palette.primary.main;
-    const CREAM_TEXT = theme.palette.text.primary;
+    const DARK_TEXT = '#2D2926';
 
     const whatsappNumber =
         contact && contact.length > 0 ? contact[0].whatsapp : '';
@@ -41,6 +51,7 @@ const ContactCTA = ({ contact }) => {
         <SectionContainer
             background="background.default"
             id="contacto"
+            aria-labelledby="contact-cta-title"
             animation={staggerContainer}
         >
             <Box
@@ -52,14 +63,17 @@ const ContactCTA = ({ contact }) => {
                     width: '100%',
                     textAlign: 'center',
                     position: 'relative',
+                    color: DARK_TEXT,
                     '& .MuiTypography-root': {
-                        color: `${CREAM_TEXT} `,
+                        color: 'inherit',
                     },
                 }}
             >
                 <Container maxWidth="lg">
                     <TitleSection
+                        id="contact-cta-title"
                         textOverline="ES TU MOMENTO"
+                        colorOverline={DARK_TEXT}
                         texth2="COMIENZA TU TRANSFORMACIÓN"
                         animation={fadeInUpLeft}
                     />
@@ -68,6 +82,9 @@ const ContactCTA = ({ contact }) => {
                     <Box
                         component={motion.div}
                         variants={fadeInUpLeft}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
                         sx={{
                             mt: -2,
                             mb: 6,
@@ -77,12 +94,13 @@ const ContactCTA = ({ contact }) => {
                     >
                         <Typography
                             variant="body1"
+                            component="p"
                             sx={{
                                 fontStyle: 'italic ',
-                                fontSize: { xs: '1.1rem', md: '1.35rem' },
-                                fontWeight: 400,
+                                fontSize: { xs: '1.15rem', md: '1.4rem' },
+                                fontWeight: 500,
                                 opacity: 0.95,
-                                maxWidth: '800px',
+                                maxWidth: '700px',
                                 lineHeight: 1.6,
                             }}
                         >
@@ -97,21 +115,24 @@ const ContactCTA = ({ contact }) => {
                             variants={fadeInUpLeft}
                             variant="contained"
                             startIcon={
-                                <WhatsAppIcon sx={{ fontSize: '1.5rem' }} />
+                                <WhatsAppIcon sx={{ fontSize: '1.6rem' }} />
                             }
                             href={whatsappLink}
                             target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Contactar por WhatsApp para agendar clase de prueba"
                             sx={{
-                                bgcolor: '#2D2926',
+                                bgcolor: DARK_TEXT,
                                 color: '#FFFFFF',
-                                px: 5,
-                                py: 1.8,
+                                px: { xs: 4, md: 6 },
+                                py: 2,
                                 fontSize: '1.1rem',
                                 fontWeight: 700,
-                                borderRadius: '10px',
+                                borderRadius: '12px',
                                 textTransform: 'none',
-
-                                animation: `${pulseAura} 2s infinite cubic-bezier(0.4, 0, 0.6, 1)`,
+                                animation: prefersReducedMotion
+                                    ? 'none'
+                                    : `${pulseAura} 2.5s infinite ease-in-out`,
 
                                 transition:
                                     'background-color 0.3s ease, transform 0.2s ease',
@@ -120,7 +141,9 @@ const ContactCTA = ({ contact }) => {
                                     animation: 'none',
                                 },
                             }}
-                            whileHover={{ scale: 1.05 }}
+                            whileHover={{
+                                scale: prefersReducedMotion ? 1 : 1.05,
+                            }}
                             whileTap={{ scale: 0.95 }}
                         >
                             WhatsApp
