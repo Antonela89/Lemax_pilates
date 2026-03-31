@@ -1,4 +1,4 @@
-import { Box } from '@mui/material';
+import { Box, useMediaQuery } from '@mui/material';
 import { keyframes } from '@mui/system';
 import { useMemo } from 'react';
 
@@ -15,12 +15,20 @@ const Marquee = ({
     pauseOnHover = true,
     itemWidth = { xs: '300px', md: '380px' },
 }) => {
+    const prefersReducedMotion = useMediaQuery(
+        '(prefers-reduced-motion: reduce)'
+    );
+
     const doubledItems = useMemo(() => {
         const safe = Array.isArray(items) ? items : [];
         return safe.length > 0 ? [...safe, ...safe] : [];
     }, [items]);
 
     if (doubledItems.length === 0) return null;
+
+    const animationString = prefersReducedMotion
+        ? 'none'
+        : `${scrollInfinite} ${speed} linear infinite`;
 
     return (
         <Box
@@ -34,13 +42,15 @@ const Marquee = ({
                 WebkitMaskImage:
                     'linear-gradient(to right, transparent, black 10%, black 90%, transparent)',
             }}
+            role="region"
+            aria-roledescription="carrusel infinito"
         >
             <Box
                 sx={{
                     display: 'flex',
                     width: 'max-content',
-                    animation: `${scrollInfinite} ${speed} linear infinite`,
-                    '&:hover': {
+                    animation: animationString,
+                    '&:hover, &:focus-within': {
                         animationPlayState: pauseOnHover ? 'paused' : 'running',
                     },
                     '@media (max-width: 600px)': {
@@ -48,18 +58,22 @@ const Marquee = ({
                     },
                 }}
             >
-                {doubledItems.map((item, idx) => (
-                    <Box
-                        key={`marquee-item-${idx}`}
-                        sx={{
-                            width: itemWidth,
-                            p: 2,
-                            flexShrink: 0,
-                        }}
-                    >
-                        {renderItem(item)}
-                    </Box>
-                ))}
+                {doubledItems.map((item, idx) => {
+                    const isDuplicate = idx >= items.length;
+                    return (
+                        <Box
+                            key={`marquee-item-${idx}`}
+                            aria-hidden={isDuplicate ? 'true' : 'false'}
+                            sx={{
+                                width: itemWidth,
+                                p: 2,
+                                flexShrink: 0,
+                            }}
+                        >
+                            {renderItem(item)}
+                        </Box>
+                    );
+                })}
             </Box>
         </Box>
     );
