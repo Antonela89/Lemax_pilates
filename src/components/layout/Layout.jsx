@@ -1,7 +1,8 @@
 import { Box } from '@mui/material';
 import Navbar from './Navbar/Navbar';
 import QueryButton from '../common/QueryButton/QueryButton';
-import Footer from './Footer/Footer';
+import { Footer } from './Footer/Footer';
+
 
 const Layout = ({ children, mode, toggleColorMode, data }) => {
     return (

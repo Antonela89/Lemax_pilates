@@ -19,7 +19,7 @@ import { FooterItem } from './FooterItem';
 
 const MotionBox = motion.create(Box);
 
-export default function Footer({ data }) {
+export function Footer({ data }) {
     const currentYear = new Date().getFullYear();
 
     const businessName = data?.businessName || 'Le Max Pilates';
