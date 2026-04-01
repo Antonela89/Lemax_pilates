@@ -16,11 +16,15 @@ export const getDesignTokens = (mode) => ({
         background: {
             default: mode === 'light' ? '#FAF9F6' : '#1A1A18',
             paper: mode === 'light' ? '#F2EFE9' : '#252522',
-            alternate: mode === 'light' ? '#EFE7DA' : '#2B2720', 
+            alternate: mode === 'light' ? '#EFE7DA' : '#2B2720',
         },
         text: {
             primary: mode === 'light' ? '#2D2926' : '#E8E6E1',
             secondary: mode === 'light' ? '#5E5A53' : '#A3A199',
+        },
+        whatsapp: {
+            main: mode === 'light' ? '#449D5D' : '#3D5A44', 
+            contrastText: '#ffffff',
         },
         divider:
             mode === 'light'
