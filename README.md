@@ -7,11 +7,11 @@
 <table align="center">
   <tr>
     <td align="center">
-      <img src="https://res.cloudinary.com/docldjces/image/upload/f_auto,q_auto/v1775073294/light-mode_dbr7wb.gif" width="400"/><br/>
+      <img src="public/readme/light-op.gif" width="400"/><br/>
       <strong>Modo claro</strong>
     </td>
     <td align="center">
-      <img src="https://res.cloudinary.com/docldjces/image/upload/f_auto,q_auto/v1775073455/dark-mode_yrzkq3.gif" width="400"/><br/>
+      <img src="public/readme/dark-op.gif" width="400"/><br/>
       <strong>Modo oscuro</strong>
     </td>
   </tr>
