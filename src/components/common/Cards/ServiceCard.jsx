@@ -30,7 +30,7 @@ const ServiceCard = ({ item, loading = false }) => {
                 <Skeleton
                     variant="rectangular"
                     width="100%"
-                    height={250}
+                    height={220}
                     animation="wave"
                 />
 
