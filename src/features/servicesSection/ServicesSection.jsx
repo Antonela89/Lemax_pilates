@@ -38,7 +38,7 @@ const ServicesSection = ({ services = [] }) => {
             id="servicios"
             aria-labelledby="servicios-title"
             background={gold}
-            variants={fadeInUpLeft}
+            animation={fadeInUpLeft}
         >
             <Box
                 sx={{
@@ -56,7 +56,7 @@ const ServicesSection = ({ services = [] }) => {
                 />
 
                 <MotionBox
-                    variants={fadeInUpLeft}
+                    variants={staggerContainer}
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, amount: 0.1 }}
