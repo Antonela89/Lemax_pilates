@@ -44,6 +44,8 @@ const TeamSection = ({ staff = [] }) => {
                 backdropFilter: 'blur(8px)',
                 mt: { xs: '-40px', sm: '-60px', md: '-80px' },
                 backgroundColor: alpha(theme.palette.background.default, 0.4),
+                maskImage:
+                    'linear-gradient(to bottom, transparent 0%, black 50px)',
             }}
         >
             <TripleGlowWave

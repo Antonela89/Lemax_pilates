@@ -32,11 +32,19 @@ const BenefitsSection = ({ benefits }) => {
             id="beneficios"
             background="background.default"
             animation={fadeInUpLeft}
-            sx={{ position: 'relative', zIndex: 2, overflow: 'visible !important' }}
+            sx={{
+                position: 'relative',
+                zIndex: 2,
+                overflow: 'visible !important',
+            }}
             aria-labelledby="benefits-title"
         >
-            <TripleGlowWave colorTop={bgTop} colorBottom={bgBottom} sx={{ zIndex: 100 }} />
-            
+            <TripleGlowWave
+                colorTop={bgTop}
+                colorBottom={bgBottom}
+                sx={{ zIndex: 100 }}
+            />
+
             <Box
                 sx={{
                     pt: { xs: 8, sm: 12, md: 16, lg: 20, xl: 24 },

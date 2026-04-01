@@ -9,7 +9,7 @@ import LayeredWaves from '@/components/common/Divider/LayeredWaves';
 
 const MotionBox = motion.create(Box);
 
-const ServicesSection = ({ services }) => {
+const ServicesSection = ({ services = [] }) => {
     const theme = useTheme();
     const [loading, setLoading] = useState(true);
 
@@ -20,20 +20,24 @@ const ServicesSection = ({ services }) => {
         return () => clearTimeout(timer);
     }, []);
 
-    if (!loading && (!services || services.length === 0)) return null;
-    const items = loading ? Array.from(new Array(4)) : services;
+    const itemsToShow = loading
+        ? Array.from(new Array(4))
+        : services && services.length > 0
+            ? services
+            : [];
 
     const gold = theme.palette.primary.main;
     const textOnGold = theme.palette.primary.contrastText;
     const paper = theme.palette.background.paper;
     const nextBg = theme.palette.background.default;
 
+    if (!loading && itemsToShow.length === 0) return null;
+
     return (
         <SectionContainer
             id="servicios"
             aria-labelledby="servicios-title"
             background={gold}
-            animation={fadeInUpRight}
         >
             <Box
                 sx={{
@@ -50,20 +54,19 @@ const ServicesSection = ({ services }) => {
                     animation={fadeInUpRight}
                 />
                 <MotionBox
-                    component={motion.div}
                     variants={staggerContainer}
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, amount: 0.1 }}
                 >
                     <Grid container spacing={{ xs: 2, md: 4 }}>
-                        {items.map((item, index) => (
+                        {itemsToShow.map((item, index) => (
                             <Grid
                                 size={{ xs: 12, sm: 6, md: 3 }}
                                 key={
                                     loading
-                                        ? `skeleton-${index}`
-                                        : `service-${index}`
+                                        ? `skel-${index}`
+                                        : `serv-${item.id || index}`
                                 }
                             >
                                 <ServiceCard

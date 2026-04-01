@@ -102,7 +102,13 @@ const ReelsSection = () => {
 
                     {error ? (
                         /* Fallback elegante si falla la API */
-                        <Box sx={{ textAlign: 'center', py: 6 }}>
+                        <MotionBox
+                            initial="hidden"
+                            whileInView="visible"
+                            variants={fadeInUpLeft}
+                            viewport={{ once: true, amount: 0.5 }}
+                            sx={{ textAlign: 'center', py: 6 }}
+                        >
                             <Typography
                                 variant="h6"
                                 sx={{ mb: 2, fontWeight: 700 }}
@@ -135,7 +141,7 @@ const ReelsSection = () => {
                                     Ver más en Instagram
                                 </MotionButton>
                             </MotionBox>
-                        </Box>
+                        </MotionBox>
                     ) : (
                         <Box sx={{ mt: 6, width: '100%' }}>
                             <Marquee

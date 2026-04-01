@@ -3,7 +3,7 @@ import { Box, Typography, Button, alpha, useMediaQuery } from '@mui/material';
 import SectionContainer from '@/components/common/SectionContainer/SectionContainer';
 import { motion } from 'motion/react';
 import { fadeInUpLeft, staggerContainer, imageEntry } from '@/theme/animations';
-import heroImg from '@/assets/images/hero/hero-lemax.jpg';
+import heroImg from '@/assets/images/hero/hero-lemax.webp';
 import LayeredWaves from '@/components/common/Divider/LayeredWaves';
 
 const MotionBox = motion.create(Box);

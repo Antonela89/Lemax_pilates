@@ -11,8 +11,8 @@ import TripleGlowWave from '@/components/common/Divider/TripleGlowWave';
 import { fadeInUpLeft, staggerContainer } from '@/theme/animations';
 
 // Importación de imágenes
-import local1 from '@/assets/images/location/local1.jpg';
-import local2 from '@/assets/images/location/local2.jpg';
+import local1 from '@/assets/images/location/local1.webp';
+import local2 from '@/assets/images/location/local2.webp';
 import mapBgDark from '@/assets/images/location/map_bg_dark.webp';
 import mapBgLight from '@/assets/images/location/map_bg_light.webp';
 
@@ -42,9 +42,9 @@ const Locations = ({ locations = [] }) => {
             animation={staggerContainer}
             aria-labelledby="locales-title"
             sx={{
-                overflow: 'visible !important',
                 position: 'relative',
                 zIndex: 1,
+                transform: 'translateZ(0)',
             }}
         >
             <Box
@@ -54,6 +54,9 @@ const Locations = ({ locations = [] }) => {
                     left: 0,
                     width: '100%',
                     zIndex: 10,
+                    pointerEvents: 'none',
+                    maskImage:
+                        'linear-gradient(to top, transparent 0%, black 50px)',
                 }}
             >
                 <TripleGlowWave
@@ -68,6 +71,7 @@ const Locations = ({ locations = [] }) => {
                     zIndex: 1,
                     width: '100%',
                     overflow: 'hidden',
+                    mt: '-1px',
                     pt: { xs: 8, sm: 12, md: 16, lg: 20, xl: 24 },
                     px: { xs: 2, sm: 8, md: 12 },
                     pb: { xs: 12, sm: 18, md: 24, lg: 32, xl: 40 },
@@ -81,7 +85,7 @@ const Locations = ({ locations = [] }) => {
                         top: 0,
                         left: 0,
                         width: '100%',
-                        bottom: { xs: -300, md: -200 },
+                        bottom: { xs: -300, md: -200, lg: -100 },
                         backgroundImage: `url(${currentMap})`,
                         backgroundSize: 'cover',
                         backgroundPosition: 'center',
@@ -102,7 +106,7 @@ const Locations = ({ locations = [] }) => {
                         width: '100%',
                         height: '400px',
                         background: `linear-gradient(to bottom, ${theme.palette.background.default} 10%, transparent 100%)`,
-                        zIndex: 3,
+                        zIndex: 1,
                         pointerEvents: 'none',
                         opacity: 0.8,
                     }}
@@ -114,7 +118,7 @@ const Locations = ({ locations = [] }) => {
                     sx={{
                         bgcolor: 'transparent',
                         position: 'relative',
-                        zIndex: 2,
+                        zIndex: 10,
                         py: { xs: 4, md: 8 },
                         mb: { xs: '60px', sm: '80px', md: '100px' },
                     }}
