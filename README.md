@@ -1,59 +1,72 @@
-![Status](https://img.shields.io/badge/status-en%20desarrollo-blue?style=for-the-badge)
-![React](https://img.shields.io/badge/React-20232A?style=for-the-badge\&logo=react)
-![MUI](https://img.shields.io/badge/MUI-007FFF?style=for-the-badge\&logo=mui)
-![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-yellow?style=for-the-badge\&logo=javascript)
-![Responsive](https://img.shields.io/badge/Responsive-Yes-brightgreen?style=for-the-badge)
-![Git](https://img.shields.io/badge/Git-FF6F00?style=for-the-badge\&logo=git)
-![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge\&logo=github)
+<p align="center">
+  <img src="public/logo.png" width="180"/>
+</p>
 
-![Preview](src/assets/logos/logo-lemax-light.png)
+## Experiencia digital para bienestar y movimiento
 
-## 🌿 Experiencia digital para bienestar y movimiento
+<table align="center">
+  <tr>
+    <td align="center">
+      <img src="https://res.cloudinary.com/docldjces/image/upload/f_auto,q_auto/v1775073294/light-mode_dbr7wb.gif" width="400"/><br/>
+      <strong>Modo claro</strong>
+    </td>
+    <td align="center">
+      <img src="https://res.cloudinary.com/docldjces/image/upload/f_auto,q_auto/v1775073455/dark-mode_yrzkq3.gif" width="400"/><br/>
+      <strong>Modo oscuro</strong>
+    </td>
+  </tr>
+</table>
+
+---
+
+## Deploy
+
+<p align="center">
+  <a href="https://lemax-pilates.vercel.app/" target="_blank">
+    <img src="https://img.shields.io/badge/Ver%20Demo-Online-000?style=for-the-badge&logo=vercel"/>
+  </a>
+</p>
+
+<p align="center">
+  https://lemax-pilates.vercel.app/
+</p>
+
+---
+
+<p align="center">
+  <img src="https://img.shields.io/badge/status-finalizado-success?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react"/>
+  <img src="https://img.shields.io/badge/MUI-007FFF?style=for-the-badge&logo=mui"/>
+  <img src="https://img.shields.io/badge/JavaScript-ES6+-yellow?style=for-the-badge&logo=javascript"/>
+  <img src="https://img.shields.io/badge/Responsive-Yes-brightgreen?style=for-the-badge"/>
+</p>
+
+---
 
 Aplicación web desarrollada en **React** como trabajo final de la cátedra **Front-End de ADA**, basada en un caso real: un estudio de pilates que requería una presencia digital moderna, clara y funcional.
 
 El proyecto consistió en diseñar e implementar una solución digital centrada en la experiencia de usuario, utilizando una arquitectura de componentes reutilizables, manejo de datos estructurados y buenas prácticas de desarrollo Front-End.
-
----
-
-## 📌 Índice
+##  Índice
 
 
-- [🌿 Experiencia digital para bienestar y movimiento](#-experiencia-digital-para-bienestar-y-movimiento)
-- [📌 Índice](#-índice)
-- [🚀 Deploy](#-deploy)
-- [🛠️ Tecnologías](#️-tecnologías)
+- [Experiencia digital para bienestar y movimiento](#experiencia-digital-para-bienestar-y-movimiento)
+- [Deploy](#deploy)
+- [Índice](#índice)
+- [Tecnologías](#tecnologías)
   - [Frontend](#frontend)
   - [UI / Estilos](#ui--estilos)
   - [Herramientas y entorno](#herramientas-y-entorno)
   - [Manejo de datos](#manejo-de-datos)
-- [📂 Estructura del proyecto](#-estructura-del-proyecto)
-- [✨ Características principales](#-características-principales)
-- [⚙️ Características técnicas](#️-características-técnicas)
-- [🧠 Arquitectura del proyecto](#-arquitectura-del-proyecto)
-- [📸 Capturas de pantalla](#-capturas-de-pantalla)
-  - [🏠 Hero](#-hero)
-  - [🌿 Beneficios](#-beneficios)
-  - [📍 Locales](#-locales)
-  - [👩‍🏫 Instructoras](#-instructoras)
-  - [📸 Instagram](#-instagram)
-  - [⭐ Reviews](#-reviews)
-  - [📞 Contacto](#-contacto)
-- [🎯 Desafío del proyecto](#-desafío-del-proyecto)
-- [⚙️ Instalación](#️-instalación)
-- [👩‍💻 Autoras](#-autoras)
+- [Estructura del proyecto](#estructura-del-proyecto)
+- [Características principales](#características-principales)
+- [Características técnicas](#características-técnicas)
+- [Arquitectura del proyecto](#arquitectura-del-proyecto)
+- [Desafío del proyecto](#desafío-del-proyecto)
+- [Instalación](#instalación)
+- [Autoras](#autoras)
 
----
 
-## 🚀 Deploy
-
-🔗 VERCEL Próximamente disponible
-🔗 Repositorio: https://github.com/Antonela89/Lemax_pilates
-🌱 Rama activa: `dev`
-
----
-
-## 🛠️ Tecnologías
+## Tecnologías
 
 ###  Frontend
 -  React  
@@ -75,41 +88,28 @@ El proyecto consistió en diseñar e implementar una solución digital centrada 
 -  JSON  
 ---
 
-## 📂 Estructura del proyecto
+##  Estructura del proyecto
 
 ```
 Lemax_Pilates/
 │
 ├── node_modules/
+├── public/
+│   └── logo.png
 │
 ├── src/
 │   ├── assets/
-│   │   ├── images/
-│   │   └── logos/
-│   │
 │   ├── components/
-│   │   ├── common/
-│   │   └── layout/
-│   │
 │   ├── data/
-│   │
 │   ├── features/
-│   │   ├── benefits/
-│   │   ├── comments/
-│   │   ├── ContactCTA/
-│   │   ├── hero/
-│   │   ├── locations/
-│   │   ├── reels/
-│   │   ├── reviews/
-│   │   ├── servicesSection/
-│   │   └── team/
-│   │
 │   ├── theme/
+│   ├── utils/
 │   │
 │   ├── App.jsx
 │   ├── main.jsx
 │   └── index.css
 │
+├── .env.example
 ├── .gitignore
 ├── .prettierrc
 ├── eslint.config.js
@@ -123,7 +123,7 @@ Lemax_Pilates/
 
 ---
 
-## ✨ Características principales
+## Características principales
 
 *  Visualización dinámica de sedes desde archivos JSON
 *  Sección de reseñas de clientes
@@ -135,7 +135,7 @@ Lemax_Pilates/
 
 ---
 
-## ⚙️ Características técnicas
+## Características técnicas
 
 *  Arquitectura basada en componentes reutilizables
 *  Manejo de datos desacoplado mediante JSON
@@ -147,7 +147,7 @@ Lemax_Pilates/
 
 ---
 
-## 🧠 Arquitectura del proyecto
+## Arquitectura del proyecto
 
 El proyecto está organizado siguiendo una arquitectura modular basada en funcionalidades (feature-based structure), lo que permite escalar la aplicación de forma ordenada y mantenible.
 
@@ -160,39 +160,7 @@ El proyecto está organizado siguiendo una arquitectura modular basada en funcio
 Esta organización favorece la reutilización, escalabilidad y claridad del código en proyectos de mayor tamaño.
 
 ---
-## 📸 Capturas de pantalla
-
-### 🏠 Hero
-
-![Hero](public/screenshots/hero.png)
-
-### 🌿 Beneficios
-
-![Beneficios](public/screenshots/beneficios.png)
-
-### 📍 Locales
-
-![Locales](public/screenshots/locales.png)
-
-### 👩‍🏫 Instructoras
-
-![Instructoras](public/screenshots/instructoras.png)
-
-### 📸 Instagram
-
-![Instagram](public/screenshots/instagram.png)
-
-### ⭐ Reviews
-
-![Reviews](public/screenshots/reviews.png)
-
-### 📞 Contacto
-
-![Contacto](public/screenshots/contacto.png)
-
----
-
-## 🎯 Desafío del proyecto
+## Desafío del proyecto
 
 Este proyecto implicó abordar un escenario real, trasladando necesidades concretas de un cliente a una solución digital funcional.
 
@@ -206,7 +174,7 @@ Además, se aplicaron buenas prácticas de desarrollo enfocadas en escalabilidad
 
 ---
 
-## ⚙️ Instalación
+## Instalación
 
 ```bash
 git clone https://github.com/Antonela89/Lemax_pilates.git
@@ -217,7 +185,7 @@ npm run dev
 
 ---
 
-## 👩‍💻 Autoras
+## Autoras
 
 * BORGOGNO, Antonela <a href="https://linkedin.com/in/antonela-borgogno" target="_blank"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" width="28"/> </a>
 
