@@ -1,8 +1,15 @@
-import { Box, Typography, useTheme, Skeleton, alpha } from '@mui/material';
+import { Box, Typography, useTheme, Skeleton } from '@mui/material';
 
 const StaffCard = ({ person, loading = false }) => {
     const theme = useTheme();
     const isDarkMode = theme.palette.mode === 'dark';
+
+    const getStaffImage = (fileName) => {
+        return new URL(
+            `../../../assets/images/staff/${fileName}`,
+            import.meta.url
+        ).href;
+    };
 
     if (loading) {
         return (
@@ -30,23 +37,23 @@ const StaffCard = ({ person, loading = false }) => {
                     }}
                     animation="wave"
                 />
-                <Skeleton 
-                    variant="text" 
-                    width="60%" 
-                    height={32} 
-                    sx={{ mx: 'auto', mb: 1 }} 
+                <Skeleton
+                    variant="text"
+                    width="60%"
+                    height={32}
+                    sx={{ mx: 'auto', mb: 1 }}
                     animation="wave"
                 />
-                <Skeleton 
-                    variant="text" 
-                    width="40%" 
-                    sx={{ mx: 'auto', mb: 1 }} 
+                <Skeleton
+                    variant="text"
+                    width="40%"
+                    sx={{ mx: 'auto', mb: 1 }}
                     animation="wave"
                 />
-                <Skeleton 
-                    variant="text" 
-                    width="80%" 
-                    sx={{ mx: 'auto' }} 
+                <Skeleton
+                    variant="text"
+                    width="80%"
+                    sx={{ mx: 'auto' }}
                     animation="wave"
                 />
             </Box>
@@ -96,7 +103,7 @@ const StaffCard = ({ person, loading = false }) => {
             >
                 <Box
                     component="img"
-                    src={person.image}
+                    src={loading ? '' : getStaffImage(person.image)}
                     alt={`Instructor/a de Le Max Pilates: ${person.name}`}
                     sx={{
                         width: '100%',
