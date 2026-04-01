@@ -7,11 +7,11 @@
 <table align="center">
   <tr>
     <td align="center">
-      <img src="https://res.cloudinary.com/docldjces/image/upload/f_auto,q_auto/v1775073294/light-mode_dbr7wb.gif" width="400"/><br/>
+      <img src="https://private-user-images.githubusercontent.com/100183049/572768031-33aad253-86ea-490e-b4d5-225edf830569.gif?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NzUwNzk1MzAsIm5iZiI6MTc3NTA3OTIzMCwicGF0aCI6Ii8xMDAxODMwNDkvNTcyNzY4MDMxLTMzYWFkMjUzLTg2ZWEtNDkwZS1iNGQ1LTIyNWVkZjgzMDU2OS5naWY_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYwNDAxJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDQwMVQyMTMzNTBaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1iYmZjYmEwNzQwYWQ3YjhiZGU5YmU1MDBkZGQxMWY1MDY3MWEzMWU1N2Y1NzY5ZGQ0Mzc3OGE4ZjMzODY0ZTg3JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.FVe8I4bCbPlMDLt6CF5etZ3-6qK-eCfQaMlMP2YJI24" width="400"/><br/>
       <strong>Modo claro</strong>
     </td>
     <td align="center">
-      <img src="https://res.cloudinary.com/docldjces/image/upload/f_auto,q_auto/v1775073455/dark-mode_yrzkq3.gif" width="400"/><br/>
+      <img src="https://private-user-images.githubusercontent.com/100183049/572767967-d06aa76a-a8a1-4fb7-9a04-ff92e224c549.gif?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NzUwNzkzMjgsIm5iZiI6MTc3NTA3OTAyOCwicGF0aCI6Ii8xMDAxODMwNDkvNTcyNzY3OTY3LWQwNmFhNzZhLWE4YTEtNGZiNy05YTA0LWZmOTJlMjI0YzU0OS5naWY_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYwNDAxJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDQwMVQyMTMwMjhaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1kNTU3MjFhYjAyMTg3YTA5Yjc2YjRjYzliOWVlZmQwZTg0OWUzY2ZkYjAwOWNkMDY5ODU5YjE4OThhZmM4NWE2JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.gpxaw4NB5C8ERb4JZ1Guwb6uoKje6WVpv3rIPr4cfko" width="400"/><br/>
       <strong>Modo oscuro</strong>
     </td>
   </tr>
