@@ -47,7 +47,7 @@ const BenefitsSection = ({ benefits }) => {
 
             <Box
                 sx={{
-                    pt: { xs: 8, sm: 12, md: 16, lg: 20, xl: 24 },
+                    pt: { xs: 2, sm: 4, md: 6, lg: 8, xl: 10 },
                     px: { xs: 2, sm: 6, md: 12, lg: 16, xl: 20 },
                     pb: { xs: 12, sm: 18, md: 24, lg: 32, xl: 40 },
                     bgcolor: 'background.paper',
