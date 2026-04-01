@@ -143,7 +143,11 @@ const ReelsSection = () => {
                             </MotionBox>
                         </MotionBox>
                     ) : (
-                        <Box sx={{ mt: 6, width: '100%' }}>
+                        <Box
+                            sx={{ mt: 6, width: '100%' }}
+                            role="region"
+                            aria-label="Carrusel de reels de Instagram"
+                        >
                             <Marquee
                                 items={itemsToRender}
                                 speed={prefersReducedMotion ? '0s' : '100s'}

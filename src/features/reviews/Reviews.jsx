@@ -53,7 +53,7 @@ const Reviews = ({ reviews = [] }) => {
                     />
                 </Container>
 
-                <Box sx={{ mt: 6 }}>
+                <Box sx={{ mt: 6 }} role="region" aria-label="Carrusel de reseñas de clientes">
                     {loading ? (
                         <Box
                             sx={{
