@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Box, Container, useTheme } from '@mui/material';
+import { motion } from 'motion/react';
 
 // Componentes Reutilizables
 import SectionContainer from '@/components/common/SectionContainer/SectionContainer';
@@ -8,13 +9,15 @@ import LocationCard from '@/components/common/Cards/LocationCard';
 import TripleGlowWave from '@/components/common/Divider/TripleGlowWave';
 
 // Configuración y Animaciones
-import { fadeInUpLeft, staggerContainer } from '@/theme/animations';
+import { fadeInUpRight, staggerContainer } from '@/theme/animations';
 
 // Importación de imágenes
 import local1 from '@/assets/images/location/local1.webp';
 import local2 from '@/assets/images/location/local2.webp';
 import mapBgDark from '@/assets/images/location/map_bg_dark.webp';
 import mapBgLight from '@/assets/images/location/map_bg_light.webp';
+
+const MotionBox = motion.create(Box);
 
 const Locations = ({ locations = [] }) => {
     const theme = useTheme();
@@ -39,7 +42,7 @@ const Locations = ({ locations = [] }) => {
         <SectionContainer
             id="locales"
             background="transparent"
-            animation={staggerContainer}
+            animation={fadeInUpRight}
             aria-labelledby="locales-title"
             sx={{
                 position: 'relative',
@@ -127,10 +130,11 @@ const Locations = ({ locations = [] }) => {
                         id="locales-title"
                         textOverline="NUESTROS LOCALES"
                         texth2="VISITANOS"
-                        animation={fadeInUpLeft}
+                        animation={fadeInUpRight}
                     />
 
-                    <Box
+                    <MotionBox
+                        variants={staggerContainer}
                         sx={{
                             mt: 4,
                             display: 'flex',
@@ -159,7 +163,7 @@ const Locations = ({ locations = [] }) => {
                                       loading={false}
                                   />
                               ))}
-                    </Box>
+                    </MotionBox>
                 </Container>
             </Box>
         </SectionContainer>
