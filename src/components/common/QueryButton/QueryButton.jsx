@@ -61,14 +61,18 @@ const QueryButton = ({
                             position: 'fixed',
                             bottom: { xs: 16, md: 30 },
                             right: { xs: 16, md: 30 },
-                            bgcolor: theme.palette.primary.main,
-                            color: '#fff',
+                            bgcolor: 'whatsapp.main',
+                            color: 'whatsapp.contrastText',
                             width: { xs: 56, md: 64 },
                             height: { xs: 56, md: 64 },
-                            boxShadow: '0 4px 20px rgba(0,0,0,0.3)',
+                            boxShadow: (theme) =>
+                                `0 8px 24px ${alpha(theme.palette.whatsapp.main, 0.4)}`,
                             zIndex: 2000,
                             '&:hover': {
-                                bgcolor: theme.palette.primary.dark,
+                                bgcolor: (theme) =>
+                                    theme.palette.mode === 'light'
+                                        ? '#38834C'
+                                        : '#2D4333',
                                 transform: 'scale(1.1)',
                             },
                             transition: 'all 0.3s ease-in-out',
@@ -147,7 +151,8 @@ const QueryButton = ({
                 <MenuItem
                     onClick={() =>
                         sendWhatsapp(
-                            'Hola! Quiero contactar con la Sucursal Córdoba.', numCordoba
+                            'Hola! Quiero contactar con la Sucursal Córdoba.',
+                            numCordoba
                         )
                     }
                 >
@@ -163,7 +168,8 @@ const QueryButton = ({
                 <MenuItem
                     onClick={() =>
                         sendWhatsapp(
-                            'Hola! Quiero contactar con la Sucursal José Gálvez.', numGalvez
+                            'Hola! Quiero contactar con la Sucursal José Gálvez.',
+                            numGalvez
                         )
                     }
                 >

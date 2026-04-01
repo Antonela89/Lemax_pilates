@@ -1,6 +1,7 @@
 import { Box, Button, IconButton, Tooltip } from '@mui/material';
 import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
 import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
+import { scrollToSection } from '@/utils/scrollUtils';
 
 const DesktopMenu = ({ links, mode, toggleColorMode, linkStyle, theme }) => (
     <Box
@@ -56,6 +57,7 @@ const DesktopMenu = ({ links, mode, toggleColorMode, linkStyle, theme }) => (
                     key={link.label}
                     component="a"
                     href={link.href}
+                    onClick={(e) => scrollToSection(e, link.href)}
                     sx={linkStyle}
                 >
                     {link.label}

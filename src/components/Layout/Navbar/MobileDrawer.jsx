@@ -10,13 +10,14 @@ import {
     Button,
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
+import { scrollToSection } from '@/utils/scrollUtils';
 
 const MobileDrawer = ({ open, onClose, links, theme }) => (
     <Drawer
         anchor="right"
         open={open}
         onClose={onClose}
-        ModalProps={{ keepMounted: true }} 
+        ModalProps={{ keepMounted: true }}
         PaperProps={{
             sx: {
                 width: 280,
@@ -26,7 +27,14 @@ const MobileDrawer = ({ open, onClose, links, theme }) => (
         }}
     >
         {/* Cabecera del Drawer */}
-        <Box sx={{ p: 2, display: 'flex', justifyContent: 'flex-end', borderBottom: `1px solid ${theme.palette.divider}` }}>
+        <Box
+            sx={{
+                p: 2,
+                display: 'flex',
+                justifyContent: 'flex-end',
+                borderBottom: `1px solid ${theme.palette.divider}`,
+            }}
+        >
             <IconButton onClick={onClose} aria-label="cerrar menú">
                 <CloseIcon />
             </IconButton>
@@ -37,32 +45,49 @@ const MobileDrawer = ({ open, onClose, links, theme }) => (
                 {links
                     .filter((link) => link.label !== 'Contacto')
                     .map((link) => {
-                            const IconComponent = link.IconComponent;
+                        const IconComponent = link.IconComponent;
                         return (
-                        <ListItem key={link.label} disablePadding sx={{ mb: 1 }}>
-                            <ListItemButton
-                                component="a"
-                                href={link.href}
-                                onClick={onClose}
-                                sx={{ 
-                                    borderRadius: 2,
-                                    py: 1.5,
-                                    '&:hover': { bgcolor: 'rgba(197, 160, 105, 0.08)' }
-                                }}
+                            <ListItem
+                                key={link.label}
+                                disablePadding
+                                sx={{ mb: 1 }}
                             >
-                                <ListItemIcon sx={{ color: 'primary.main', minWidth: 40 }}>
-                                    {IconComponent && <IconComponent sx={{ mr: 1 }} />} 
-                                </ListItemIcon>
-                                <ListItemText
-                                    primary={link.label}
-                                    primaryTypographyProps={{ 
-                                        fontWeight: 700,
-                                        fontSize: '1.1rem',
-                                        color: 'text.primary'
+                                <ListItemButton
+                                    component="a"
+                                    href={link.href}
+                                    onClick={(e) => {
+                                        scrollToSection(e, link.href);
+                                        onClose();
                                     }}
-                                />
-                            </ListItemButton>
-                        </ListItem>
+                                    sx={{
+                                        borderRadius: 2,
+                                        py: 1.5,
+                                        '&:hover': {
+                                            bgcolor:
+                                                'rgba(197, 160, 105, 0.08)',
+                                        },
+                                    }}
+                                >
+                                    <ListItemIcon
+                                        sx={{
+                                            color: 'primary.main',
+                                            minWidth: 40,
+                                        }}
+                                    >
+                                        {IconComponent && (
+                                            <IconComponent sx={{ mr: 1 }} />
+                                        )}
+                                    </ListItemIcon>
+                                    <ListItemText
+                                        primary={link.label}
+                                        primaryTypographyProps={{
+                                            fontWeight: 700,
+                                            fontSize: '1.1rem',
+                                            color: 'text.primary',
+                                        }}
+                                    />
+                                </ListItemButton>
+                            </ListItem>
                         );
                     })}
             </List>
@@ -73,13 +98,16 @@ const MobileDrawer = ({ open, onClose, links, theme }) => (
                     variant="contained"
                     component="a"
                     href="#contacto"
-                    onClick={onClose}
-                    sx={{ 
-                        py: 2, 
-                        fontWeight: 800, 
+                    onClick={(e) => {
+                        scrollToSection(e, '#contacto');
+                        onClose();
+                    }}
+                    sx={{
+                        py: 2,
+                        fontWeight: 800,
                         fontSize: '1rem',
                         borderRadius: '12px',
-                        boxShadow: `0 8px 20px -5px ${theme.palette.primary.main}66`
+                        boxShadow: `0 8px 20px -5px ${theme.palette.primary.main}66`,
                     }}
                 >
                     Contacto
