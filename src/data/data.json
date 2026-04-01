@@ -38,24 +38,24 @@
     },
     "services": [
         {
-                "title": "Pilates Reformer",
-                "description": "Clases personalizadas en reformer para todos los niveles. Mejora tu fuerza, flexibilidad y postura.",
-                "image": "https://images.unsplash.com/photo-1747238415033-b74eec07eb59?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800"
+            "title": "Pilates Reformer",
+            "description": "Clases personalizadas en reformer para todos los niveles. Mejora tu fuerza, flexibilidad y postura.",
+            "image": "https://images.unsplash.com/photo-1747238415033-b74eec07eb59?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800"
         },
         {
-                "title": "Clases Grupales",
-                "description": "Grupos reducidos de máximo 6 personas para una atención óptima y ambiente motivador.",
-                "image": "https://images.unsplash.com/photo-1602827114685-efbb2717da9f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800"
+            "title": "Clases Grupales",
+            "description": "Grupos reducidos de máximo 6 personas para una atención óptima y ambiente motivador.",
+            "image": "https://images.unsplash.com/photo-1602827114685-efbb2717da9f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800"
         },
         {
-                "title": "Pilates Terapéutico",
-                "description": "Programa especializado para rehabilitación y prevención de lesiones.",
-                "image": "https://images.unsplash.com/photo-1747240549807-fc3962949818?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800"
+            "title": "Pilates Terapéutico",
+            "description": "Programa especializado para rehabilitación y prevención de lesiones.",
+            "image": "https://images.unsplash.com/photo-1747240549807-fc3962949818?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800"
         },
         {
-                "title": "Prenatal & Postnatal",
-                "description": "Clases adaptadas para mujeres embarazadas y en recuperación postparto.",
-                "image": "https://images.unsplash.com/photo-1721618878163-5b9387ead23b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800"
+            "title": "Prenatal & Postnatal",
+            "description": "Clases adaptadas para mujeres embarazadas y en recuperación postparto.",
+            "image": "https://images.unsplash.com/photo-1721618878163-5b9387ead23b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800"
         }
     ],
     "benefits": [
@@ -305,20 +305,20 @@
             "name": "Silvina Barreta",
             "role": "Instructora de Pilates Reformer ",
             "education": "Kinesiologa",
-            "image":"/src/assets/images/staff/SilvinaBarreta.webp"
+            "image": "/src/assets/images/staff/SilvinaBarreta.webp"
         },
         {
             "id": 2,
             "name": "Candela Audero ",
             "role": "Instructora de pilates Reformer ",
             "education": "Kinesiologa",
-            "image":"/src/assets/images/staff/CandelaAudero.webp"
+            "image": "/src/assets/images/staff/CandelaAudero.webp"
         },
         {
             "id": 3,
             "name": "Martina Rabino ",
             "role": "Instructora de Pilates Reformer ",
-            "education":  "Kinesiologa",
+            "education": "Kinesiologa",
             "image": "/src/assets/images/staff/MartinaRabino.webp"
         },
         {
@@ -341,6 +341,5 @@
         "instagram_url": "https://www.instagram.com/lemax.centrodepilates/",
         "facebook_url": "https://www.facebook.com/share/1C6s5SaDng/",
         "email": "fernandayedro@gmail.com"
-
     }
 }

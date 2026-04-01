@@ -85,7 +85,7 @@ const Locations = ({ locations = [] }) => {
                         top: 0,
                         left: 0,
                         width: '100%',
-                        bottom: { xs: -300, md: -200 },
+                        bottom: { xs: -300, md: -200, lg: -100 },
                         backgroundImage: `url(${currentMap})`,
                         backgroundSize: 'cover',
                         backgroundPosition: 'center',
