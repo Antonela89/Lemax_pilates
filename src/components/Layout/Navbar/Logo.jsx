@@ -1,6 +1,6 @@
 import {Box} from '@mui/material';
-import logoDark from '@/assets/logos/logo-lemax-dark.jpg';
-import logoLight from '@/assets/logos/logo-lemax-light.png';
+import logoDark from '@/assets/logos/logo-lemax-dark.webp';
+import logoLight from '@/assets/logos/logo-lemax-light.webp';
 
 const Logo = ({ mode }) => {
     return (
@@ -15,6 +15,7 @@ const Logo = ({ mode }) => {
                 src={mode === 'dark' ? logoDark : logoLight}
                 alt="" 
                 sx={{
+                    width: { xs: '120px', md: '150px' },
                     height: { xs: '45px', md: '55px' }, 
                     objectFit: 'contain',
                     maxWidth: '100%',
