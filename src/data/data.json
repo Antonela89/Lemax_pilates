@@ -1,0 +1,345 @@
+{
+    "businessName": "Le Max Centro de Pilates",
+    "navbar": [
+        {
+            "label": "Inicio",
+            "path": "#inicio",
+            "icon": "Home"
+        },
+        {
+            "label": "Servicios",
+            "path": "#servicios",
+            "icon": "SelfImprovement"
+        },
+        {
+            "label": "Locales",
+            "path": "#locales",
+            "icon": "Place"
+        },
+        {
+            "label": "Equipo",
+            "path": "#equipo",
+            "icon": "Groups"
+        },
+        {
+            "label": "Instagram",
+            "path": "#instagram",
+            "icon": "Instagram"
+        },
+        {
+            "label": "Contacto",
+            "path": "#contacto",
+            "icon": "WhatsApp"
+        }
+    ],
+    "themeIcons": {
+        "light": "Brightness7",
+        "dark": "Brightness4"
+    },
+    "services": [
+        {
+            "title": "Pilates Reformer",
+            "description": "Clases personalizadas en reformer para todos los niveles. Mejora tu fuerza, flexibilidad y postura.",
+            "image": "https://images.unsplash.com/photo-1747238415033-b74eec07eb59?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800"
+        },
+        {
+            "title": "Clases Grupales",
+            "description": "Grupos reducidos de máximo 6 personas para una atención óptima y ambiente motivador.",
+            "image": "https://images.unsplash.com/photo-1602827114685-efbb2717da9f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800"
+        },
+        {
+            "title": "Pilates Terapéutico",
+            "description": "Programa especializado para rehabilitación y prevención de lesiones.",
+            "image": "https://images.unsplash.com/photo-1747240549807-fc3962949818?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800"
+        },
+        {
+            "title": "Prenatal & Postnatal",
+            "description": "Clases adaptadas para mujeres embarazadas y en recuperación postparto.",
+            "image": "https://images.unsplash.com/photo-1721618878163-5b9387ead23b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800"
+        }
+    ],
+    "benefits": [
+        {
+            "id": 1,
+            "title": "Mejora la Postura",
+            "description": "Fortalece la columna y corrige hábitos posturales del día a día.",
+            "icon": "AccessibilityNew"
+        },
+        {
+            "id": 2,
+            "title": "Flexibilidad",
+            "description": "Aumenta el rango de movimiento y estira las cadenas musculares.",
+            "icon": "SelfImprovement"
+        },
+        {
+            "id": 3,
+            "title": "Control y Balance",
+            "description": "Conexión consciente entre mente y cuerpo a través del movimiento.",
+            "icon": "Balance"
+        },
+        {
+            "id": 4,
+            "title": "Tonificación",
+            "description": "Músculos largos y definidos sin ganar volumen excesivo.",
+            "icon": "FitnessCenter"
+        },
+        {
+            "id": 5,
+            "title": "Bienestar Mental",
+            "description": "Reduce el estrés y mejora la concentración mediante la respiración.",
+            "icon": "Spa"
+        },
+        {
+            "id": 6,
+            "title": "Prevención de Lesiones",
+            "description": "Fortalece articulaciones y musculatura profunda para evitar dolores.",
+            "icon": "Healing"
+        },
+        {
+            "id": 7,
+            "title": "Energía Diaria",
+            "description": "Aumenta tu vitalidad y reduce la fatiga con movimiento consciente.",
+            "icon": "Bolt"
+        },
+        {
+            "id": 8,
+            "title": "Respiración Consciente",
+            "description": "Mejora la capacidad pulmonar y oxigena la sangre para una mayor vitalidad.",
+            "icon": "Air"
+        }
+    ],
+    "locations": [
+        {
+            "id": 1,
+            "name": "Sucursal José Gálvez",
+            "address": "José Gálvez 136, Rafaela, Santa Fe",
+            "phone": "(342) 4774718",
+            "whatsapp": "5493424774718",
+            "schedule": {
+                "Lunes": [
+                    "08:00",
+                    "09:00",
+                    "14:00",
+                    "15:00",
+                    "16:00",
+                    "17:00",
+                    "18:00",
+                    "19:00",
+                    "20:00"
+                ],
+                "Martes": [
+                    "08:00",
+                    "09:00",
+                    "10:00",
+                    "14:00",
+                    "15:00",
+                    "17:00",
+                    "18:00",
+                    "19:00",
+                    "20:00"
+                ],
+                "Miércoles": [
+                    "08:00",
+                    "09:00",
+                    "14:00",
+                    "15:00",
+                    "16:00",
+                    "17:00",
+                    "18:00",
+                    "19:00",
+                    "20:00"
+                ],
+                "Jueves": [
+                    "08:00",
+                    "09:00",
+                    "10:00",
+                    "14:00",
+                    "15:00",
+                    "17:00",
+                    "18:00",
+                    "19:00",
+                    "20:00"
+                ],
+                "Viernes": [
+                    "08:00",
+                    "09:00",
+                    "14:00",
+                    "15:00",
+                    "18:00"
+                ]
+            }
+        },
+        {
+            "id": 2,
+            "name": "Sucursal Córdoba",
+            "address": "Córdoba 429, Rafaela, Santa Fe",
+            "phone": "(3492) 289600",
+            "whatsapp": "5493492289600",
+            "schedule": {
+                "Lunes": [
+                    "08:00",
+                    "09:00",
+                    "14:00",
+                    "15:00",
+                    "17:00",
+                    "18:00",
+                    "19:00",
+                    "20:00"
+                ],
+                "Martes": [
+                    "08:00",
+                    "09:00",
+                    "15:00",
+                    "17:00",
+                    "18:00",
+                    "19:00",
+                    "20:00"
+                ],
+                "Miércoles": [
+                    "08:00",
+                    "09:00",
+                    "14:00",
+                    "15:00",
+                    "17:00",
+                    "18:00",
+                    "19:00",
+                    "20:00"
+                ],
+                "Jueves": [
+                    "08:00",
+                    "09:00",
+                    "15:00",
+                    "17:00",
+                    "18:00",
+                    "19:00",
+                    "20:00"
+                ]
+            }
+        }
+    ],
+    "reviews": [
+        {
+            "id": 1,
+            "userName": "Lucía Martínez",
+            "location": "Sucursal José Gálvez",
+            "comment": "Increíble cambio en mi postura desde el primer mes. Las instructoras son muy profesionales y el ambiente es de pura paz.",
+            "rating": 4,
+            "date": "Hace 2 meses"
+        },
+        {
+            "id": 2,
+            "userName": "Carlos Rodríguez",
+            "location": "Sucursal Córdoba",
+            "comment": "Llegué con un dolor lumbar crónico y hoy me siento como nuevo. El equipamiento es de primera y la higiene es impecable.",
+            "rating": 5,
+            "date": "Hace 3 semanas"
+        },
+        {
+            "id": 3,
+            "userName": "Mariana Gómez",
+            "location": "Sucursal José Gálvez",
+            "comment": "Me encanta la flexibilidad de horarios y lo personalizada que es la clase. La sucursal es simplemente hermosa.",
+            "rating": 5,
+            "date": "Hace 1 mes"
+        },
+        {
+            "id": 4,
+            "userName": "Facundo Díaz",
+            "location": "Sucursal Córdoba",
+            "comment": "Excelente atención. Los profes tienen mucha paciencia y corrigen cada movimiento. Un antes y un después en mi energía.",
+            "rating": 5,
+            "date": "Hace 4 meses"
+        },
+        {
+            "id": 5,
+            "userName": "Valentina Paz",
+            "location": "Sucursal José Gálvez",
+            "comment": "Comencé las clases durante mi postparto y fue la mejor decisión. Me sentí muy cuidada y respetaron mis tiempos en todo momento.",
+            "rating": 5,
+            "date": "Hace 2 semanas"
+        },
+        {
+            "id": 6,
+            "userName": "Andrés Silva",
+            "location": "Sucursal Córdoba",
+            "comment": "Buscaba algo para complementar mi entrenamiento de running y encontré en Le Max el equilibrio perfecto entre fuerza y flexibilidad.",
+            "rating": 4,
+            "date": "Hace 5 meses"
+        },
+        {
+            "id": 7,
+            "userName": "Elena Rossi",
+            "location": "Sucursal José Gálvez",
+            "comment": "Se nota que las instructoras son profesionales de la salud. Saben exactamente qué ejercicio necesitas según tu condición física.",
+            "rating": 5,
+            "date": "Hace 1 semana"
+        },
+        {
+            "id": 8,
+            "userName": "Javier Méndez",
+            "location": "Sucursal Córdoba",
+            "comment": "Un ambiente muy cálido y máquinas de reformer siempre en perfecto estado. Es un placer entrenar en un lugar así de cuidado.",
+            "rating": 5,
+            "date": "Hace 2 meses"
+        },
+        {
+            "id": 9,
+            "userName": "Sofía Valenzuela",
+            "location": "Sucursal José Gálvez",
+            "comment": "Pilates en Le Max me ayudó a reducir el estrés del trabajo. Salgo de cada clase renovada y con la mente mucho más despejada.",
+            "rating": 5,
+            "date": "Hace 3 meses"
+        },
+        {
+            "id": 10,
+            "userName": "Ricardo Sosa",
+            "location": "Sucursal Córdoba",
+            "comment": "Muy buena predisposición de todo el staff. Las rutinas son dinámicas y nunca te aburrís. Realmente se ven resultados rápido.",
+            "rating": 4,
+            "date": "Hace 6 meses"
+        }
+    ],
+    "staff": [
+        {
+            "id": 1,
+            "name": "Silvina Barreta",
+            "role": "Instructora de Pilates Reformer ",
+            "education": "Kinesiologa",
+            "image": "/src/assets/images/staff/SilvinaBarreta.webp"
+        },
+        {
+            "id": 2,
+            "name": "Candela Audero ",
+            "role": "Instructora de pilates Reformer ",
+            "education": "Kinesiologa",
+            "image": "/src/assets/images/staff/CandelaAudero.webp"
+        },
+        {
+            "id": 3,
+            "name": "Martina Rabino ",
+            "role": "Instructora de Pilates Reformer ",
+            "education": "Kinesiologa",
+            "image": "/src/assets/images/staff/MartinaRabino.webp"
+        },
+        {
+            "id": 4,
+            "name": "María Fernanda Yedro",
+            "role": "Instructora de Pilates Reformer",
+            "education": "Profesora de Educación Física",
+            "image": "/src/assets/images/staff/MaríaFernandaYedro.webp"
+        },
+        {
+            "id": 5,
+            "name": "Lucia Cassina ",
+            "role": "Instructora de pilates ",
+            "education": "Kinesiologa",
+            "image": "/src/assets/images/staff/LuciaCassina.webp"
+        }
+    ],
+    "social": {
+        "instagram": "lemax.centrodepilates",
+        "instagram_url": "https://www.instagram.com/lemax.centrodepilates/",
+        "facebook_url": "https://www.facebook.com/share/1C6s5SaDng/",
+        "email": "fernandayedro@gmail.com"
+    }
+}

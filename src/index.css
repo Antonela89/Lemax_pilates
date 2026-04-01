@@ -1,4 +1,23 @@
-:root {
-  
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode img:not(.motion-img) {
+    filter: brightness(0.8) contrast(1.1);
+    transition: filter 0.4s ease;
+}
+
+.dark-mode video {
+    filter: brightness(0.7);
+}
+
+/* Las imágenes con animación de Motion se manejan por JS */
+.motion-img {
+    transition: none !important;
+}
