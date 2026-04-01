@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Box, Grid, useTheme } from '@mui/material';
 import { motion } from 'motion/react';
-import { staggerContainer, fadeInUpLeft, fadeInUpRight } from '@/theme/animations';
+import { staggerContainer, fadeInUpLeft } from '@/theme/animations';
 import SectionContainer from '@/components/common/SectionContainer/SectionContainer';
 import TitleSection from '@/components/common/TitleSection/TitleSection';
 import ServiceCard from '@/components/common/Cards/ServiceCard';
@@ -23,8 +23,8 @@ const ServicesSection = ({ services = [] }) => {
     const itemsToShow = loading
         ? Array.from(new Array(4))
         : services && services.length > 0
-            ? services
-            : [];
+          ? services
+          : [];
 
     const gold = theme.palette.primary.main;
     const textOnGold = theme.palette.primary.contrastText;
@@ -38,23 +38,28 @@ const ServicesSection = ({ services = [] }) => {
             id="servicios"
             aria-labelledby="servicios-title"
             background={gold}
-            animation={fadeInUpLeft}
+            variants={fadeInUpLeft}
         >
             <Box
                 sx={{
-                    pt: { xs: 8, sm: 12, md: 16 },
-                    px: { xs: 2, sm: 8, md: 12 },
+                    pt: { xs: 2, sm: 4, md: 6, lg: 8, xl: 10 },
+                    px: { xs: 2, sm: 6, md: 12, lg: 16, xl: 20 },
                     pb: { xs: 12, sm: 18, md: 24, lg: 32, xl: 40 },
+                    mt: '-1px',
                 }}
             >
                 <TitleSection
                     textOverline="lo que ofrecemos"
                     colorOverline={textOnGold}
                     texth2="nuestros servicios"
-                    animation={fadeInUpRight}
+                    animation={fadeInUpLeft}
                 />
+
                 <MotionBox
-                    variants={staggerContainer}
+                    variants={fadeInUpLeft}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.1 }}
                 >
                     <Grid container spacing={{ xs: 2, md: 4 }}>
                         {itemsToShow.map((item, index) => (

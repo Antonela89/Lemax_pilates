@@ -8,6 +8,8 @@ import BenefitCard from '@/components/common/Cards/BenefitCard';
 import TripleGlowWave from '@/components/common/Divider/TripleGlowWave';
 import LayeredWaves from '@/components/common/Divider/LayeredWaves';
 
+const MotionBox = motion.create(Box);
+
 const BenefitsSection = ({ benefits }) => {
     const theme = useTheme();
     const [loading, setLoading] = useState(true);
@@ -62,8 +64,7 @@ const BenefitsSection = ({ benefits }) => {
                     animation={fadeInUpLeft}
                 />
 
-                <Box
-                    component={motion.div}
+                <MotionBox
                     variants={staggerContainer}
                     initial="hidden"
                     whileInView="visible"
@@ -82,7 +83,7 @@ const BenefitsSection = ({ benefits }) => {
                             </Grid>
                         ))}
                     </Grid>
-                </Box>
+                </MotionBox>
             </Box>
             <Box
                 sx={{
