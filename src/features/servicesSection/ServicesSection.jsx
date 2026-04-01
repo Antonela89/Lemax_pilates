@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Box, Grid, useTheme } from '@mui/material';
 import { motion } from 'motion/react';
-import { staggerContainer, fadeInUpRight } from '@/theme/animations';
+import { staggerContainer, fadeInUpLeft, fadeInUpRight } from '@/theme/animations';
 import SectionContainer from '@/components/common/SectionContainer/SectionContainer';
 import TitleSection from '@/components/common/TitleSection/TitleSection';
 import ServiceCard from '@/components/common/Cards/ServiceCard';
@@ -38,6 +38,7 @@ const ServicesSection = ({ services = [] }) => {
             id="servicios"
             aria-labelledby="servicios-title"
             background={gold}
+            animation={fadeInUpLeft}
         >
             <Box
                 sx={{
@@ -46,7 +47,6 @@ const ServicesSection = ({ services = [] }) => {
                     pb: { xs: 12, sm: 18, md: 24, lg: 32, xl: 40 },
                 }}
             >
-                {/* Título de la sección */}
                 <TitleSection
                     textOverline="lo que ofrecemos"
                     colorOverline={textOnGold}
@@ -55,9 +55,6 @@ const ServicesSection = ({ services = [] }) => {
                 />
                 <MotionBox
                     variants={staggerContainer}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, amount: 0.1 }}
                 >
                     <Grid container spacing={{ xs: 2, md: 4 }}>
                         {itemsToShow.map((item, index) => (
