@@ -1,12 +1,12 @@
 import { Helmet } from 'react-helmet-async';
 
-const SEO = ({ title, description, keywords }) => {
+const SEO = ({ title, description, keywords, image }) => {
     const siteName = 'Le Max Centro de Pilates | Rafaela';
     const fullTitle = title ? `${title} | ${siteName}` : siteName;
     const defaultDesc =
         'Centro de Pilates en Rafaela especializado en Reformer y Pilates Clínico. Mejorá tu postura y bienestar con profesionales.';
-    const siteUrl = 'https://lemaxpilates.com.ar'; // Tu futuro dominio
-    // const ogImage = image || '/og-image.jpg'; // Imagen de 1200x630px en carpeta public
+    const siteUrl = 'https://lemaxpilates.com.ar';
+    const ogImage = `${siteUrl}${image || '/seo/og-image.webp'}`;
 
     // Busqueda geografica en google maps:
     const jsonLd = [
@@ -48,7 +48,7 @@ const SEO = ({ title, description, keywords }) => {
             },
             geo: {
                 '@type': 'GeoCoordinates',
-                latitude: -31.25832835786949, 
+                latitude: -31.25832835786949,
                 longitude: -61.4812458153404,
             },
         },
@@ -67,6 +67,7 @@ const SEO = ({ title, description, keywords }) => {
                 }
             />
             <link rel="canonical" href={siteUrl} />
+
             {/* Open Graph / Facebook / WhatsApp */}
             <meta property="og:type" content="website" />
             <meta property="og:title" content={fullTitle} />
@@ -74,9 +75,9 @@ const SEO = ({ title, description, keywords }) => {
                 property="og:description"
                 content={description || defaultDesc}
             />
-            {/* <meta property="og:image" content={ogImage}  /> */}
-            {/* Foto de 1200x630px en carpeta public */}
+            <meta property="og:image" content={ogImage} />
             <meta property="og:url" content={siteUrl} />
+
             {/* Twitter */}
             <meta name="twitter:card" content="summary_large_image" />
             <meta name="twitter:title" content={fullTitle} />
@@ -84,7 +85,7 @@ const SEO = ({ title, description, keywords }) => {
                 name="twitter:description"
                 content={description || defaultDesc}
             />
-            {/* <meta name="twitter:image" content={ogImage} /> */}
+            <meta name="twitter:image" content={ogImage} />
 
             <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
         </Helmet>
