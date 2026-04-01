@@ -34,7 +34,7 @@ const HeroSection = () => {
                 alignItems: { xs: 'center', md: 'flex-start' },
                 justifyContent: 'center',
                 overflow: 'hidden',
-                mt: navHeight,
+                pt: navHeight,
                 pb: { xs: 6, sm: 12, md: 18, lg: 24 },
             }}
         >
