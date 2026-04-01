@@ -54,7 +54,7 @@ const TeamSection = ({ staff = [] }) => {
                 reverse
             />
 
-            <Container maxWidth="lg" sx={{ py: { xs: 4, md: 8 } }}>
+            <Container maxWidth="lg" sx={{ pb: { xs: 4, md: 8 } }}>
                 <TitleSection
                     id="team-section-title"
                     textOverline="NUESTRO EQUIPO"

@@ -61,8 +61,7 @@ const ServiceCard = ({ item, loading = false }) => {
                 ...cardStyles,
                 transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
                 '&:hover': {
-                    borderColor: 'primary.light',
-                    transform: 'translateY(-10px)',
+                    borderColor: 'primary.dark',
                     boxShadow: (theme) =>
                         `0 20px 40px ${alpha(theme.palette.common.black, 0.15)}`,
                 },
