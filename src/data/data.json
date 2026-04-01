@@ -305,35 +305,35 @@
             "name": "Silvina Barreta",
             "role": "Instructora de Pilates Reformer ",
             "education": "Kinesiologa",
-            "image":"/src/assets/images/staff/SilvinaBarreta.png"
+            "image":"/src/assets/images/staff/SilvinaBarreta.webp"
         },
         {
             "id": 2,
             "name": "Candela Audero ",
             "role": "Instructora de pilates Reformer ",
             "education": "Kinesiologa",
-            "image":"/src/assets/images/staff/CandelaAudero.png"
+            "image":"/src/assets/images/staff/CandelaAudero.webp"
         },
         {
             "id": 3,
             "name": "Martina Rabino ",
             "role": "Instructora de Pilates Reformer ",
             "education":  "Kinesiologa",
-            "image": "/src/assets/images/staff/MartinaRabino.png"
+            "image": "/src/assets/images/staff/MartinaRabino.webp"
         },
         {
             "id": 4,
             "name": "María Fernanda Yedro",
             "role": "Instructora de Pilates Reformer",
             "education": "Profesora de Educación Física",
-            "image": "/src/assets/images/staff/MaríaFernandaYedro.png"
+            "image": "/src/assets/images/staff/MaríaFernandaYedro.webp"
         },
         {
             "id": 5,
             "name": "Lucia Cassina ",
             "role": "Instructora de pilates ",
             "education": "Kinesiologa",
-            "image": "/src/assets/images/staff/LuciaCassina.png"
+            "image": "/src/assets/images/staff/LuciaCassina.webp"
         }
     ],
     "social": {

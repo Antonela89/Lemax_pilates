@@ -155,19 +155,26 @@ const LocationCard = ({ loc, index, image, loading = false }) => {
                     },
                 }}
             >
+                {/* Imagen y Nombre del Local */}
                 <Box
                     sx={{
                         position: 'relative',
                         overflow: 'hidden',
-                        height: 220,
+                        height: 280,
                     }}
                 >
                     <CardMedia
                         component="img"
                         image={image}
                         alt={`Local de ${loc.name}`}
-                        sx={{ height: '100%', objectFit: 'cover' }}
+                        sx={{
+                            height: '100%',
+                            objectFit: 'cover',
+                            transition: 'transform 0.5s ease',
+                        }}
                     />
+
+                    {/* Contenedor del Título */}
                     <Box
                         sx={{
                             position: 'absolute',
@@ -176,14 +183,34 @@ const LocationCard = ({ loc, index, image, loading = false }) => {
                             width: '100%',
                             p: 3,
                             background:
-                                'linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%)',
+                                'linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 60%, transparent 100%)',
+                            backdropFilter: 'blur(2px)',
+                            display: 'flex',
+                            alignItems: 'center',
                         }}
                     >
+                        {/* Línea decorativa vertical */}
+                        <Box
+                            sx={{
+                                width: '4px',
+                                height: '1.5rem',
+                                bgcolor: 'primary.main',
+                                mr: 2,
+                                borderRadius: '2px',
+                            }}
+                        />
+
                         <Typography
                             variant="h5"
-                            color="primary"
+                            color="primary.main"
                             component="h3"
-                            sx={{ fontWeight: 800, letterSpacing: 1.5 }}
+                            sx={{
+                                fontWeight: 900, 
+                                letterSpacing: 2,
+                                fontSize: { xs: '1.2rem', md: '1.4rem' },
+                                textShadow: '0px 2px 4px rgba(0,0,0,0.5)', // Sombra para separar de la foto
+                                lineHeight: 1.2,
+                            }}
                         >
                             {loc.name.toUpperCase()}
                         </Typography>
