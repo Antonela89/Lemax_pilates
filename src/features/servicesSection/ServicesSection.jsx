@@ -9,7 +9,7 @@ import LayeredWaves from '@/components/common/Divider/LayeredWaves';
 
 const MotionBox = motion.create(Box);
 
-const ServicesSection = ({ services = [] }) => {
+const ServicesSection = ({ services }) => {
     const theme = useTheme();
     const [loading, setLoading] = useState(true);
 
@@ -20,18 +20,13 @@ const ServicesSection = ({ services = [] }) => {
         return () => clearTimeout(timer);
     }, []);
 
-    const itemsToShow = loading
-        ? Array.from(new Array(4))
-        : services && services.length > 0
-          ? services
-          : [];
+    if (!loading && (!services || services.length === 0)) return null;
+    const items = loading ? Array.from(new Array(4)) : services;
 
     const gold = theme.palette.primary.main;
     const textOnGold = theme.palette.primary.contrastText;
     const paper = theme.palette.background.paper;
     const nextBg = theme.palette.background.default;
-
-    if (!loading && itemsToShow.length === 0) return null;
 
     return (
         <SectionContainer
@@ -57,12 +52,11 @@ const ServicesSection = ({ services = [] }) => {
 
                 <MotionBox
                     variants={staggerContainer}
-                    initial="hidden"
                     whileInView="visible"
-                    viewport={{ once: true, amount: 0.1 }}
+                    viewport={{ once: true, amount: 0.2 }}
                 >
                     <Grid container spacing={{ xs: 2, md: 4 }}>
-                        {itemsToShow.map((item, index) => (
+                        {items.map((item, index) => (
                             <Grid
                                 size={{ xs: 12, sm: 6, md: 3 }}
                                 key={
