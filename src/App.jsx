@@ -2,7 +2,7 @@ import { useState, useEffect, useMemo } from 'react';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { getDesignTokens } from '@/theme/theme';
-import Layout from './components/layout/Layout';
+import Layout from './components/Layout/Layout';
 import HeroSection from './features/hero/HeroSection';
 import ServicesSection from './features/servicesSection/ServicesSection';
 import BenefitsSection from './features/benefits/BenefitsSection';
