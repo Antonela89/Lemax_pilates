@@ -10,7 +10,7 @@ import {
     Button,
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
-import { scrollToSection } from '@/utils/scrollUtils';
+import { scrollToSection } from '@/theme/animations';
 
 const MobileDrawer = ({ open, onClose, links, theme }) => (
     <Drawer
@@ -56,7 +56,8 @@ const MobileDrawer = ({ open, onClose, links, theme }) => (
                                     component="a"
                                     href={link.href}
                                     onClick={(e) => {
-                                        scrollToSection(e, link.href);
+                                        e.preventDefault();
+                                        scrollToSection(link.href);
                                         onClose();
                                     }}
                                     sx={{
@@ -99,7 +100,8 @@ const MobileDrawer = ({ open, onClose, links, theme }) => (
                     component="a"
                     href="#contacto"
                     onClick={(e) => {
-                        scrollToSection(e, '#contacto');
+                        e.preventDefault();
+                        scrollToSection('#contacto');
                         onClose();
                     }}
                     sx={{
