@@ -7,6 +7,7 @@ import {
     Link,
 } from '@mui/material';
 import { motion } from 'motion/react';
+import { scrollToSection } from '@/theme/animations';
 // Icons
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
@@ -194,6 +195,10 @@ export function Footer({ data }) {
                                     key={link.label}
                                     href={link.path}
                                     underline="none"
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        scrollToSection(link.path);
+                                    }}
                                     sx={{
                                         display: 'flex',
                                         alignItems: 'center',
