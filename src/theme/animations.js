@@ -1,3 +1,24 @@
+import { animate } from "motion/react";
+
+
+export const scrollToSection = (id) => {
+    const targetId = id.replace('#', '');
+    const element = document.getElementById(targetId);
+    
+    if (element) {
+        const offset = 85; 
+        const targetPosition = element.getBoundingClientRect().top + window.pageYOffset - offset;
+        const startPosition = window.scrollY;
+
+        animate(startPosition, targetPosition, {
+            type: "tween", 
+            duration: 1.2, 
+            ease: [0.6, 0.05, 0.01, 0.9], 
+            onUpdate: (latest) => window.scrollTo(0, latest),
+        });
+    }
+};
+
 const commonTransition = {
     duration: 1.4,
     ease: [0.4, 0, 0.2, 1],
